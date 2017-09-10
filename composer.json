@@ -51,7 +51,7 @@
             "@php artisan make:auth",
             "App\\Composer::configure",
             "App\\Composer::setup",
-            "App\\Composer::account",
+            "App\\Composer::account"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
