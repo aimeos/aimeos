@@ -31,8 +31,12 @@ class Composer
 	public static function account( Event $event )
 	{
 		$io = $event->getIO();
-		$email = $io->ask( 'E-Mail for admin account' );
-		$passwd = $io->ask( 'Password for admin account' );
+
+        $io->write( 'Create admin account' );
+        flush(); // Enforce order of messages
+
+		$email = $io->ask( '- E-Mail: ' );
+		$passwd = $io->ask( '- Password: ' );
 
 		$options = [
 			'email=' . $email,
