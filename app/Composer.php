@@ -30,6 +30,7 @@ class Composer
 	 */
 	public static function account( Event $event )
 	{
+		$io = $event->getIO();
 		$email = $io->ask( 'E-Mail for admin account' );
 		$passwd = $io->ask( 'Password for admin account' );
 
