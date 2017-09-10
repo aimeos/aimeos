@@ -6,6 +6,10 @@
     "type": "project",
     "prefer-stable": true,
     "minimum-stability": "dev",
+    "repositories": [{
+        "type": "composer",
+        "url": "https://packages.aimeos.org/aimeoscom"
+    }],
     "require": {
         "php": ">=7.0.4",
         "fideloper/proxy": "~3.3",
