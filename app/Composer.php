@@ -39,7 +39,7 @@ class Composer
 		$passwd = $io->ask( '- Password: ' );
 
 		$options = [
-			'email=' . $email,
+			$email,
 			'--password=' . $passwd,
 			'--super',
 			'--admin'
