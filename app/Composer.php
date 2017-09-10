@@ -7,7 +7,7 @@
  */
 
 
-namespace App\Composer;
+namespace App;
 
 use Composer\Script\Event;
 use Symfony\Component\Process\Process;
