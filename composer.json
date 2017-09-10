@@ -41,25 +41,25 @@
     },
     "scripts": {
         "post-root-package-install": [
-            "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "mkdir public/files public/preview public/uploads",
             "chmod 777 public/files public/preview public/uploads"
         ],
         "post-create-project-cmd": [
-            "php artisan key:generate",
-            "php artisan make:auth",
-            "php artisan vendor:publish",
-            "php artisan aimeosdist:setup",
-            "php artisan aimeos:setup --option=setup/default/demo:1",
-            "php artisan aimeos:account --super"
+            "@php artisan key:generate",
+            "@php artisan vendor:publish",
+            "@php artisan make:auth",
+            "App\\Composer::configure",
+            "App\\Composer::setup",
+            "App\\Composer::account",
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
         ],
         "post-update-cmd": [
-            "php artisan vendor:publish --tag=public --force",
-            "php artisan vendor:publish"
+            "@php artisan vendor:publish --tag=public --force",
+            "@php artisan vendor:publish"
         ]
     },
     "config": {
