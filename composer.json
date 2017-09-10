@@ -55,9 +55,9 @@
             "php artisan vendor:publish",
             "php artisan vendor:publish --tag=public --force",
             "mkdir public/files public/preview public/uploads",
-            "chmod 777 public/files public/preview public/uploads"
+            "chmod 777 public/files public/preview public/uploads",
             "php artisan aimeos:setup --option=setup/default/demo:1",
-            "php artisan aimeos:account --super",
+            "php artisan aimeos:account --super"
         ],
         "post-update-cmd": [
             "php artisan vendor:publish --tag=public --force",
