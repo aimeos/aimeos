@@ -68,22 +68,16 @@ class Composer
         }
 
 
-		$io->write( 'Database setup' );
+        $io->write( 'Database setup' );
 
-        foreach( ['DB_CONNECTION', 'DB_HOST', 'DB_PORT', 'DB_DATABASE', 'DB_USERNAME', 'DB_PASSWORD'] as $key )
-        {
-            if( ( $value = $io->ask( $key, $config[$key] ?: false ) ) !== false ) {
-                $config[$key] = $value;
-            }
+        foreach( ['DB_CONNECTION', 'DB_HOST', 'DB_PORT', 'DB_DATABASE', 'DB_USERNAME', 'DB_PASSWORD'] as $key ) {
+            $config[$key] = $io->ask( '- ' . $key . '(' . $config[$key] . '): ', $config[$key] );
         }
 
-		$io->write( 'Mail setup' );
+        $io->write( 'Mail setup' );
 
-        foreach( ['MAIL_DRIVER', 'MAIL_HOST', 'MAIL_PORT', 'MAIL_USERNAME', 'MAIL_PASSWORD', 'MAIL_ENCRYPTION'] as $key )
-        {
-            if( ( $value = $io->ask( $key, $config[$key] ?: false ) ) !== false ) {
-                $config[$key] = $value;
-            }
+        foreach( ['MAIL_DRIVER', 'MAIL_HOST', 'MAIL_PORT', 'MAIL_USERNAME', 'MAIL_PASSWORD', 'MAIL_ENCRYPTION'] as $key ) {
+            $config[$key] = $io->ask( '- ' . $key . '(' . $config[$key] . '): ', $config[$key] );
         }
 
 
