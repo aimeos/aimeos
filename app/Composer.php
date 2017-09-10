@@ -41,7 +41,8 @@ class Composer
 		$options = [
 			'email=' . $email,
 			'--password=' . $passwd,
-			'--super'
+			'--super',
+			'--admin'
 		];
 
 		self::executeCommand( $event, 'aimeos:account', $options );
