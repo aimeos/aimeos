@@ -8,6 +8,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.0.4",
+        "piwik/ini": "~1.0",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
@@ -41,23 +42,21 @@
     },
     "scripts": {
         "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "mkdir public/files public/preview public/uploads",
+            "chmod 777 public/files public/preview public/uploads"
         ],
         "post-create-project-cmd": [
-            "@php artisan key:generate"
+            "php artisan key:generate",
+            "php artisan make:auth",
+            "php artisan vendor:publish",
+            "php artisan aimeosdist:setup",
+            "php artisan aimeos:setup --option=setup/default/demo:1",
+            "php artisan aimeos:account --super"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
-        ],
-        "post-install-cmd": [
-            "php artisan make:auth",
-            "php artisan vendor:publish",
-            "php artisan vendor:publish --tag=public --force",
-            "mkdir public/files public/preview public/uploads",
-            "chmod 777 public/files public/preview public/uploads",
-            "php artisan aimeos:setup --option=setup/default/demo:1",
-            "php artisan aimeos:account --super"
         ],
         "post-update-cmd": [
             "php artisan vendor:publish --tag=public --force",
