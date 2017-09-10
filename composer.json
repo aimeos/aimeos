@@ -1,14 +1,17 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "aimeos/aimeos",
+    "description": "Aimeos shop system",
+    "keywords": ["Aimeos", "e-commerce", "shop", "laravel", "distribution"],
     "license": "MIT",
     "type": "project",
+    "prefer-stable": true,
+    "minimum-stability": "dev",
     "require": {
-        "php": ">=7.0.0",
+        "php": ">=7.0.4",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "aimeos/aimeos-laravel": "dev-master"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -46,6 +49,19 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
+        ],
+        "post-install-cmd": [
+            "php artisan make:auth",
+            "php artisan vendor:publish",
+            "php artisan vendor:publish --tag=public --force",
+            "mkdir public/files public/preview public/uploads",
+            "chmod 777 public/files public/preview public/uploads"
+            "php artisan aimeos:setup --option=setup/default/demo:1",
+            "php artisan aimeos:account --super",
+        ],
+        "post-update-cmd": [
+            "php artisan vendor:publish --tag=public --force",
+            "php artisan vendor:publish"
         ]
     },
     "config": {
