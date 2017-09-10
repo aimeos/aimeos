@@ -31,8 +31,19 @@ class Setup extends Command
     {
         $filename = getcwd() . DIRECTORY_SEPARATOR . '.env';
 
-        $reader = new \Piwik\Ini\IniReader();
-        $config = $reader->readFile( $filename );
+        if( ( $content = file_get_contents( $filename ) ) === false ) {
+            throw \RuntimeException( sprintf( 'Can not read file "%1$s"', $filename ) );
+        }
+
+        $matches = [];
+        if( preg_match( "/^APP_KEY\=(.*)$/m", $content, $matches ) === 1 ) {
+            $content = preg_replace( "/^APP_KEY\=.*$/m", 'APP_KEY="' . trim( $matches[1], '"' ) . '"', $content );
+        }
+
+        if( ( $config = parse_ini_string( $content ) ) === false ) {
+            throw \RuntimeException( sprintf( 'Can not parse file "%1$s"', $filename ) );
+        }
+
 
         $this->info( 'Database setup' );
 
@@ -52,11 +63,21 @@ class Setup extends Command
             }
         }
 
-        $writer = new \Piwik\Ini\IniWriter();
-        $content = $writer->writeToString(['' => $config] );
 
-        if( file_put_contents( $filename, substr( $content, 3 ) ) === false ) {
-            throw \RuntimeException( sprintf( 'Could not write file "%1$s"', $filename ) );
+        if( file_put_contents( $filename, $this->createString( $config ) ) === false ) {
+            throw \RuntimeException( sprintf( 'Can not write file "%1$s"', $filename ) );
         }
+    }
+
+
+    protected function createString( array $config )
+    {
+        $content = '';
+
+        foreach( $config as $key => $value ) {
+            $content .= $key . '=' . ( is_bool( $value ) ? (int) $value : $value ) . "\n";
+        }
+
+        return $content . "\n";
     }
 }
