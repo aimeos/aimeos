@@ -6,16 +6,31 @@
 
 [![License](https://poser.pugx.org/aimeos/aimeos/license.svg)](https://packagist.org/packages/aimeos/aimeos)
 
-Aimeos standalone shop distribution based on Laravel and the Aimeos e-commerce package.
+The repository contains the Aimeos standalone shop distribution based on Laravel
+and the Aimeos e-commerce package. The distribution provides pages for e.g.
+product lists incl. faceted search, detail views baskets and the checkout process
+as well as a "My account" area.
 
 ## Table of content
 
+- [Requirements](#requirements)
 - [Installation](#installation)
 - [Frontend](#frontend)
 - [Backend](#backend)
 - [Customize](#customize)
 - [License](#license)
 - [Links](#links)
+
+## Requirements
+
+The Aimeos shop distribution requires:
+- Linus/Unix or WAMP/XAMP environment
+- PHP >= 7.0.4
+- MySQL >= 5.1
+- Web server (Apache, Nginx or integrated PHP web server for testing)
+
+If required PHP extensions are missing, `composer` will tell you about the missing
+dependencies.
 
 ## Installation
 
