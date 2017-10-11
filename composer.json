@@ -15,7 +15,7 @@
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "aimeos/aimeos-laravel": "dev-master"
+        "aimeos/aimeos-laravel": "~2017.10"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -51,7 +51,6 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate",
-            "@php artisan vendor:publish",
             "@php artisan make:auth",
             "App\\Composer::configure",
             "App\\Composer::setup",
@@ -63,7 +62,6 @@
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=public --force",
-            "@php artisan vendor:publish"
         ]
     },
     "config": {
