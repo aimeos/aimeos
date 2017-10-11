@@ -37,7 +37,7 @@ dependencies.
 To install the Aimeos shop application, you need [composer](https://getcomposer.org).
 On the CLI, execute this command for a complete installation including a working setup:
 
-`composer create-project -s dev aimeos/aimeos myshop`
+`composer create-project aimeos/aimeos myshop`
 
 You will be asked for the parameters of your database and mail server as well as an
 e-mail and password used for creating the administration account.
