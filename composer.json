@@ -46,8 +46,7 @@
     "scripts": {
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "mkdir public/files public/preview public/uploads",
-            "chmod 777 public/files public/preview public/uploads"
+            "@php -r \"mkdir('public/files'); mkdir('public/preview'); mkdir('public/uploads');\"",
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate",
