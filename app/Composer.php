@@ -10,7 +10,7 @@
 namespace App;
 
 use Composer\Script\Event;
-use Symfony\Component\Process\Process;
+use Symfony\Component\Process\ProcessBuilder;
 use Symfony\Component\Process\PhpExecutableFinder;
 use Symfony\Component\Filesystem\Filesystem;
 
@@ -141,21 +141,14 @@ class Composer
 	 */
 	protected static function executeCommand( Event $event, $cmd, array $options = array() )
 	{
-		$php = escapeshellarg( self::getPhp() );
-		$cmd = escapeshellarg( $cmd );
-
-		foreach( $options as $key => $option ) {
-			$options[$key] = escapeshellarg( $option );
-		}
-
-		$process = new Process( $php . ' artisan ' . $cmd . ' ' . implode( ' ', $options ), null, null, null, 3600 );
+		$process = ProcessBuilder::create( array_merge( [self::getPhp(), 'artisan', $cmd], $options ) )->getProcess();
 
 		$process->run( function( $type, $buffer ) use ( $event ) {
 			$event->getIO()->write( $buffer, false );
 		} );
 
 		if( !$process->isSuccessful() ) {
-			throw new \RuntimeException( sprintf( 'An error occurred when executing the "%s" command', escapeshellarg( $cmd ) ) );
+			throw new ProcessFailedException( $process );
 		}
 	}
 
