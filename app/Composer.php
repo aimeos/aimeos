@@ -32,8 +32,8 @@ class Composer
 	{
 		$io = $event->getIO();
 
-        $io->write( 'Create admin account' );
-        flush(); // Enforce order of messages
+		$io->write( 'Create admin account' );
+		flush(); // Enforce order of messages
 
 		$email = $io->ask( '- E-Mail: ' );
 		$passwd = $io->ask( '- Password: ' );
@@ -58,40 +58,40 @@ class Composer
 	public static function configure( Event $event )
 	{
 		$io = $event->getIO();
-        $filename = dirname( __DIR__ ) . DIRECTORY_SEPARATOR . '.env';
+		$filename = dirname( __DIR__ ) . DIRECTORY_SEPARATOR . '.env';
 
-        if( ( $content = file_get_contents( $filename ) ) === false ) {
-            throw \RuntimeException( sprintf( 'Can not read file "%1$s"', $filename ) );
-        }
+		if( ( $content = file_get_contents( $filename ) ) === false ) {
+			throw \RuntimeException( sprintf( 'Can not read file "%1$s"', $filename ) );
+		}
 
-        $matches = [];
-        if( preg_match( "/^APP_KEY\=(.*)$/m", $content, $matches ) === 1 ) {
-            $content = preg_replace( "/^APP_KEY\=.*$/m", 'APP_KEY="' . trim( $matches[1], '"' ) . '"', $content );
-        }
+		$matches = [];
+		if( preg_match( "/^APP_KEY\=(.*)$/m", $content, $matches ) === 1 ) {
+			$content = preg_replace( "/^APP_KEY\=.*$/m", 'APP_KEY="' . trim( $matches[1], '"' ) . '"', $content );
+		}
 
-        if( ( $config = parse_ini_string( $content ) ) === false ) {
-            throw \RuntimeException( sprintf( 'Can not parse file "%1$s"', $filename ) );
-        }
-
-
-        $io->write( 'Database setup' );
-        flush(); // Enforce order of messages
-
-        foreach( ['DB_CONNECTION', 'DB_HOST', 'DB_PORT', 'DB_DATABASE', 'DB_USERNAME', 'DB_PASSWORD'] as $key ) {
-            $config[$key] = $io->ask( '- ' . $key . ' (' . $config[$key] . '): ', $config[$key] );
-        }
-
-        $io->write( 'Mail setup' );
-        flush(); // Enforce order of messages
-
-        foreach( ['MAIL_DRIVER', 'MAIL_HOST', 'MAIL_PORT', 'MAIL_USERNAME', 'MAIL_PASSWORD', 'MAIL_ENCRYPTION'] as $key ) {
-            $config[$key] = $io->ask( '- ' . $key . ' (' . $config[$key] . '): ', $config[$key] );
-        }
+		if( ( $config = parse_ini_string( $content ) ) === false ) {
+			throw \RuntimeException( sprintf( 'Can not parse file "%1$s"', $filename ) );
+		}
 
 
-        if( file_put_contents( $filename, self::createIniString( $config ) ) === false ) {
-            throw \RuntimeException( sprintf( 'Can not write file "%1$s"', $filename ) );
-        }
+		$io->write( 'Database setup' );
+		flush(); // Enforce order of messages
+
+		foreach( ['DB_CONNECTION', 'DB_HOST', 'DB_PORT', 'DB_DATABASE', 'DB_USERNAME', 'DB_PASSWORD'] as $key ) {
+			$config[$key] = $io->ask( '- ' . $key . ' (' . $config[$key] . '): ', $config[$key] );
+		}
+
+		$io->write( 'Mail setup' );
+		flush(); // Enforce order of messages
+
+		foreach( ['MAIL_DRIVER', 'MAIL_HOST', 'MAIL_PORT', 'MAIL_USERNAME', 'MAIL_PASSWORD', 'MAIL_ENCRYPTION'] as $key ) {
+			$config[$key] = $io->ask( '- ' . $key . ' (' . $config[$key] . '): ', $config[$key] );
+		}
+
+
+		if( file_put_contents( $filename, self::createIniString( $config ) ) === false ) {
+			throw \RuntimeException( sprintf( 'Can not write file "%1$s"', $filename ) );
+		}
 	}
 
 
@@ -119,16 +119,16 @@ class Composer
 	 * @param array $config Associative list of key/value pairs
 	 * @return string INI file compatible string
 	 */
-    protected static function createIniString( array $config )
-    {
-        $content = '';
+	protected static function createIniString( array $config )
+	{
+		$content = '';
 
-        foreach( $config as $key => $value ) {
-            $content .= $key . '=' . ( is_bool( $value ) ? (int) $value : $value ) . "\n";
-        }
+		foreach( $config as $key => $value ) {
+			$content .= $key . '=' . ( is_bool( $value ) ? (int) $value : $value ) . "\n";
+		}
 
-        return $content . "\n";
-    }
+		return $content . "\n";
+	}
 
 
 	/**
@@ -141,7 +141,8 @@ class Composer
 	 */
 	protected static function executeCommand( Event $event, $cmd, array $options = array() )
 	{
-		$process = ProcessBuilder::create( array_merge( [self::getPhp(), 'artisan', $cmd], $options ) )->getProcess();
+		$builder = ProcessBuilder::create( array_merge( [self::getPhp(), 'artisan', $cmd], $options ) );
+		$process = $builder->setOption( 'bypass_shell', false )->getProcess();
 
 		$process->run( function( $type, $buffer ) use ( $event ) {
 			$event->getIO()->write( $buffer, false );
