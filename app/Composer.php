@@ -10,7 +10,7 @@
 namespace App;
 
 use Composer\Script\Event;
-use Symfony\Component\Process\ProcessBuilder;
+use Symfony\Component\Process\Process;
 use Symfony\Component\Process\PhpExecutableFinder;
 use Symfony\Component\Filesystem\Filesystem;
 
@@ -39,8 +39,8 @@ class Composer
 		$passwd = $io->ask( '- Password: ' );
 
 		$options = [
-			$email,
-			'--password=' . $passwd,
+			escapeshellarg( $email ),
+			'--password=' . escapeshellarg( $passwd ),
 			'--super',
 			'--admin'
 		];
@@ -141,15 +141,15 @@ class Composer
 	 */
 	protected static function executeCommand( Event $event, $cmd, array $options = array() )
 	{
-		$builder = ProcessBuilder::create( array_merge( [self::getPhp(), 'artisan', $cmd], $options ) );
-		$process = $builder->setOption( 'bypass_shell', false )->getProcess();
+		$process = new Process( self::getPhp() . ' artisan ' . $cmd . ' ' . implode( ' ', $options ) );
+		$process->setWorkingDirectory( getcwd() )->setTimeout( null )->setIdleTimeout( null );
 
 		$process->run( function( $type, $buffer ) use ( $event ) {
 			$event->getIO()->write( $buffer, false );
 		} );
 
 		if( !$process->isSuccessful() ) {
-			throw new ProcessFailedException( $process );
+			throw new \Symfony\Component\Process\Exception\ProcessFailedException( $process );
 		}
 	}
 
