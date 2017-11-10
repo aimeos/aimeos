@@ -2,23 +2,26 @@
 
 return [
 
+	'apc_enabled' => false,
+	'apc_prefix' => 'aimeos:',
+
 	'routes' => [
 		// 'login' => ['middleware' => ['web']],
 		// 'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']],
 		// 'extadm' => ['prefix' => 'admin/{site}/extadm', 'middleware' => ['web', 'auth']],
-		// 'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']],
-		// 'jsonapi' => ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']],
-		// 'account' => ['middleware' => ['web', 'auth']],
-		// 'default' => ['middleware' => ['web']],
+		'jsonapi' => ['prefix' => '{site}/jsonapi', 'middleware' => ['web', 'api']],
+		'account' => ['prefix' => '{site}/{locale}/{currency}', 'middleware' => ['web', 'auth']],
+		'default' => ['prefix' => '{site}/{locale}/{currency}', 'middleware' => ['web']],
+		'confirm' => ['prefix' => '{site}/{locale}/{currency}', 'middleware' => ['web']],
 		// 'update' => [],
 	],
 
 	'page' => [
-		// 'account-index' => [ 'account/profile','account/history','account/favorite','account/watch','basket/mini','catalog/session' ],
-		// 'basket-index' => [ 'basket/standard','basket/related' ],
+		'account-index' => array( 'account/profile','account/history','account/favorite','account/watch','basket/mini','catalog/session','locale/select' ),
+		'basket-index' => array( 'basket/standard','basket/related','locale/select' ),
+		'catalog-detail' => array( 'basket/mini','catalog/stage','catalog/detail','catalog/session','locale/select' ),
+		'catalog-list' => array( 'basket/mini','catalog/filter','catalog/stage','catalog/lists','locale/select' ),
 		// 'catalog-count' => [ 'catalog/count' ],
-		// 'catalog-detail' => [ 'basket/mini','catalog/stage','catalog/detail','catalog/session' ],
-		// 'catalog-list' => [ 'basket/mini','catalog/filter','catalog/stage','catalog/lists' ],
 		// 'catalog-stock' => [ 'catalog/stock' ],
 		// 'catalog-suggest' => [ 'catalog/suggest' ],
 		// 'checkout-confirm' => [ 'checkout/confirm' ],
@@ -56,6 +59,15 @@ return [
 				],
 				'template' => [
 					// 'baseurl' => 'packages/aimeos/shop/themes/elegance',
+				],
+			],
+			'catalog' => [
+				'selection' => [
+					'type' => [
+						'color' => 'radio',
+						'length' => 'radio',
+						'width' => 'radio',
+					],
 				],
 			],
 		],
