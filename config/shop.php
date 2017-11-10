@@ -18,9 +18,9 @@ return [
 
 	'page' => [
 		'account-index' => array( 'account/profile','account/history','account/favorite','account/watch','basket/mini','catalog/session','locale/select' ),
-		'basket-index' => array( 'basket/standard','basket/related','locale/select' ),
 		'catalog-detail' => array( 'basket/mini','catalog/stage','catalog/detail','catalog/session','locale/select' ),
 		'catalog-list' => array( 'basket/mini','catalog/filter','catalog/stage','catalog/lists','locale/select' ),
+		// 'basket-index' => array( 'basket/standard','basket/related' ),
 		// 'catalog-count' => [ 'catalog/count' ],
 		// 'catalog-stock' => [ 'catalog/stock' ],
 		// 'catalog-suggest' => [ 'catalog/suggest' ],
