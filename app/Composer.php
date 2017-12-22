@@ -36,7 +36,7 @@ class Composer
 		flush(); // Enforce order of messages
 
 		$email = $io->ask( '- E-Mail: ' );
-		$passwd = $io->ask( '- Password: ' );
+		$passwd = $io->secret( '- Password: ' );
 
 		$options = [
 			escapeshellarg( $email ),
@@ -78,16 +78,22 @@ class Composer
 		flush(); // Enforce order of messages
 
 		foreach( ['DB_CONNECTION', 'DB_HOST', 'DB_PORT', 'DB_DATABASE', 'DB_USERNAME', 'DB_PASSWORD'] as $key ) {
-			$config[$key] = $io->ask( '- ' . $key . ' (' . $config[$key] . '): ', $config[$key] );
+			if ($key === 'DB_PASSWORD') {
+				$config[$key] = $io->secret( '- ' . $key . ' (' . $config[$key] . '): ', $config[$key] );
+			} else {
+				$config[$key] = $io->ask( '- ' . $key . ' (' . $config[$key] . '): ', $config[$key] );
+			}
 		}
 
 		$io->write( 'Mail setup' );
 		flush(); // Enforce order of messages
 
 		foreach( ['MAIL_DRIVER', 'MAIL_HOST', 'MAIL_PORT', 'MAIL_USERNAME', 'MAIL_PASSWORD', 'MAIL_ENCRYPTION'] as $key ) {
-			$config[$key] = $io->ask( '- ' . $key . ' (' . $config[$key] . '): ', $config[$key] );
-		}
-
+			if ($key === 'MAIL_PASSWORD') {
+				$config[$key] = $io->secret( '- ' . $key . ' (' . $config[$key] . '): ', $config[$key] );
+			} else {
+				$config[$key] = $io->ask( '- ' . $key . ' (' . $config[$key] . '): ', $config[$key] );
+			}
 
 		if( file_put_contents( $filename, self::createIniString( $config ) ) === false ) {
 			throw \RuntimeException( sprintf( 'Can not write file "%1$s"', $filename ) );
