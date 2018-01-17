@@ -80,7 +80,7 @@ class Composer
 		foreach( ['DB_CONNECTION', 'DB_HOST', 'DB_PORT', 'DB_DATABASE', 'DB_USERNAME'] as $key ) {
 			$config[$key] = $io->ask( '- ' . $key . ' (' . $config[$key] . '): ', $config[$key] );
 		}
-		$config['DB_PASSWORD'] = $io->secret( '- DB_PASSWORD: ', $config['DB_PASSWORD'] );
+		$config['DB_PASSWORD'] = $io->askAndHideAnswer( '- DB_PASSWORD: ', $config['DB_PASSWORD'] );
 
 		$io->write( 'Mail setup' );
 		flush(); // Enforce order of messages
@@ -88,7 +88,7 @@ class Composer
 		foreach( ['MAIL_DRIVER', 'MAIL_HOST', 'MAIL_PORT', 'MAIL_USERNAME', 'MAIL_ENCRYPTION'] as $key ) {
 			$config[$key] = $io->ask( '- ' . $key . ' (' . $config[$key] . '): ', $config[$key] );
 		}
-		$config['MAIL_PASSWORD'] = $io->secret( '- MAIL_PASSWORD: ', $config['MAIL_PASSWORD'] );
+		$config['MAIL_PASSWORD'] = $io->askAndHideAnswer( '- MAIL_PASSWORD: ', $config['MAIL_PASSWORD'] );
 
 		if( file_put_contents( $filename, self::createIniString( $config ) ) === false ) {
 			throw \RuntimeException( sprintf( 'Can not write file "%1$s"', $filename ) );
