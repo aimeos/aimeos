@@ -60,6 +60,7 @@
             "@php artisan package:discover"
         ],
         "post-update-cmd": [
+            "@php artisan migrate",
             "@php artisan vendor:publish --tag=public --force"
         ]
     },
