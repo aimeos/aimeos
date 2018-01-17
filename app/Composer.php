@@ -36,7 +36,7 @@ class Composer
 		flush(); // Enforce order of messages
 
 		$email = $io->ask( '- E-Mail: ' );
-		$passwd = $io->secret( '- Password: ' );
+		$passwd = $io->askAndHideAnswer( '- Password: ' );
 
 		$options = [
 			escapeshellarg( $email ),
