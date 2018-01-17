@@ -52,6 +52,7 @@
             "@php artisan key:generate",
             "@php artisan make:auth",
             "App\\Composer::configure",
+            "@php artisan migrate",
             "App\\Composer::setup",
             "App\\Composer::account"
         ],
