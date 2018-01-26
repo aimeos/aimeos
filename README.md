@@ -45,20 +45,23 @@ e-mail and password used for creating the administration account.
 In a local environment, you can use the integrated PHP web server to test your new Aimeos
 installation. Simply execute the following command to start the web server:
 
-`php -S 127.0.0.1:8000 -t myshop/public/`
+```
+cd myshop
+php artisan serve
+```
 
 ## Frontend
 
 After the installation, you can test the Aimeos shop frontend by calling the URL of your
 VHost in your browser. If you use the integrated PHP web server, you should browse
-this URL: [https://127.0.0.1:8000](https://127.0.0.1:8000)
+this URL: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 [![Aimeos frontend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-frontend.png)](http://laravel.demo.aimeos.org/)
 
 ## Backend
 
 The Aimeos administration interface will be available at `/admin` in your VHost. When using
-the integrated PHP web server, call this URL: [https://127.0.0.1:8000/admin](https://127.0.0.1:8000/admin)
+the integrated PHP web server, call this URL: [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
 [![Aimeos admin backend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-backend.png)](http://admin.demo.aimeos.org/)
 
