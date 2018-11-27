@@ -6,10 +6,11 @@
 
 [![License](https://poser.pugx.org/aimeos/aimeos/license.svg)](https://packagist.org/packages/aimeos/aimeos)
 
-The repository contains the Aimeos standalone shop distribution based on Laravel
-and the Aimeos e-commerce package. The distribution provides pages for e.g.
-product lists incl. faceted search, detail views baskets and the checkout process
-as well as a "My account" area.
+[Aimeos](https://aimeos.org/Laravel) is THE professional, full-featured and
+high performance e-commerce platform! You can install it within 5 minutes
+and can adapt, extend, overwrite and customize anything to your needs. 
+
+[![Aimeos Laravel demo](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-github.png)](http://laravel.demo.aimeos.org/)
 
 ## Table of content
 
