@@ -6,6 +6,8 @@
 
 [![License](https://poser.pugx.org/aimeos/aimeos/license.svg)](https://packagist.org/packages/aimeos/aimeos)
 
+:star: Star us on GitHub — it helps!
+
 [Aimeos](https://aimeos.org/Laravel) is THE professional, full-featured and
 high performance e-commerce platform! You can install it within 5 minutes
 and can adapt, extend, overwrite and customize anything to your needs. 
