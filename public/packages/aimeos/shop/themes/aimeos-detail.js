@@ -24,7 +24,7 @@ d.slice(e-c+1,e+c+2).addClass("slick-active").attr("aria-hidden","false")),0===a
  *
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Metaways Infosystems GmbH, 2012
- * @copyright Aimeos (aimeos.org), 2014-2017
+ * @copyright Aimeos (aimeos.org), 2014-2018
  */
 
 
@@ -32,6 +32,9 @@ d.slice(e-c+1,e+c+2).addClass("slick-active").attr("aria-hidden","false")),0===a
  * Aimeos catalog detail actions
  */
 AimeosCatalogDetail = {
+
+	OFFSET: ($(".catalog-detail-image").offset() || {top: 0}).top,
+
 
 	/**
 	 * Initializes the slider for the thumbnail gallery (small images)
@@ -58,13 +61,11 @@ AimeosCatalogDetail = {
 
 		$(".catalog-detail-image").on("click", ".thumbs .item", {}, function(ev) {
 
-			var imageId = this.href.split("#").pop();
-			var container = $(".image-single", ev.delegateTarget);
-
-			window.location.hash = '#' + imageId;
-
 			$(".thumbs .item", ev.delegateTarget).removeClass("selected");
 			$(this).addClass("selected");
+
+			window.location = $(this).attr("href");
+			window.scroll(0, AimeosCatalogDetail.OFFSET);
 
 			return false;
 		});

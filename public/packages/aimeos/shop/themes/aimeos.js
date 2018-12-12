@@ -3,7 +3,7 @@
  *
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Metaways Infosystems GmbH, 2012
- * @copyright Aimeos (aimeos.org), 2014-2017
+ * @copyright Aimeos (aimeos.org), 2014-2018
  */
 
 
@@ -245,6 +245,66 @@ AimeosAccountHistory = {
 	}
 };
 
+
+
+
+/**
+ * Account subscription actions
+ */
+AimeosAccountSubscription = {
+
+	/**
+	 * Shows subscription details without page reload
+	 */
+	setupDetailShow: function() {
+
+		$(".account-subscription .subscription-item").on("click", "> a", function(ev) {
+
+			var details = $(".account-subscription-detail", ev.delegateTarget);
+
+			if(details.length === 0) {
+
+				$.get($(this).attr("href"), function(data) {
+
+					var doc = document.createElement("html");
+					doc.innerHTML = data;
+
+					var node = $(".account-subscription-detail", doc);
+					node.css("display", "none");
+					$(ev.delegateTarget).append(node);
+					node.slideDown();
+				});
+
+			} else {
+				details.slideToggle();
+			}
+
+			return false;
+		});
+	},
+
+
+	/**
+	 * Closes the order details without page reload
+	 */
+	setupDetailClose: function() {
+
+		$(".account-subscription .subscription-item").on("click", ".btn-close", function(ev) {
+			$(".account-subscription-detail", ev.delegateTarget).slideUp();
+			return false;
+		});
+	},
+
+
+	/**
+	 * Initializes the account subscription actions
+	 */
+	init: function() {
+
+		this.setupDetailShow();
+		this.setupDetailClose();
+	}
+};
 
 
 
@@ -762,7 +822,7 @@ AimeosCatalog = {
 	 */
 	setupVariantCheck: function() {
 
-		$(".catalog-detail-basket, .catalog-list-items").on("click", ".addbasket .btn-action", {}, function(event) {
+		$(".catalog-detail-basket-selection, .catalog-list-items .items-selection").on("click", ".addbasket .btn-action", {}, function(event) {
 
 			var result = true;
 
@@ -831,6 +891,7 @@ AimeosCatalog = {
 
 			$.ajax({
 				url: $(this).attr("href"),
+				dataType: 'html',
 				headers: {
 					"X-Requested-With": "jQuery"
 				}
@@ -863,6 +924,7 @@ AimeosCatalog = {
 
 			$.ajax({
 				url: $(this).attr("href"),
+				dataType: 'html',
 				headers: {
 					"X-Requested-With": "jQuery"
 				}
@@ -1022,11 +1084,50 @@ AimeosCatalogFilter = {
 
 
 	/**
+	 * Hides the attribute filter if no products are available for
+	 */
+	setupAttributeListsEmtpy: function() {
+
+		$(".catalog-filter-attribute .attribute-lists fieldset").hide();
+
+		$(".catalog-filter-attribute .attribute-lists .attr-count").each(function(ev) {
+			$(this).parents('fieldset').show();
+		});
+	},
+
+
+	/**
 	 * Submits the form when clicking on filter attribute names or counts
 	 */
 	setupAttributeItemSubmit: function() {
 
 		$(".catalog-filter-attribute li.attr-item").on("click", ".attr-name, .attr-count", function(ev) {
+			var input = $("input", ev.delegateTarget);
+			input.prop("checked") ? input.prop("checked", false) : input.prop("checked", true);
+
+			$(this).parents(".catalog-filter form").submit();
+			$(".catalog-list").fadeTo(1000, 0.5);
+		});
+	},
+
+
+	/**
+	 * Toggles the supplier filters if hover isn't available
+	 */
+	setupSupplierToggle: function() {
+
+		$(".catalog-filter-supplier").on("click", "h2", function(ev) {
+			$(".supplier-lists", ev.delegateTarget).slideToggle();
+		});
+	},
+
+
+	/**
+	 * Submits the form when clicking on filter supplier names or counts
+	 */
+	setupSupplierItemSubmit: function() {
+
+		$(".catalog-filter-supplier li.attr-item").on("click", ".attr-name, .attr-count", function(ev) {
 			var input = $("input", ev.delegateTarget);
 			input.prop("checked") ? input.prop("checked", false) : input.prop("checked", true);
 
@@ -1051,7 +1152,9 @@ AimeosCatalogFilter = {
 
 		$(".catalog-filter-search").on("click", ".reset", function(ev) {
 			$(".symbol", this).css("visibility", "hidden");
+			$(".value", ev.delegateTarget).val("");
 			$(".value", ev.delegateTarget).focus();
+			return false;
 		});
 	},
 
@@ -1062,11 +1165,14 @@ AimeosCatalogFilter = {
 	init: function() {
 
 		this.setupCategoryToggle();
+		this.setupSupplierToggle();
 		this.setupAttributeToggle();
+		this.setupAttributeListsEmtpy();
 		this.setupAttributeListsToggle();
 		this.setupListFadeout();
 
 		this.setupAttributeItemSubmit();
+		this.setupSupplierItemSubmit();
 
 		this.setupFormChecks();
 		this.setupSearchTextReset();
@@ -1252,7 +1358,7 @@ AimeosCheckoutStandard = {
 		/* Hide form fields if delivery/payment option is not selected */
 		$(".checkout-standard-delivery,.checkout-standard-payment").each(function(idx, elem) {
 			$(elem).find(".form-list").hide();
-			$(elem).find(".item-service").has("input:checked").find(".form-list").show();
+			$(elem).find(".item-service").has("input.option:checked").find(".form-list").show();
 		});
 
 		/* Delivery/payment form slide up/down when selected */
@@ -1287,7 +1393,7 @@ AimeosCheckoutStandard = {
 			var testfn = function(idx, element) {
 
 				var elem = $(element);
-				var value = elem.find("input,select").val();
+				var value = $("input,select", elem).val();
 
 				if(value === null || value.trim() === "") {
 					elem.addClass("error");
@@ -1298,9 +1404,12 @@ AimeosCheckoutStandard = {
 				}
 			};
 
-			var item = $(".checkout-standard .item-new, .item-service");
-			 // combining in one has() doesn't work
-			item.has(".header,label").has("input:checked").find(".form-list .mandatory").each(testfn);
+			var item = $(".checkout-standard .item-new, .item-service").each(function(node) {
+
+				if($(".header,label input", this).is(":checked")) {
+					$(".form-list .mandatory", this).each(testfn);
+				}
+			});
 
 			$(".checkout-standard-process .form-list .mandatory").each(testfn);
 
@@ -1322,8 +1431,11 @@ AimeosCheckoutStandard = {
 
 		var form = $(".checkout-standard form").first();
 		var node = $(".checkout-standard-process", form);
+		var anchor = $("a.btn-action", node);
 
-		if(node.length > 0 && node.has(".mandatory").length === 0 && node.has(".optional").length === 0 && form.attr("action") !== '' ) {
+		if(anchor.length > 0) {
+			window.location = anchor.attr("href");
+		} else if(node.length > 0 && node.has(".mandatory").length === 0 && node.has(".optional").length === 0 && form.attr("action") !== '' ) {
 			form.submit();
 		}
 	},
@@ -1403,6 +1515,12 @@ document.createElement("section");
 document.createElement("article");
 
 
+/*
+ * Disable CSS rules only necessary if no Javascript is available
+ */
+$("html").removeClass("no-js");
+
+
 Aimeos.loadImages();
 
 
@@ -1436,6 +1554,7 @@ jQuery(document).ready(function($) {
 	AimeosCheckoutStandard.init();
 	AimeosCheckoutConfirm.init();
 
+	AimeosAccountSubscription.init();
 	AimeosAccountHistory.init();
 	AimeosAccountFavorite.init();
 	AimeosAccountWatch.init();
