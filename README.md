@@ -29,7 +29,7 @@ and can adapt, extend, overwrite and customize anything to your needs.
 The Aimeos shop distribution requires:
 - Linus/Unix or WAMP/XAMP environment
 - PHP >= 7.0.4
-- MySQL >= 5.1
+- MySQL >= 5.7
 - Web server (Apache, Nginx or integrated PHP web server for testing)
 
 If required PHP extensions are missing, `composer` will tell you about the missing
