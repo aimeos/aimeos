@@ -15,7 +15,7 @@
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "aimeos/aimeos-laravel": "~2017.10"
+        "aimeos/aimeos-laravel": "~2018.10"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
