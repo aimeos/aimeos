@@ -4,6 +4,7 @@
 
 # Aimeos shop system
 
+[![Total Downloads](https://poser.pugx.org/aimeos/aimeos/d/total.svg)](https://packagist.org/packages/aimeos/aimeos)
 [![License](https://poser.pugx.org/aimeos/aimeos/license.svg)](https://packagist.org/packages/aimeos/aimeos)
 
 :star: Star us on GitHub — it helps!
