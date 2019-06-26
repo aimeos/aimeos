@@ -17,7 +17,7 @@ and can adapt, extend, overwrite and customize anything to your needs.
 
 Want to **integrate Aimeos** into your **existing application**?
 
-Use the [Aimeos Laravel package](https://github.com/aimeos/aimeos) directly!
+Use the [Aimeos Laravel package](https://github.com/aimeos/aimeos-laravel) directly!
 
 ## Table of content
 
