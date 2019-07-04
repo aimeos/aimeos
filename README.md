@@ -15,6 +15,8 @@ and can adapt, extend, overwrite and customize anything to your needs.
 
 [![Aimeos Laravel demo](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-github.png)](http://laravel.demo.aimeos.org/)
 
+## Package only
+
 Want to **integrate Aimeos** into your **existing application**?
 
 Use the [Aimeos Laravel package](https://github.com/aimeos/aimeos-laravel) directly!
