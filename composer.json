@@ -60,7 +60,6 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
-            "@php artisan make:auth",
             "App\\Composer::configure",
             "@php artisan migrate",
             "App\\Composer::setup",
