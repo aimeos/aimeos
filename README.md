@@ -11,7 +11,7 @@
 
 [Aimeos](https://aimeos.org/Laravel) is THE professional, full-featured and
 high performance e-commerce platform! You can install it within 5 minutes
-and can adapt, extend, overwrite and customize anything to your needs. 
+and can adapt, extend, overwrite and customize anything to your needs.
 
 [![Aimeos Laravel demo](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-github.png)](http://laravel.demo.aimeos.org/)
 
@@ -33,7 +33,7 @@ Use the [Aimeos Laravel package](https://github.com/aimeos/aimeos-laravel) direc
 
 The Aimeos shop distribution requires:
 - Linus/Unix or WAMP/XAMP environment
-- PHP >= 7.0.4
+- PHP >= 7.2
 - MySQL >= 5.7
 - Web server (Apache, Nginx or integrated PHP web server for testing)
 

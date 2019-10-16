@@ -33,9 +33,6 @@ d.slice(e-c+1,e+c+2).addClass("slick-active").attr("aria-hidden","false")),0===a
  */
 AimeosCatalogDetail = {
 
-	OFFSET: ($(".catalog-detail-image").offset() || {top: 0}).top,
-
-
 	/**
 	 * Initializes the slider for the thumbnail gallery (small images)
 	 */
@@ -61,11 +58,12 @@ AimeosCatalogDetail = {
 
 		$(".catalog-detail-image").on("click", ".thumbs .item", {}, function(ev) {
 
+			var scrollPosition = document.documentElement.scrollTop;
 			$(".thumbs .item", ev.delegateTarget).removeClass("selected");
 			$(this).addClass("selected");
 
 			window.location = $(this).attr("href");
-			window.scroll(0, AimeosCatalogDetail.OFFSET);
+			window.scroll(0, scrollPosition);
 
 			return false;
 		});
@@ -80,6 +78,7 @@ AimeosCatalogDetail = {
 		$(".catalog-detail-image").on("click", ".image-single .item", function(ev) {
 
 			var list = [];
+			var vwidth = $(window).width();
 			var gallery = $(ev.delegateTarget);
 			var pswp = $(".pswp", gallery);
 			var options = $(gallery).data("options") || {};
@@ -90,13 +89,21 @@ AimeosCatalogDetail = {
 			}
 
 			$(".image-single .item", gallery).each(function(idx, item) {
+				var entries = $(item).data("sources");
+				var imgurl;
+
+				for(var width in entries) {
+					if(width <= vwidth) {
+						imgurl = entries[width];
+					}
+				}
+
 				list.push({
 					msrc: $(item).data("image"),
-					src: $("a", item).attr("href"),
-					caption: $("figcaption", item).text(),
+					src: imgurl,
 					pid: idx,
 					h: 0,
-					w: 0,
+					w: 0
 				});
 			});
 
