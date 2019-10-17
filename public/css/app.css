@@ -10644,3 +10644,18 @@ a.text-dark:focus {
   }
 }
 
+
+/* Aimeos */
+
+body {
+	background-color: #FFF;
+}
+
+.aimeos.basket-mini {
+	display: inline-block;
+	padding: 0.2em 0;
+}
+
+.aimeos.locale-select {
+	padding: 0.425em 0;
+}

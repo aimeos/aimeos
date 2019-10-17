@@ -12,9 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect('list');
+    return redirect('shop');
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
