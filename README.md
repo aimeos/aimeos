@@ -34,7 +34,7 @@ Use the [Aimeos Laravel package](https://github.com/aimeos/aimeos-laravel) direc
 ## Requirements
 
 The Aimeos shop distribution requires:
-- Linus/Unix or WAMP/XAMP environment
+- Linux/Unix, WAMP/XAMP or MacOS environment
 - PHP >= 7.2
 - MySQL >= 5.7
 - Web server (Apache, Nginx or integrated PHP web server for testing)
