@@ -17,7 +17,10 @@
 </head>
 <body>
 	<nav class="navbar navbar-default">
-	<div class="container-fluid">
+
+		@yield('aimeos_head')
+
+		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="sr-only">Toggle Navigation</span>
@@ -25,7 +28,9 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/shop">Aimeos</a>
+                <a class="navbar-brand-image" href="/">
+                    <img src="http://aimeos.org/fileadmin/template/icons/logo.png" title="Aimeos Logo">
+                </a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -45,8 +50,6 @@ route('aimeos_shop_account',['site'=>Route::current()->parameter('site','default
 							</ul>
 						</li>
 					@endif
-
-					<li>@yield('aimeos_head')</li>
 				</ul>
 			</div>
 		</div>
