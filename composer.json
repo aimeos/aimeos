@@ -16,7 +16,7 @@
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.0",
-        "aimeos/aimeos-laravel": "~2019.10"
+        "aimeos/aimeos-laravel": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
