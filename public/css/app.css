@@ -10651,11 +10651,23 @@ body {
 	background-color: #FFF;
 }
 
-.aimeos.basket-mini {
+.basket-mini {
 	display: inline-block;
-	padding: 0.2em 0;
+  background: none;
 }
 
-.aimeos.locale-select {
-	padding: 0.425em 0;
+.basket-mini-main,
+.basket-mini > a:before,
+.basket-mini-product .basket-toggle {
+  color: #BA9A5A;
+}
+
+.locale-select ul.select-menu {
+  margin: 0;
+}
+
+@media(max-width: 991px) {
+  .basket-mini-product {
+    display: none;
+  }
 }
