@@ -60,6 +60,14 @@ cd myshop
 php artisan serve
 ```
 
+**Note:** In an hosting environment, the document root of your virtual host must point to
+the **/.../myshop/public/** directory and you have to change the `APP_URL` setting in your `.env`
+file to your domain without port, e.g.:
+
+```
+APP_URL=http://myhostingdomain.com
+```
+
 ## Frontend
 
 After the installation, you can test the Aimeos shop frontend by calling the URL of your
