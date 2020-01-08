@@ -65,11 +65,6 @@ return [
 					// 'enable' => false, // Disable basket content caching for development
 				],
 			],
-			'common' => [
-				'template' => [
-					// 'baseurl' => public_path( 'packages/aimeos/shop/themes/elegance' ),
-				],
-			],
 			'catalog' => [
 				'selection' => [
 					'type' => [
