@@ -63,7 +63,8 @@
             "App\\Composer::configure",
             "@php artisan migrate",
             "App\\Composer::setup",
-            "App\\Composer::account"
+            "App\\Composer::account",
+            "App\\Composer::success"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=public --force"
