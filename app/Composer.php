@@ -135,6 +135,7 @@ Made with <fg=green>love</> by the Aimeos community. Be a part of it!
 					_1: addStar(input:{clientMutationId:"_1",starrableId:"MDEwOlJlcG9zaXRvcnkxMDMwMTUwNzA="}){clientMutationId}
 					_2: addStar(input:{clientMutationId:"_2",starrableId:"MDEwOlJlcG9zaXRvcnkzMTU0MTIxMA=="}){clientMutationId}
 					_3: addStar(input:{clientMutationId:"_3",starrableId:"MDEwOlJlcG9zaXRvcnkyNjg4MTc2NQ=="}){clientMutationId}
+					_4: addStar(input:{clientMutationId:"_4",starrableId:"MDEwOlJlcG9zaXRvcnkyMjIzNTY4OTA="}){clientMutationId}
 					}'
 				] ),
 			],
