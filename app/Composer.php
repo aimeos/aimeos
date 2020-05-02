@@ -124,6 +124,7 @@ class Composer
 	/**
 	 * Sets up the shop database.
 	 *
+	 * @param Event $event Event instance
 	 * @throws \RuntimeException If an error occured
 	 */
 	public static function setup( Event $event )
