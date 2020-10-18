@@ -22,11 +22,12 @@ return [
 	'page' => [
 		// Docs: https://aimeos.org/docs/Laravel/Adapt_pages
 		// Hint: catalog/filter is also available as single 'catalog/tree', 'catalog/search', 'catalog/attribute'
-		'account-index' => [ 'account/profile','account/subscription','account/history','account/favorite','account/watch','basket/mini','catalog/session','locale/select' ],
+		'account-index' => [ 'account/profile','account/review','account/subscription','account/history','account/favorite','account/watch','basket/mini','catalog/session','locale/select' ],
 		'basket-index' => [ 'basket/bulk', 'basket/standard','basket/related' ],
 		'catalog-count' => [ 'catalog/count' ],
 		'catalog-detail' => [ 'basket/mini','catalog/stage','catalog/detail','catalog/session','locale/select' ],
-		'catalog-list' => [ 'basket/mini','catalog/filter','catalog/stage','catalog/lists','locale/select' ],
+		'catalog-home' => [ 'basket/mini','catalog/home' ],
+		'catalog-list' => [ 'basket/mini','catalog/filter','catalog/lists','locale/select' ],
 		'catalog-stock' => [ 'catalog/stock' ],
 		'catalog-suggest' => [ 'catalog/suggest' ],
 		'catalog-tree' => [ 'basket/mini','catalog/filter','catalog/stage','catalog/lists' ],
