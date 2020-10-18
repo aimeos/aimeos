@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect('shop');
-});
-
 Auth::routes();
+
+Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
