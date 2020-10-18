@@ -22,6 +22,23 @@ use Symfony\Component\Filesystem\Filesystem;
  */
 class Composer
 {
+	private static $template = '
+<fg=blue>
+    ___    _
+   /   |  (_)___ ___  ___  ____  _____
+  / /| | / / __ __  \/ _ \/ __ \/ ___/
+ / __  |/ / / / / / / ___/ /_/ /\__ \
+/_/  |_/_/_/ /_/ /_/\___/\____/_____/
+</>
+Congratulations! You successfully set up your <fg=green>Aimeos</> shop!
+<fg=cyan>Video tutorials</>: https://www.youtube.com/c/aimeos
+<fg=cyan>Documentation</>: https://aimeos.org/docs
+<fg=cyan>Get help</>: https://aimeos.org/help
+<fg=cyan>Contribute</>: https://github.com/aimeos
+Made with <fg=green>love</> by the Aimeos community. Be a part of it!
+';
+
+
 	/**
 	 * Creates a new admin account.
 	 *
