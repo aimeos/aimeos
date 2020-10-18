@@ -2,30 +2,30 @@
 
 @section('aimeos_scripts')
 	@parent
-    <script type="text/javascript" src="<?php echo asset('packages/aimeos/shop/themes/aimeos-detail.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo asset( 'packages/aimeos/shop/themes/aimeos-detail.js' ); ?>"></script>
 @stop
 
 @section('aimeos_header')
-    <?= $aiheader['locale/select'] ?>
-    <?= $aiheader['basket/mini'] ?>
-    <?= $aiheader['catalog/stage'] ?>
-    <?= $aiheader['catalog/detail'] ?>
-    <?= $aiheader['catalog/session'] ?>
+    <?= $aiheader['locale/select'] ?? '' ?>
+    <?= $aiheader['basket/mini'] ?? '' ?>
+    <?= $aiheader['catalog/stage'] ?? '' ?>
+    <?= $aiheader['catalog/detail'] ?? '' ?>
+    <?= $aiheader['catalog/session'] ?? '' ?>
 @stop
 
 @section('aimeos_head')
-    <?= $aibody['locale/select'] ?>
-    <?= $aibody['basket/mini'] ?>
+    <?= $aibody['locale/select'] ?? '' ?>
+    <?= $aibody['basket/mini'] ?? '' ?>
 @stop
 
 @section('aimeos_stage')
-    <?= $aibody['catalog/stage'] ?>
+    <?= $aibody['catalog/stage'] ?? '' ?>
 @stop
 
 @section('aimeos_body')
-    <?= $aibody['catalog/detail'] ?>
+    <?= $aibody['catalog/detail'] ?? '' ?>
 @stop
 
 @section('aimeos_aside')
-    <?= $aibody['catalog/session'] ?>
+    <?= $aibody['catalog/session'] ?? '' ?>
 @stop
