@@ -123,7 +123,7 @@ the integrated PHP web server, call this URL: [http://127.0.0.1:8000/admin](http
 
 Laravel and the Aimeos e-commerce package are extremely flexible and highly customizable.
 A lot of documentation for the [Laravel framework](https://laravel.com) and the
-[Aimeos e-commerce framework](https://aimeos.org/docs/Laravel) exists. If you have questions
+[Aimeos e-commerce framework](https://aimeos.org/docs/latest/laravel) exists. If you have questions
 about Aimeos, don't hesitate to ask in our [Aimeos forum](https://aimeos.org/help/).
 
 For more details about Aimeos Laravel integration, please have a look at its
@@ -137,7 +137,7 @@ is available for free.
 ## Links
 
 * [Web site](https://aimeos.org/Laravel)
-* [Documentation](https://aimeos.org/docs/Laravel)
+* [Documentation](https://aimeos.org/docs/latest/laravel)
 * [Forum](https://aimeos.org/help/laravel-package-f18/)
 * [Issue tracker](https://github.com/aimeos/aimeos/issues)
 * [Composer packages](https://packagist.org/packages/aimeos/aimeos)
