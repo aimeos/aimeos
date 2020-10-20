@@ -26,6 +26,10 @@
     <?= $aibody['catalog/attribute'] ?? '' ?>
 @stop
 
+@section('aimeos_stage')
+    <?= $aibody['catalog/stage'] ?? '' ?>
+@stop
+
 @section('aimeos_body')
-    <?= $aibody['catalog/lists'] ?? '' ?>
+     <?= $aibody['catalog/lists'] ?? '' ?>
 @stop
