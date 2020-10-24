@@ -126,20 +126,39 @@ Made with <fg=green>love</> by the Aimeos community. Be a part of it!
 	{
 		$event->getIO()->write( self::$template );
 
-		$fs = \Composer\Factory::createRemoteFilesystem( $event->getIO(), $event->getComposer()->getConfig() );
-		$fs->getContents( 'github.com', 'https://api.github.com/graphql', false, [
-			'http' => [
-				'method' => 'POST',
-				'header' => ['Content-Type: application/json'],
-				'content' => json_encode( ['query' => 'mutation{
-					_1: addStar(input:{clientMutationId:"_1",starrableId:"MDEwOlJlcG9zaXRvcnkxMDMwMTUwNzA="}){clientMutationId}
-					_2: addStar(input:{clientMutationId:"_2",starrableId:"MDEwOlJlcG9zaXRvcnkzMTU0MTIxMA=="}){clientMutationId}
-					_3: addStar(input:{clientMutationId:"_3",starrableId:"MDEwOlJlcG9zaXRvcnkyNjg4MTc2NQ=="}){clientMutationId}
-					_4: addStar(input:{clientMutationId:"_4",starrableId:"MDEwOlJlcG9zaXRvcnkyMjIzNTY4OTA="}){clientMutationId}
-					}'
-				] ),
-			],
-		] );
+		if( !$event->getIO()->hasAuthentication( 'github.com' ) ) {
+			return;
+		}
+
+		try
+		{
+			$options = [
+				'http' => [
+					'method' => 'POST',
+					'header' => ['Content-Type: application/json'],
+					'content' => json_encode( ['query' => 'mutation{
+						_1: addStar(input:{clientMutationId:"_1",starrableId:"MDEwOlJlcG9zaXRvcnkxMDMwMTUwNzA="}){clientMutationId}
+						_2: addStar(input:{clientMutationId:"_2",starrableId:"MDEwOlJlcG9zaXRvcnkzMTU0MTIxMA=="}){clientMutationId}
+						_3: addStar(input:{clientMutationId:"_3",starrableId:"MDEwOlJlcG9zaXRvcnkyNjg4MTc2NQ=="}){clientMutationId}
+						_4: addStar(input:{clientMutationId:"_4",starrableId:"MDEwOlJlcG9zaXRvcnkyMjIzNTY4OTA="}){clientMutationId}
+						}'
+					] )
+				]
+			];
+			$config = $event->getComposer()->getConfig();
+
+			if( method_exists( '\Composer\Factory', 'createHttpDownloader' ) )
+			{
+				\Composer\Factory::createHttpDownloader( $event->getIO(), $config )
+					->get( 'https://api.github.com/graphql', $options );
+			}
+			else
+			{
+				$fs = \Composer\Factory::createRemoteFilesystem( $event->getIO(), $config )
+					->getContents( 'github.com', 'https://api.github.com/graphql', false, $options );
+			}
+		}
+		catch( \Exception $e ) {}
 	}
 
 
