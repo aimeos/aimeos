@@ -149,7 +149,7 @@ Made with <fg=green>love</> by the Aimeos community. Be a part of it!
 			}
 			else
 			{
-				$fs = \Composer\Factory::createRemoteFilesystem( $event->getIO(), $config )
+				\Composer\Factory::createRemoteFilesystem( $event->getIO(), $config )
 					->getContents( 'github.com', 'https://api.github.com/graphql', false, $options );
 			}
 		}
