@@ -7,7 +7,7 @@
 
 	@yield('aimeos_header')
 
-	<title>{{ config('app.name', 'Laravel') }}</title>
+	<title>{{ config('app.name', 'Aimeos') }}</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css">
 
 	<style>
@@ -25,9 +25,11 @@
 		.sm { display: inline-block } .sm:before { font: normal normal normal 14px/1 FontAwesome; padding: 0 0.2em; font-size: 225% }
 		.facebook:before { content: "\f082" } .twitter:before { content: "\f081" } .instagram:before { content: "\f16d" } .youtube:before { content: "\f167" }
 	</style>
+	<link type="text/css" rel="stylesheet" href="{{ asset(config( 'shop.client.html.common.template.baseurl', 'packages/aimeos/shop/themes/elegance' ) . '/aimeos.css') }}" />
 	@yield('aimeos_styles')
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="aimeos">
 	<nav class="navbar navbar-expand-md navbar-light">
 		<a class="navbar-brand" href="/">
 			<img src="http://aimeos.org/fileadmin/template/icons/logo.png" height="30" title="Aimeos Logo">
