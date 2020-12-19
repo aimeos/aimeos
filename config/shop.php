@@ -1,6 +1,21 @@
 <?php
 
-return [
+$routes = [];
+
+if( config( 'app.shop_registration' ) ) {
+	$routes = ['routes' => [
+		'admin' => ['prefix' => 'admin', 'middleware' => ['web']],
+		'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']],
+		'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']],
+		'jsonapi' => ['prefix' => 'jsonapi/{site}', 'middleware' => ['web', 'api']],
+		'account' => ['prefix' => 'profile/{site}', 'middleware' => ['web', 'auth']],
+		'default' => ['prefix' => 'shop/{site}', 'middleware' => ['web']],
+		'update' => ['prefix' => '{site}'],
+	] ];
+}
+
+
+return $routes + [
 
 	'apc_enabled' => false, // enable for maximum performance if APCu is availalbe
 	'apc_prefix' => 'aimeos:', // prefix for caching config and translation in APCu

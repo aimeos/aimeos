@@ -39,8 +39,11 @@
 		</button>
 		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 			<ul class="navbar-nav">
+				@if (config('app.shop_registration'))
+					<li class="nav-item"><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+				@endif
 				@if (Auth::guest())
-					<li class="nav-item"><a class="nav-link" href="/login">{{ __('Login') }}</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
 				@else
 					<li class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>

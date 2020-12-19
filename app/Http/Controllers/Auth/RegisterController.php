@@ -37,6 +37,10 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        if( config( 'app.shop_registration' ) ) {
+            $this->redirectTo = '/admin';
+        }
+
         $this->middleware('guest');
     }
 
@@ -48,11 +52,18 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+        $validate = [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        ];
+
+        if( config( 'app.shop_registration' ) ) {
+            $validate['code'] = ['required', 'string', 'max:255', 'unique:mshop_locale_site', 'regex:/^[a-z0-9\-]+(\.[a-z0-9\-]+)?$/i'];
+        } else {
+            $validate['name'] = ['required', 'string', 'max:255'];
+        }
+
+        return Validator::make($data, $validate);
     }
 
     /**
@@ -63,10 +74,67 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $siteId = '';
+        $context = app( 'aimeos.context' )->get();
+        $manager = \Aimeos\MShop::create( $context, 'locale/site' );
+
+        if( config( 'app.shop_registration' ) )
+        {
+            $item = $manager->create()->setCode( $data['code'] )->setLabel( $data['code'] );
+            $siteId = $manager->insertItem( $item, $manager->find( 'default' )->getId() )->getSiteId();
+
+            $paths = app( 'aimeos' )->get()->getSetupPaths( 'default' );
+            $config = $context->getConfig()->set( 'setup/site', $data['code'] );
+            $dbconf = $this->getDbConfig( $config );
+            $dbm = $context->getDatabaseManager();
+
+            $setup = new \Aimeos\MW\Setup\Manager\Multiple( $dbm, $dbconf, $paths, $context );
+            ob_start();
+            $setup->migrate();
+            ob_end_clean();
+        }
+
+        $user = User::create([
+            'name' => $data['code'] ?? $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'siteid' => $siteId,
         ]);
+
+        if( config( 'app.shop_registration' ) )
+        {
+            $context->setLocale( \Aimeos\MShop::create( $context, 'locale' )->bootstrap( $data['code'] ) );
+            $groupId = \Aimeos\MShop::create( $context, 'customer/group' )->find( 'admin' )->getId();
+
+            $manager = \Aimeos\MShop::create( $context, 'customer/lists' );
+            $item = $manager->create()->setParentId( $user->id )->setDomain( 'customer/group' )
+                ->setType( 'default' )->setRefId( $groupId );
+            $manager->saveItem( $item );
+        }
+
+        return $user;
     }
+
+
+	/**
+	 * Returns the database configuration from the config object.
+	 *
+	 * @param \Aimeos\MW\Config\Iface $conf Config object
+	 * @return array Multi-dimensional associative list of database configuration parameters
+	 */
+	protected function getDbConfig( \Aimeos\MW\Config\Iface $conf ) : array
+	{
+		$dbconfig = $conf->get( 'resource', array() );
+
+		foreach( $dbconfig as $rname => $dbconf )
+		{
+			if( strncmp( $rname, 'db', 2 ) !== 0 ) {
+				unset( $dbconfig[$rname] );
+			} else {
+				$conf->set( 'resource/' . $rname . '/limit', 5 );
+			}
+		}
+
+		return $dbconfig;
+	}
 }
