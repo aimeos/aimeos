@@ -26,4 +26,16 @@ class ResetPasswordController extends Controller
      * @var string
      */
     protected $redirectTo = '/profile';
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        if( config( 'app.shop_registration' ) ) {
+            $this->redirectTo = '/admin';
+        }
+    }
 }
