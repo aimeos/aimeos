@@ -34,6 +34,10 @@ class ConfirmPasswordController extends Controller
      */
     public function __construct()
     {
+        if( config( 'app.shop_registration' ) ) {
+            $this->redirectTo = '/admin';
+        }
+
         $this->middleware('auth');
     }
 }

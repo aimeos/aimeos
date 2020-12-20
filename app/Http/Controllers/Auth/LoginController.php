@@ -34,6 +34,10 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        if( config( 'app.shop_registration' ) ) {
+            $this->redirectTo = '/admin';
+        }
+
         $this->middleware('guest')->except('logout');
     }
 }
