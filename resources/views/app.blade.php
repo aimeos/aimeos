@@ -26,7 +26,6 @@
 		.facebook:before { content: "\f082" } .twitter:before { content: "\f081" } .instagram:before { content: "\f16d" } .youtube:before { content: "\f167" }
 	</style>
 	<link type="text/css" rel="stylesheet" href="{{ asset(config( 'shop.client.html.common.template.baseurl', 'packages/aimeos/shop/themes/elegance' ) . '/aimeos.css') }}" />
-	@yield('aimeos_styles')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="aimeos">

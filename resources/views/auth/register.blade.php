@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-<div class="container register">
+<div class="container auth">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
