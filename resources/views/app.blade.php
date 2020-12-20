@@ -38,7 +38,7 @@
 		</button>
 		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 			<ul class="navbar-nav">
-				@if (config('app.shop_registration'))
+				@if (Auth::guest() && config('app.shop_registration'))
 					<li class="nav-item"><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
 				@endif
 				@if (Auth::guest())
