@@ -4,9 +4,9 @@ $routes = [];
 
 if( config( 'app.shop_registration' ) ) {
 	$routes = ['routes' => [
-		'admin' => ['prefix' => 'admin', 'middleware' => ['web']],
-		'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']],
-		'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']],
+		'admin' => ['prefix' => 'admin', 'middleware' => ['web', 'verified']],
+		'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth', 'verified']],
+		'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth', 'verified']],
 		'jsonapi' => ['prefix' => 'jsonapi/{site}', 'middleware' => ['web', 'api']],
 		'account' => ['prefix' => 'profile/{site}', 'middleware' => ['web', 'auth']],
 		'default' => ['prefix' => 'shop/{site}', 'middleware' => ['web']],
