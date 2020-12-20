@@ -2,7 +2,7 @@ body {
 	background-color: #FFF;
 }
 
-.register .card-header {
+.auth .card-header {
   background-color: #F8F8F8;
   background-color: var(--ai-bg-light, #F8F8F8);
 	text-align: center;
@@ -10,7 +10,7 @@ body {
 	font-weight: bold;
 }
 
-.register .btn-primary {
+.auth .btn {
   display: block;
   margin: auto;
   margin-top: 1.5rem;
