@@ -47,6 +47,9 @@
 					<li class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
+							@if (config('app.shop_registration'))
+								<li><a class="nav-link" href="{{ route('aimeos_shop_admin') }}" title="{{ __('Merchant') }}">{{ __('Merchant') }}</a></li>
+							@endif
 							<li><a class="nav-link" href="{{ route('aimeos_shop_account',['site'=>Route::current()->parameter('site','default'),'locale'=>Route::current()->parameter('locale','en'),'currency'=>Route::current()->parameter('currency','EUR')]) }}" title="{{ __('Profile') }}">{{ __('Profile') }}</a></li>
 							<li><form id="logout" action="/logout" method="POST">{{csrf_field()}}</form><a class="nav-link" href="javascript: document.getElementById('logout').submit();">{{ __('Logout') }}</a></li>
 						</ul>

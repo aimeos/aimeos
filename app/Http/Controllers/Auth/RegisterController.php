@@ -74,14 +74,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $siteId = '';
         $context = app( 'aimeos.context' )->get();
         $manager = \Aimeos\MShop::create( $context, 'locale/site' );
+        $root = $manager->find( 'default' );
+        $siteId = $root->getSiteId();
 
         if( config( 'app.shop_registration' ) )
         {
             $item = $manager->create()->setCode( $data['code'] )->setLabel( $data['code'] );
-            $siteId = $manager->insertItem( $item, $manager->find( 'default' )->getId() )->getSiteId();
+            $siteId = $manager->insertItem( $item, $root->getId() )->getSiteId();
 
             $paths = app( 'aimeos' )->get()->getSetupPaths( 'default' );
             $config = $context->getConfig()->set( 'setup/site', $data['code'] );
@@ -103,8 +104,9 @@ class RegisterController extends Controller
 
         if( config( 'app.shop_registration' ) )
         {
+            $group = config( 'app.shop_permission', 'admin' );
             $context->setLocale( \Aimeos\MShop::create( $context, 'locale' )->bootstrap( $data['code'] ) );
-            $groupId = \Aimeos\MShop::create( $context, 'customer/group' )->find( 'admin' )->getId();
+            $groupId = \Aimeos\MShop::create( $context, 'customer/group' )->find( $group )->getId();
 
             $manager = \Aimeos\MShop::create( $context, 'customer/lists' );
             $item = $manager->create()->setParentId( $user->id )->setDomain( 'customer/group' )
