@@ -64,6 +64,7 @@ Use the [Aimeos Laravel package](https://github.com/aimeos/aimeos-laravel) direc
 - [Frontend](#frontend)
 - [Backend](#backend)
 - [Customize](#customize)
+- [Multi-vendor](#multi-vendor)
 - [License](#license)
 - [Links](#links)
 
@@ -128,6 +129,28 @@ about Aimeos, don't hesitate to ask in our [Aimeos forum](https://aimeos.org/hel
 
 For more details about Aimeos Laravel integration, please have a look at its
 [repository](https://github.com/aimeos/aimeos-laravel).
+
+## Multi-vendor
+
+To enable multi-vendor features including self-registration for new sellers, add this
+settings to the `./myshop/.env` file:
+
+```
+SHOP_MULTISHOP=true
+SHOP_REGISTRATION=true
+```
+
+By default, newly registered sellers have administrator privileges in the backend for
+their own site. For a more limited access to the backend, you can change the permission
+level to "editor":
+
+```
+SHOP_PERMISSION=editor
+```
+
+You can change the permissions associated to "admin" or "editor" by adding your own version
+of the [JQAdm resource configuration](https://github.com/aimeos/ai-admin-jqadm/blob/master/config/admin/jqadm/resource.php)
+to the "admin" section of your `./config/shop.php` file.
 
 ## License
 

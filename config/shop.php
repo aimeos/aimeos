@@ -2,7 +2,7 @@
 
 $routes = [];
 
-if( config( 'app.shop_registration' ) ) {
+if( config( 'app.shop_multishop' ) || config( 'app.shop_registration' ) ) {
 	$routes = ['routes' => [
 		'admin' => ['prefix' => 'admin', 'middleware' => ['web', 'verified']],
 		'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth', 'verified']],
