@@ -90,7 +90,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary">
                                     @if(config('app.shop_registration'))
                                         {{ __('Register as merchant') }}
