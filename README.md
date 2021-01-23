@@ -2,7 +2,7 @@
     <img src="https://aimeos.org/fileadmin/template/icons/logo.png" alt="Aimeos logo" title="Aimeos" align="right" height="60" />
 </a>
 
-![Aimeos GitHub stats](https://github-readme-stats.vercel.app/api?username=aimeos&count_private=true&include_all_commits=true&show_icons=true&bg_color=90,103050,109095&title_color=fff&text_color=fff&icon_color=fff)
+![Aimeos GitHub stats](https://github-readme-stats.vercel.app/api?username=aimeos&count_private=true&include_all_commits=true&show_icons=true&bg_color=90,103050,109095&title_color=fff&text_color=fff&icon_color=fff&hide=prs)
 
 # Aimeos shop system
 
