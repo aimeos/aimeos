@@ -600,7 +600,7 @@ AimeosBasketBulk = {
 	 */
 	delete: function() {
 
-		$(".aimeos.basket-bulk").on("click", ".btn.delete", function(ev){
+		$(".aimeos.basket-bulk").on("click", ".buttons .delete", function(ev) {
 			$(ev.currentTarget).parents(".details").remove();
 		});
 	},
@@ -724,7 +724,7 @@ AimeosBasketBulk = {
 			AimeosBasketBulk.meta = options.meta || {};
 		});
 
-		$(".aimeos.basket-bulk").on("click", "thead .btn.add", this.add);
+		$(".aimeos.basket-bulk").on("click", ".buttons .add", this.add);
 		this.autocomplete($(".aimeos.basket-bulk .details .search"));
 
 		$(".aimeos.basket-bulk").on("change", ".details .quantity input", function(ev) {
@@ -742,10 +742,10 @@ AimeosBasketBulk = {
 		var qty = $(".quantity input", row).val();
 		var prices = $(row).data('prices') || [];
 		var vattr = $(row).data('vattributes') || [];
-		var style = {style: 'currency', currency: 'EUR'};
 
 		for(var idx in prices) {
 			if(prices[idx]['attributes']['price.quantity'] <= qty) {
+				var style = {style: 'currency', currency: prices[idx]['attributes']['price.currencyid']};
 				var value = Number(prices[idx]['attributes']['price.value']) * qty;
 				$(row).find(".price").html(value.toLocaleString(undefined, style));
 			}
