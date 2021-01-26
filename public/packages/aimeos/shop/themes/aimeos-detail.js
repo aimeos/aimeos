@@ -89,7 +89,7 @@ AimeosCatalogDetail = {
 
 						if(response && response.data) {
 
-							var ratings = $(".rating-dist", container).data("ratings") || 0;
+							var ratings = $(".rating-dist", container).data("ratings") || 1;
 
 							$.each(response.data, function(idx, entry) {
 								var percent = (entry.attributes || 0) * 100 / ratings;
