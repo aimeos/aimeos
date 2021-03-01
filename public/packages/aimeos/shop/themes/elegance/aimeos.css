@@ -7,12 +7,9 @@
 
  @font-face {
 	font-family: 'FontAwesome';
-	src: url('https://cdn.jsdelivr.net/npm/font-awesome@4/fonts/fontawesome-webfont.eot');
-	src: url('https://cdn.jsdelivr.net/npm/font-awesome@4/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+	src:
 	url('https://cdn.jsdelivr.net/npm/font-awesome@4/fonts/fontawesome-webfont.woff2') format('woff2'),
-	url('https://cdn.jsdelivr.net/npm/font-awesome@4/fonts/fontawesome-webfont.woff') format('woff'),
-	url('https://cdn.jsdelivr.net/npm/font-awesome@4/fonts/fontawesome-webfont.ttf') format('truetype'),
-	url('https://cdn.jsdelivr.net/npm/font-awesome@4/fonts/fontawesome-webfont.eot#fontawesomeregular') format('svg');
+	url('https://cdn.jsdelivr.net/npm/font-awesome@4/fonts/fontawesome-webfont.woff') format('woff');
 }
 
 
