@@ -31,7 +31,7 @@
 <body class="aimeos">
 	<nav class="navbar navbar-expand-md navbar-light">
 		<a class="navbar-brand" href="/">
-			<img src="http://aimeos.org/fileadmin/template/icons/logo.png" height="30" title="Aimeos Logo">
+			<img src="https://aimeos.org/fileadmin/template/icons/logo.png" height="30" title="Aimeos Logo">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -76,7 +76,7 @@
 			</div>
 			<div class="col-md-4 my-4">
 				<div class="social"><a href="#" class="sm facebook" title="Facebook" rel="noopener"></a><a href="#" class="sm twitter" title="Twitter" rel="noopener"></a><a href="#" class="sm instagram" title="Instagram" rel="noopener"></a><a href="#" class="sm youtube" title="Youtube" rel="noopener"></a></div>
-				<a class="px-2 py-4 d-inline-block" href="/"><img src="http://aimeos.org/fileadmin/template/icons/logo.png" style="width: 160px" title="Aimeos Logo"></a>
+				<a class="px-2 py-4 d-inline-block" href="/"><img src="https://aimeos.org/fileadmin/template/icons/logo.png" style="width: 160px" title="Aimeos Logo"></a>
 			</div>
 		</div>
 	</footer>
