@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @license MIT, http://opensource.org/licenses/MIT
+ * @license MIT, https://opensource.org/licenses/MIT
  * @copyright Aimeos (aimeos.org), 2017
  * @package aimeos
  */
