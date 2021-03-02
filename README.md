@@ -15,7 +15,7 @@
 high performance e-commerce platform! You can install it within 5 minutes
 and can adapt, extend, overwrite and customize anything to your needs.
 
-[![Aimeos Laravel demo](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-github.png)](http://laravel.demo.aimeos.org/)
+[![Aimeos Laravel demo](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-github.png)](https://laravel.demo.aimeos.org)
 
 ## Features
 
@@ -50,8 +50,8 @@ Aimeos is a full-featured e-commerce package:
 
 Check out the demos:
 
-* [Aimeos frontend demo](http://laravel.demo.aimeos.org/)
-* [Aimeos admin demo](http://admin.demo.aimeos.org/)
+* [Aimeos frontend demo](https://laravel.demo.aimeos.org)
+* [Aimeos admin demo](https://admin.demo.aimeos.org)
 
 ## Package only
 
