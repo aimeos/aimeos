@@ -16,7 +16,8 @@
         "laravel/framework": "^6.20.12",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.0",
-        "aimeos/aimeos-laravel": "dev-master"
+        "aimeos/aimeos-laravel": "dev-master",
+        "aimeos/ai-cms-grapesjs": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
