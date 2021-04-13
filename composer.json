@@ -11,13 +11,13 @@
         "url": "https://packages.aimeos.org/aimeoscom"
     }],
     "require": {
-        "php": "^7.2||^8.0",
+        "php": "^7.2||^8.0.1",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.20.12",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.0",
-        "aimeos/aimeos-laravel": "dev-master",
-        "aimeos/ai-cms-grapesjs": "dev-master"
+        "aimeos/aimeos-laravel": "2021.04.*",
+        "aimeos/ai-cms-grapesjs": "2021.04.*"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
