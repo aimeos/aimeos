@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ in_array(app()->getLocale(), ['ar', 'az', 'dv', 'fa', 'he', 'ku', 'ur']) ? 'rtl' : 'ltr' }}">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,7 +45,7 @@
 					<li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
 				@else
 					<li class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ __('Profile') }} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							@if (config('app.shop_registration'))
 								<li><a class="nav-link" href="{{ route('aimeos_shop_admin') }}" title="{{ __('Merchant') }}">{{ __('Merchant') }}</a></li>
