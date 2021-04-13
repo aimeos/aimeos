@@ -9,6 +9,7 @@ if( config( 'app.shop_multishop' ) || config( 'app.shop_registration' ) ) {
 		'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth', 'verified']],
 		'jsonapi' => ['prefix' => 'jsonapi/{site}', 'middleware' => ['web', 'api']],
 		'account' => ['prefix' => 'profile/{site}', 'middleware' => ['web', 'auth']],
+		'supplier' => ['prefix' => 'supplier/{site}', 'middleware' => ['web']],
 		'default' => ['prefix' => 'shop/{site}', 'middleware' => ['web']],
 		'update' => ['prefix' => '{site}'],
 	] ];
@@ -29,6 +30,7 @@ return $routes + [
 		// 'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']],
 		// 'jsonapi' => ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']],
 		// 'account' => ['prefix' => 'myaccount', 'middleware' => ['web', 'auth']],
+		// 'supplier' => ['prefix' => 'supplier/{site}', 'middleware' => ['web']],
 		// 'default' => ['prefix' => 'shop', 'middleware' => ['web']],
 		// 'update' => [],
 	],
