@@ -1,5 +1,5 @@
 /*! jQuery UI - v1.12.1 - 2016-12-28
-* http://jqueryui.com
+* https://jqueryui.com
 * Includes: widget.js, position.js, keycode.js, unique-id.js, widgets/autocomplete.js, widgets/datepicker.js, widgets/menu.js
 * Copyright jQuery Foundation and other contributors; Licensed MIT */
 
@@ -8,11 +8,20 @@
 y+="</select>"}if(v||(b+=y+(!o&&m&&_?"":"&#xa0;")),!t.yearshtml)if(t.yearshtml="",o||!_)b+="<span class='ui-datepicker-year'>"+i+"</span>";else{for(u=this._get(t,"yearRange").split(":"),d=(new Date).getFullYear(),p=function(t){var e=t.match(/c[+\-].*/)?i+parseInt(t.substring(1),10):t.match(/[+\-].*/)?d+parseInt(t,10):parseInt(t,10);return isNaN(e)?d:e},f=p(u[0]),g=Math.max(f,p(u[1]||"")),f=s?Math.max(f,s.getFullYear()):f,g=n?Math.min(g,n.getFullYear()):g,t.yearshtml+="<select class='ui-datepicker-year' data-handler='selectYear' data-event='change'>";g>=f;f++)t.yearshtml+="<option value='"+f+"'"+(f===i?" selected='selected'":"")+">"+f+"</option>";t.yearshtml+="</select>",b+=t.yearshtml,t.yearshtml=null}return b+=this._get(t,"yearSuffix"),v&&(b+=(!o&&m&&_?"":"&#xa0;")+y),b+="</div>"},_adjustInstDate:function(t,e,i){var s=t.selectedYear+("Y"===i?e:0),n=t.selectedMonth+("M"===i?e:0),o=Math.min(t.selectedDay,this._getDaysInMonth(s,n))+("D"===i?e:0),a=this._restrictMinMax(t,this._daylightSavingAdjust(new Date(s,n,o)));t.selectedDay=a.getDate(),t.drawMonth=t.selectedMonth=a.getMonth(),t.drawYear=t.selectedYear=a.getFullYear(),("M"===i||"Y"===i)&&this._notifyChange(t)},_restrictMinMax:function(t,e){var i=this._getMinMaxDate(t,"min"),s=this._getMinMaxDate(t,"max"),n=i&&i>e?i:e;return s&&n>s?s:n},_notifyChange:function(t){var e=this._get(t,"onChangeMonthYear");e&&e.apply(t.input?t.input[0]:null,[t.selectedYear,t.selectedMonth+1,t])},_getNumberOfMonths:function(t){var e=this._get(t,"numberOfMonths");return null==e?[1,1]:"number"==typeof e?[1,e]:e},_getMinMaxDate:function(t,e){return this._determineDate(t,this._get(t,e+"Date"),null)},_getDaysInMonth:function(t,e){return 32-this._daylightSavingAdjust(new Date(t,e,32)).getDate()},_getFirstDayOfMonth:function(t,e){return new Date(t,e,1).getDay()},_canAdjustMonth:function(t,e,i,s){var n=this._getNumberOfMonths(t),o=this._daylightSavingAdjust(new Date(i,s+(0>e?e:n[0]*n[1]),1));return 0>e&&o.setDate(this._getDaysInMonth(o.getFullYear(),o.getMonth())),this._isInRange(t,o)},_isInRange:function(t,e){var i,s,n=this._getMinMaxDate(t,"min"),o=this._getMinMaxDate(t,"max"),a=null,r=null,l=this._get(t,"yearRange");return l&&(i=l.split(":"),s=(new Date).getFullYear(),a=parseInt(i[0],10),r=parseInt(i[1],10),i[0].match(/[+\-].*/)&&(a+=s),i[1].match(/[+\-].*/)&&(r+=s)),(!n||e.getTime()>=n.getTime())&&(!o||e.getTime()<=o.getTime())&&(!a||e.getFullYear()>=a)&&(!r||r>=e.getFullYear())},_getFormatConfig:function(t){var e=this._get(t,"shortYearCutoff");return e="string"!=typeof e?e:(new Date).getFullYear()%100+parseInt(e,10),{shortYearCutoff:e,dayNamesShort:this._get(t,"dayNamesShort"),dayNames:this._get(t,"dayNames"),monthNamesShort:this._get(t,"monthNamesShort"),monthNames:this._get(t,"monthNames")}},_formatDate:function(t,e,i,s){e||(t.currentDay=t.selectedDay,t.currentMonth=t.selectedMonth,t.currentYear=t.selectedYear);var n=e?"object"==typeof e?e:this._daylightSavingAdjust(new Date(s,i,e)):this._daylightSavingAdjust(new Date(t.currentYear,t.currentMonth,t.currentDay));return this.formatDate(this._get(t,"dateFormat"),n,this._getFormatConfig(t))}}),t.fn.datepicker=function(e){if(!this.length)return this;t.datepicker.initialized||(t(document).on("mousedown",t.datepicker._checkExternalClick),t.datepicker.initialized=!0),0===t("#"+t.datepicker._mainDivId).length&&t("body").append(t.datepicker.dpDiv);var i=Array.prototype.slice.call(arguments,1);return"string"!=typeof e||"isDisabled"!==e&&"getDate"!==e&&"widget"!==e?"option"===e&&2===arguments.length&&"string"==typeof arguments[1]?t.datepicker["_"+e+"Datepicker"].apply(t.datepicker,[this[0]].concat(i)):this.each(function(){"string"==typeof e?t.datepicker["_"+e+"Datepicker"].apply(t.datepicker,[this].concat(i)):t.datepicker._attachDatepicker(this,e)}):t.datepicker["_"+e+"Datepicker"].apply(t.datepicker,[this[0]].concat(i))},t.datepicker=new i,t.datepicker.initialized=!1,t.datepicker.uuid=(new Date).getTime(),t.datepicker.version="1.12.1",t.datepicker});
 
 
+/*!
+* zeynepjs v2.1.0
+* A light-weight multi-level jQuery side menu plugin.
+* It's fully customizable and is compatible with modern browsers such as Google Chrome, Mozilla Firefox, Safari, Edge and Internet Explorer
+* MIT License
+* by Huseyin ELMAS
+*/
+!function(l,s){var n={htmlClass:!0};function i(e,t){this.element=e,this.eventController=o,this.options=l.extend({},n,t),this.options.initialized=!1,this.init()}i.prototype.init=function(){var s=this.element,e=this.options,i=this.eventController.bind(this);!0!==e.initialized&&(i("loading"),s.find("[data-submenu]").on("click",function(e){e.preventDefault();var t,n=l(this).attr("data-submenu"),o=l("#"+n);o.length&&(i("opening",t={subMenu:!0,menuId:n}),s.find(".submenu.current").removeClass("current"),o.addClass("opened current"),s.hasClass("submenu-opened")||s.addClass("submenu-opened"),s.scrollTop(0),i("opened",t))}),s.find("[data-submenu-close]").on("click",function(e){e.preventDefault();var t,n=l(this).attr("data-submenu-close"),o=l("#"+n);o.length&&(i("closing",t={subMenu:!0,menuId:n}),o.removeClass("opened current"),s.find(".submenu.opened:last").addClass("current"),s.find(".submenu.opened").length||s.removeClass("submenu-opened"),o.scrollTop(0),i("closed",t))}),i("load"),this.options.htmlClass&&!l("html").hasClass("zeynep-initialized")&&l("html").addClass("zeynep-initialized"),e.initialized=!0)},i.prototype.open=function(){this.eventController("opening",{subMenu:!1}),this.element.addClass("opened"),this.options.htmlClass&&l("html").addClass("zeynep-opened"),this.eventController("opened",{subMenu:!1})},i.prototype.close=function(e){e||this.eventController("closing",{subMenu:!1}),this.element.removeClass("opened"),this.options.htmlClass&&l("html").removeClass("zeynep-opened"),e||this.eventController("closed",{subMenu:!1})},i.prototype.destroy=function(){this.eventController("destroying"),this.close(!0),this.element.find(".submenu.opened").removeClass("opened"),this.element.removeData(s),this.eventController("destroyed"),this.options=n,this.options.htmlClass&&l("html").removeClass("zeynep-initialized"),delete this.element,delete this.options,delete this.eventController},i.prototype.on=function(e,t){r.call(this,e,t)};var o=function(e,t){if(this.options[e]){if("function"!=typeof this.options[e])throw Error("event handler must be a function: "+e);this.options[e].call(this,this.element,this.options,t)}},r=function(e,t){if("string"!=typeof e)throw Error("event name is expected to be a string but got: "+typeof e);if("function"!=typeof t)throw Error("event handler is not a function for: "+e);this.options[e]=t};l.fn[s]=function(e){var t,n,o;return t=l(this[0]),n=e,o=null,t.data(s)?o=t.data(s):(o=new i(t,n||{}),t.data(s,o)),o}}(window.jQuery,"zeynep");
+
 
 /**
  * Aimeos related Javascript code
  *
- * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @license LGPLv3, https://opensource.org/licenses/LGPL-3.0
  * @copyright Metaways Infosystems GmbH, 2012
  * @copyright Aimeos (aimeos.org), 2014-2018
  */
@@ -1459,17 +1468,6 @@ AimeosCatalogFilter = {
 
 
 	/**
-	 * Toggles the categories if hover isn't available
-	 */
-	setupCategoryToggle: function() {
-
-		$(".catalog-filter-tree").on("click", "h2", function(ev) {
-			$(".category-lists", ev.delegateTarget).slideToggle();
-		});
-	},
-
-
-	/**
 	 * Toggles the attribute filters if hover isn't available
 	 */
 	setupAttributeToggle: function() {
@@ -1602,7 +1600,6 @@ AimeosCatalogFilter = {
 
 		this.setupPriceSync();
 		this.setupPriceToggle();
-		this.setupCategoryToggle();
 		this.setupSupplierToggle();
 		this.setupAttributeToggle();
 		this.setupAttributeListsEmtpy();
@@ -2035,4 +2032,146 @@ jQuery(document).ready(function($) {
 	AimeosAccountHistory.init();
 	AimeosAccountFavorite.init();
 	AimeosAccountWatch.init();
+});
+
+
+
+jQuery(document).ready(function($) {
+
+	/**
+	 * Sets active classes in Menu
+	 */
+	$('.category-lists').find('.active').each(function() {
+		var $this = $(this);
+		$this.parents(".submenu").addClass('opened');
+		$this.parents('.cat-item').add(this).addClass('active');
+	});
+
+	/**
+	 * Functions MegaMenu
+	 */
+	var $dropdowns = $('.top-item'); // Specifying the element is faster for older browsers
+
+        //Uncomment below if Megamenu
+//	$('.has-submenu > .top-cat-item').on('click', function(t){
+//		t.preventDefault(), t.stopPropagation();
+//	});
+
+	/**
+	 * Touch events
+	 *
+	 * @description Support click to open if we're dealing with a touchscreen
+	 */
+	$dropdowns.on('mouseover', function(){ // Mouseenter (used with .hover()) does not trigger when user enters from outside document window
+		var $this = $(this);
+		if ($this.prop('hoverTimeout')){
+			$this.prop('hoverTimeout', clearTimeout($this.prop('hoverTimeout')));
+		}
+		$this.prop('hoverIntent', setTimeout(function(){
+			$this.addClass('hover');
+		},));
+	})
+	.on('mouseleave', function(){
+		var $this = $(this);
+		if ($this.prop('hoverIntent')){
+			$this.prop('hoverIntent', clearTimeout($this.prop('hoverIntent')));
+		}
+		$this.prop('hoverTimeout', setTimeout(function(){
+			$this.removeClass('hover');
+		},));
+	});
+
+
+	/**
+	 * Functions for Touch Devices (such as Laptops or screens with touch)
+	 */
+	window.matchMedia('(min-width: 991px)').addEventListener('change', event => {
+
+		if (event.matches) {
+
+			/**
+			 * Mouse events
+			 *
+			 * @description Mimic hoverIntent plugin by waiting for the mouse to 'settle' within the target before triggering
+			 */
+			$dropdowns.each(function(){
+
+				var $this = $(this);
+
+				this.addEventListener('touchstart', function(e){
+
+					if (e.touches.length === 1){
+						// Prevent touch events within dropdown bubbling down to document
+						e.stopPropagation();
+						// Toggle hover
+						if (!$this.hasClass('hover')){
+							// Prevent link on first touch
+							if (e.target === this || e.target.parentNode === this){
+								e.preventDefault();
+							}
+							// Hide other open dropdowns
+							$dropdowns.removeClass('hover');
+							$this.addClass('hover');
+							// Hide dropdown on touch outside
+							document.addEventListener('touchstart', closeDropdown = function(e){
+
+								e.stopPropagation();
+								$this.removeClass('hover');
+								document.removeEventListener('touchstart', closeDropdown);
+
+							});
+						}
+					}
+				}, false);
+			});
+		}
+	})
+
+
+	/**
+	 * Shows Image in Megamenu
+	 */
+
+	if ($(".media-item").length) {
+		$(".media-item").parent().parent().parent().addClass('shows-img');
+	}
+
+	/**
+	 * Offscreen
+	 */
+        
+	// loop all zeynepjs menus for initialization
+	$('.zeynep').each(function () {
+		$(this).zeynep({});
+	})
+
+	// handle zeynepjs overlay click
+	$('.zeynep-overlay').on('click', function () {
+		// close all zeynepjs menus
+		$('.zeynep.opened').each(function () {
+			$(this).data('zeynep').close()
+		})
+	});
+
+	// open first zeynepjs side menu
+	$('.btn-open.first').on('click', function () {
+		$('.zeynep.first').data('zeynep').open();
+	});
+
+	$(".open-menu").on('click', function () {
+		$('.zeynep.first').data('zeynep').open();
+	});
+
+	$(".menu-close").on('click', function () {
+		$('.zeynep.first').data('zeynep').close();
+	});
+
+	// open second zeynepjs side menu
+	$('.aimeos.basket-mini > a').on('click', function () {
+		$('.zeynep.second').data('zeynep').open();
+	});
+
+	$('.mini-basket-close').on('click', function () {
+		$('.zeynep.second').data('zeynep').close();
+	});
 });
