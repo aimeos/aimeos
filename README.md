@@ -9,7 +9,7 @@
 [![Total Downloads](https://poser.pugx.org/aimeos/aimeos/d/total.svg)](https://packagist.org/packages/aimeos/aimeos)
 [![License](https://poser.pugx.org/aimeos/aimeos/license.svg)](https://packagist.org/packages/aimeos/aimeos)
 
-:star: Star us on GitHub — it helps!
+:star: Star us on GitHub — it motivates us a lot! 😀
 
 [Aimeos](https://aimeos.org/Laravel) is THE professional, full-featured and
 high performance e-commerce platform! You can install it within 5 minutes
@@ -23,11 +23,12 @@ Aimeos is a full-featured e-commerce package:
 
 * Multi vendor, multi channel and multi warehouse
 * From one to 1,000,000,000+ items
-* Extremly fast down to  20ms
+* Extremly fast down to 20ms
 * For multi-tentant e-commerce SaaS solutions
 * Bundles, vouchers, virtual, configurable, custom and event products
 * Subscriptions with recurring payments
 * 100+ payment gateways
+* Full RTL support (frontend and backend)
 * Block/tier pricing out of the box
 * Extension for customer/group based prices
 * Discount and voucher support
@@ -120,7 +121,7 @@ this URL: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 The Aimeos administration interface will be available at `/admin` in your VHost. When using
 the integrated PHP web server, call this URL: [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
-[![Aimeos admin backend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-backend.png)](http://admin.demo.aimeos.org/)
+[![Aimeos admin backend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-backend.png?2021)](http://admin.demo.aimeos.org/)
 
 ## Customize
 
