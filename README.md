@@ -1,3 +1,5 @@
+:star: Star us on [GitHub](https://github.com/aimeos/aimeos/stargazers) — it motivates us a lot! 😀
+
 ![Aimeos GitHub stats](https://github-readme-stats.vercel.app/api?username=aimeos&count_private=true&include_all_commits=true&show_icons=true&bg_color=90,103050,109095&title_color=fff&text_color=fff&icon_color=fff&hide=prs)
 
 <a href="https://aimeos.org/">
@@ -8,8 +10,6 @@
 
 [![Total Downloads](https://poser.pugx.org/aimeos/aimeos/d/total.svg)](https://packagist.org/packages/aimeos/aimeos)
 [![License](https://poser.pugx.org/aimeos/aimeos/license.svg)](https://packagist.org/packages/aimeos/aimeos)
-
-:star: Star us on GitHub — it motivates us a lot! 😀
 
 [Aimeos](https://aimeos.org/Laravel) is THE professional, full-featured and
 high performance e-commerce platform! You can install it within 5 minutes
