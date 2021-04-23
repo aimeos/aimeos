@@ -39,13 +39,13 @@
 		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 			<ul class="navbar-nav">
 				@if (Auth::guest() && config('app.shop_registration'))
-					<li class="nav-item"><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+					<li class="nav-item"><a class="nav-link register" href="{{ route('register') }}">{{ __('Register') }}</a></li>
 				@endif
 				@if (Auth::guest())
-					<li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+					<li class="nav-item"><a class="nav-link login" href="{{ route('login') }}">{{ __('Login') }}</a></li>
 				@else
 					<li class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ __('Profile') }} <span class="caret"></span></a>
+						<a href="#" class="nav-link profile dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ __('Profile') }} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							@if (config('app.shop_registration'))
 								<li><a class="nav-link" href="{{ route('aimeos_shop_admin') }}" title="{{ __('Merchant') }}">{{ __('Merchant') }}</a></li>
