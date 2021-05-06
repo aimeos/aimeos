@@ -82,7 +82,7 @@ class RegisterController extends Controller
         if( config( 'app.shop_registration' ) )
         {
             $item = $manager->create()->setCode( $data['code'] )->setLabel( $data['code'] );
-            $siteId = $manager->insertItem( $item, $root->getId() )->getSiteId();
+            $siteId = $manager->insert( $item, $root->getId() )->getSiteId();
 
             $paths = app( 'aimeos' )->get()->getSetupPaths( 'default' );
             $config = $context->getConfig()->set( 'setup/site', $data['code'] );
@@ -111,7 +111,7 @@ class RegisterController extends Controller
             $manager = \Aimeos\MShop::create( $context, 'customer/lists' );
             $item = $manager->create()->setParentId( $user->id )->setDomain( 'customer/group' )
                 ->setType( 'default' )->setRefId( $groupId );
-            $manager->saveItem( $item );
+            $manager->save( $item );
         }
 
         return $user;
