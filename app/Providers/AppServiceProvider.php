@@ -23,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->share( 'aimeosSite', app( 'aimeos.context' )->get()->getLocale()->getSiteItem() );
     }
 }
