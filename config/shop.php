@@ -43,7 +43,7 @@ return $routes + [
 		'basket-index' => [ 'basket/bulk', 'basket/standard','basket/related' ],
 		'catalog-count' => [ 'catalog/count' ],
 		'catalog-detail' => [ 'basket/mini','catalog/stage','catalog/detail','catalog/session','locale/select' ],
-		'catalog-home' => [ 'basket/mini','catalog/home','locale/select' ],
+		'catalog-home' => [ 'basket/mini','catalog/home','locale/select','cms/page' ],
 		'catalog-list' => [ 'basket/mini','catalog/filter','catalog/lists','locale/select' ],
 		'catalog-stock' => [ 'catalog/stock' ],
 		'catalog-suggest' => [ 'catalog/suggest' ],
