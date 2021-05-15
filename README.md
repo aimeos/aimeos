@@ -121,7 +121,7 @@ this URL: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 The Aimeos administration interface will be available at `/admin` in your VHost. When using
 the integrated PHP web server, call this URL: [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
-[![Aimeos admin backend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-backend.png?2021)](http://admin.demo.aimeos.org/)
+[![Aimeos admin backend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-backend.png?2021.04)](http://admin.demo.aimeos.org/)
 
 ## Customize
 
