@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->share( 'aimeosSite', app( 'aimeos.context' )->get()->getLocale()->getSiteItem() );
+        View::composer('*', function ( $view ) {
+            $view->with( 'aimeossite', app( 'aimeos.context' )->get()->getLocale()->getSiteItem() );
+        });
     }
 }
