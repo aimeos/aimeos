@@ -8,7 +8,7 @@ if( config( 'app.shop_multishop' ) || config( 'app.shop_registration' ) ) {
 		'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth', 'verified']],
 		'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth', 'verified']],
 		'jsonapi' => ['prefix' => 'jsonapi/{site}', 'middleware' => ['web', 'api']],
-		'account' => ['prefix' => 'profile/{site}', 'middleware' => ['web', 'auth']],
+		'account' => ['prefix' => 'profile/{site}', 'middleware' => ['web', 'auth', 'verified']],
 		'supplier' => ['prefix' => 'supplier/{site}', 'middleware' => ['web']],
 		'default' => ['prefix' => 'shop/{site}', 'middleware' => ['web']],
 		'update' => ['prefix' => '{site}'],
