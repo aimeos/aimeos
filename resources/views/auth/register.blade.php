@@ -1,4 +1,4 @@
-@extends('app')
+@extends('shop::base')
 
 @section('content')
 <div class="container auth">
