@@ -82,6 +82,9 @@ The Aimeos shop distribution requires:
 If required PHP extensions are missing, `composer` will tell you about the missing
 dependencies.
 
+If you want to **upgrade between major versions**, please have a look into the
+[upgrade guide](https://aimeos.org/docs/latest/laravel/setup/#upgrade)!
+
 ## Installation
 
 To install the Aimeos shop application, you need [composer 2.1+](https://getcomposer.org).
@@ -117,7 +120,7 @@ After the installation, you can test the Aimeos shop frontend by calling the URL
 VHost in your browser. If you use the integrated PHP web server, you should browse
 this URL: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-[![Aimeos frontend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-frontend.png)](http://laravel.demo.aimeos.org/)
+[![Aimeos frontend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-frontend.jpg?2021.07)](http://laravel.demo.aimeos.org/)
 
 ## Backend
 
