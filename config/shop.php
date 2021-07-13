@@ -104,6 +104,11 @@ return $routes + [
 	],
 
 	'i18n' => [
+		'en' => [
+			'client' => [
+				'Suppliers' => ['Brands']
+			]
+		]
 	],
 
 	'madmin' => [
@@ -123,7 +128,6 @@ return $routes + [
 
 	'mshop' => [
 	],
-
 
 	'command' => [
 	],
