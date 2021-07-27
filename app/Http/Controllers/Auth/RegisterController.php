@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
+
 
 class RegisterController extends Controller
 {
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/profile';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -39,6 +41,17 @@ class RegisterController extends Controller
     {
         if( config( 'app.shop_registration' ) ) {
             $this->redirectTo = '/admin';
+        } else {
+            if( $current = Route::current() )
+            {
+                $params = [
+                    'site' => Route::current()->parameter( 'site', 'default' ),
+                    'locale' => Route::current()->parameter( 'locale', app()->getLocale()  ),
+                    'currency' => Route::current()->parameter( 'currency', 'EUR' )
+                ];
+            }
+
+            $this->redirectTo = route( 'aimeos_shop_account', $params ?? [] );
         }
 
         $this->middleware('guest');
