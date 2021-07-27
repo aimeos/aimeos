@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\ConfirmsPasswords;
+
 
 class ConfirmPasswordController extends Controller
 {
@@ -25,7 +27,7 @@ class ConfirmPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/profile';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -36,6 +38,17 @@ class ConfirmPasswordController extends Controller
     {
         if( config( 'app.shop_registration' ) ) {
             $this->redirectTo = '/admin';
+        } else {
+            if( $current = Route::current() )
+            {
+                $params = [
+                    'site' => Route::current()->parameter( 'site', 'default' ),
+                    'locale' => Route::current()->parameter( 'locale', app()->getLocale()  ),
+                    'currency' => Route::current()->parameter( 'currency', 'EUR' )
+                ];
+            }
+
+            $this->redirectTo = route( 'aimeos_shop_account', $params ?? [] );
         }
 
         $this->middleware('auth');
