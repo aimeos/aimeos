@@ -15,7 +15,7 @@
                     @endif
 
                     {{ __('Before proceeding, please check your email for a verification link.') }}
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+                    <form class="d-inline" method="POST" action="{{ airoute('verification.resend') }}">
                         @csrf
                         <button type="submit" class="btn btn-primary">{{ __('Request another') }}</button>.
                     </form>
