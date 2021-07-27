@@ -12,12 +12,13 @@
     }],
     "require": {
         "php": "^7.2||^8.0",
+        "composer-runtime-api": "^2.1",
+        "aimeos/aimeos-laravel": "2021.07.*",
+        "aimeos/ai-cms-grapesjs": "2021.07.*",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.20.12",
         "laravel/tinker": "^1.0",
-        "laravel/ui": "^1.0",
-        "aimeos/aimeos-laravel": "2021.07.*",
-        "aimeos/ai-cms-grapesjs": "2021.07.*"
+        "laravel/ui": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
