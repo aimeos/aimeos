@@ -16,6 +16,7 @@
         "laravel/framework": "^6.20.12",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.0",
+        "composer-runtime-api": "^2.1",
         "aimeos/aimeos-laravel": "dev-master",
         "aimeos/ai-cms-grapesjs": "dev-master"
     },
