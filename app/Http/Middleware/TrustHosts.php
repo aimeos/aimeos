@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Middleware\TrustHosts as Middleware;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class TrustHosts extends Middleware
 {
@@ -21,6 +22,11 @@ class TrustHosts extends Middleware
         }
 
         return $next($request);
+    }
+
+
+    public function hosts()
+    {
     }
 
 
