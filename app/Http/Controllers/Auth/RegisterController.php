@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 
 
 class RegisterController extends Controller
@@ -57,7 +58,7 @@ class RegisterController extends Controller
     {
         $validate = [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'confirmed', Password::defaults()],
         ];
 
         if( config( 'app.shop_registration' ) ) {
@@ -66,7 +67,7 @@ class RegisterController extends Controller
             $validate['name'] = ['required', 'string', 'max:255'];
         }
 
-        return Validator::make($data, $validate);
+        return Validator::make( $data, $validate );
     }
 
     /**
