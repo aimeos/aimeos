@@ -17,6 +17,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Enable multi-locale site
+    |--------------------------------------------------------------------------
+    |
+    | Activates support for multiple locales (languages).
+    | You have to add translations for some frontend strings in
+    | ./resources/lang/<locale>/
+    |
+    */
+
+    'shop_multilocale' => env('SHOP_MULTILOCALE', false),
+
+    /*
+    |--------------------------------------------------------------------------
     | Enable multi-tenancy features
     |--------------------------------------------------------------------------
     |

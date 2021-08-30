@@ -13,27 +13,21 @@
 
 if( env( 'SHOP_MULTILOCALE' ) )
 {
-    Route::group(['prefix' => '{locale}'], function() {
-
-        Auth::routes(['verify' => true]);
-
-        Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
-
-        Route::get('{path?}', '\Aimeos\Shop\Controller\PageController@indexAction')
-            ->name('aimeos_page')->where( 'path', '.*' );
-
-    })->where( ['locale' => '[a-zA-Z]{2}(\_[a-zA-Z]{2})?'] );
+    $locale = ['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}(\_[a-zA-Z]{2})?']];
 
     Route::get('/', function () {
         return redirect(app()->getLocale());
     });
 }
-else
-{
+
+
+Route::group($locale ?? [], function() {
+
     Auth::routes(['verify' => true]);
 
     Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
 
     Route::get('{path?}', '\Aimeos\Shop\Controller\PageController@indexAction')
         ->name('aimeos_page')->where( 'path', '.*' );
-}
+
+});

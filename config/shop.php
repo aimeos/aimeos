@@ -1,6 +1,7 @@
 <?php
 
 $routes = [];
+$prefix = config( 'app.shop_multilocale' ) ? '{locale}/' : '';
 
 if( config( 'app.shop_multishop' ) || config( 'app.shop_registration' ) ) {
 	$routes = ['routes' => [
@@ -8,9 +9,9 @@ if( config( 'app.shop_multishop' ) || config( 'app.shop_registration' ) ) {
 		'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth', 'verified']],
 		'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth', 'verified']],
 		'jsonapi' => ['prefix' => 'jsonapi/{site}', 'middleware' => ['web', 'api']],
-		'account' => ['prefix' => 'profile/{site}', 'middleware' => ['web', 'auth', 'verified']],
-		'supplier' => ['prefix' => 'supplier/{site}', 'middleware' => ['web']],
-		'default' => ['prefix' => 'shop/{site}', 'middleware' => ['web']],
+		'account' => ['prefix' => $prefix . 'profile/{site}', 'middleware' => ['web', 'auth', 'verified']],
+		'default' => ['prefix' => $prefix . 'shop/{site}', 'middleware' => ['web']],
+		'supplier' => ['prefix' => $prefix . 's/{site}', 'middleware' => ['web']],
 		'update' => ['prefix' => '{site}'],
 	] ];
 }
@@ -25,14 +26,14 @@ return $routes + [
 	'routes' => [
 		// Docs: https://aimeos.org/docs/latest/laravel/extend/#custom-routes
 		// Multi-sites: https://aimeos.org/docs/latest/laravel/customize/#multiple-shops
-		// 'admin' => ['prefix' => 'admin', 'middleware' => ['web']],
-		// 'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']],
-		// 'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']],
-		// 'jsonapi' => ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']],
-		// 'account' => ['prefix' => 'myaccount', 'middleware' => ['web', 'auth']],
-		// 'supplier' => ['prefix' => 'supplier/{site}', 'middleware' => ['web']],
-		// 'default' => ['prefix' => 'shop', 'middleware' => ['web']],
-		// 'update' => [],
+		'admin' => ['prefix' => 'admin', 'middleware' => ['web']],
+		'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']],
+		'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']],
+		'jsonapi' => ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']],
+		'account' => ['prefix' => $prefix . 'profile', 'middleware' => ['web', 'auth']],
+		'default' => ['prefix' => $prefix . 'shop', 'middleware' => ['web']],
+		'supplier' => ['prefix' => $prefix . 's', 'middleware' => ['web']],
+		'update' => [],
 	],
 
 
