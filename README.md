@@ -6,7 +6,7 @@
     <img src="https://aimeos.org/fileadmin/template/icons/logo.png" alt="Aimeos logo" title="Aimeos" align="right" height="60" />
 </a>
 
-# Aimeos shop system
+# Aimeos Laravel ecommerce platform
 
 [![Total Downloads](https://poser.pugx.org/aimeos/aimeos/d/total.svg)](https://packagist.org/packages/aimeos/aimeos)
 [![License](https://poser.pugx.org/aimeos/aimeos/license.svg)](https://packagist.org/packages/aimeos/aimeos)
