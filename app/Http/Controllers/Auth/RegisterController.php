@@ -85,7 +85,7 @@ class RegisterController extends Controller
 
         if( config( 'app.shop_registration' ) )
         {
-            $item = $manager->create()->setCode( $data['code'] )->setLabel( $data['code'] );
+            $item = $manager->create()->setCode( $data['code'] )->setLabel( $data['code'] )->setStatus( -1 );
             $siteId = $manager->insert( $item, $root->getId() )->getSiteId();
 
             $paths = app( 'aimeos' )->get()->getSetupPaths( 'default' );
