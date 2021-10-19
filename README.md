@@ -75,7 +75,7 @@ Use the [Aimeos Laravel package](https://github.com/aimeos/aimeos-laravel) direc
 
 The Aimeos shop distribution requires:
 - Linux/Unix, WAMP/XAMP or MacOS environment
-- PHP >= 7.2
+- PHP >= 7.3
 - MySQL >= 5.7.8, MariaDB >= 10.2.2
 - Web server (Apache, Nginx or integrated PHP web server for testing)
 
@@ -139,19 +139,36 @@ about Aimeos, don't hesitate to ask in our [Aimeos forum](https://aimeos.org/hel
 For more details about Aimeos Laravel integration, please have a look at its
 [repository](https://github.com/aimeos/aimeos-laravel).
 
+## Multi-language
+
+For shops which offers multiple languages, just add this line to your `./myshop/.env` file:
+
+```
+SHOP_MULTILOCALE=true
+```
+
+Then, the language will be added to the routes automatically. You can set up the available
+languages in the ["Locale > Locale" panel](https://aimeos.org/docs/latest/manual/locales/)
+of the Aimeos admin backend.
+
 ## Multi-vendor
 
-To enable multi-vendor features including self-registration for new sellers, add this
-settings to the `./myshop/.env` file:
+To enable multi-vendor features, add this settings to the `./myshop/.env` file:
 
 ```
 SHOP_MULTISHOP=true
+```
+
+If you want to allow vendors to register themselves as sellers, set this option in the
+`./myshop/.env` file too:
+
+```
 SHOP_REGISTRATION=true
 ```
 
 By default, newly registered sellers have administrator privileges in the backend for
 their own site. For a more limited access to the backend, you can change the permission
-level to "editor":
+level to "editor" in the `./myshop/.env` file:
 
 ```
 SHOP_PERMISSION=editor
