@@ -19,8 +19,8 @@
         "laravel/ui": "^3.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "fruitcake/laravel-cors": "^2.0",
-        "aimeos/aimeos-laravel": "dev-master",
-        "aimeos/ai-cms-grapesjs": "dev-master"
+        "aimeos/aimeos-laravel": "2021.10.*",
+        "aimeos/ai-cms-grapesjs": "2021.10.*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
