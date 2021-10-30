@@ -45,6 +45,7 @@ return $routes + [
 		'catalog-detail' => [ 'basket/mini','catalog/tree','catalog/search','catalog/stage','catalog/detail','catalog/session','locale/select' ],
 		'catalog-home' => [ 'basket/mini','catalog/tree','catalog/search','catalog/home','locale/select','cms/page' ],
 		'catalog-list' => [ 'basket/mini','catalog/tree','catalog/search','catalog/price','catalog/supplier','catalog/attribute','catalog/session','catalog/lists','locale/select' ],
+		'catalog-session' => [ 'locale/select','basket/mini','catalog/tree','catalog/search','catalog/session' ],
 		'catalog-stock' => [ 'catalog/stock' ],
 		'catalog-suggest' => [ 'catalog/suggest' ],
 		'catalog-tree' => [ 'basket/mini','catalog/tree','catalog/search','catalog/price','catalog/supplier','catalog/attribute','catalog/session','catalog/stage','catalog/lists','locale/select' ],
