@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -58,7 +58,7 @@ class RegisterController extends Controller
     {
         $validate = [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'confirmed', Password::defaults()],
+            'password' => ['required', 'string', 'confirmed', 'max:64', Password::defaults()],
         ];
 
         if( config( 'app.shop_registration' ) ) {
@@ -85,7 +85,7 @@ class RegisterController extends Controller
 
         if( config( 'app.shop_registration' ) )
         {
-            $item = $manager->create()->setCode( $data['code'] )->setLabel( $data['code'] )->setStatus( -1 );
+            $item = $manager->create()->setCode( $data['code'] )->setLabel( $data['code'] )->setStatus( 1 );
             $siteId = $manager->insert( $item, $root->getId() )->getSiteId();
 
             $paths = app( 'aimeos' )->get()->getSetupPaths( 'default' );

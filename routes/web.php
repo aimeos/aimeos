@@ -23,9 +23,8 @@ if( env( 'SHOP_MULTILOCALE' ) )
 
 Route::group($locale ?? [], function() {
 
-    Auth::routes();
-    // only activate e-mail verification if SHOP_MULTILOCALE isn't enabled due to restrictions in Laravel
-    // Auth::routes(['verify' => true]);
+    // only if SHOP_MULTILOCALE isn't enabled due to restrictions in Laravel
+    Auth::routes(['verify' => true]);
 
     Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
 
