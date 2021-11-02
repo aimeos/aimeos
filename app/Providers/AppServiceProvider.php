@@ -5,8 +5,10 @@ namespace App\Providers;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Carbon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
 
-        \Illuminate\Auth\Notifications::$createUrlCallback = function() {
+        \Illuminate\Auth\Notifications\VerifyEmail::$createUrlCallback = function($notifiable) {
             $time = Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60));
             $params = [
                 'id' => $notifiable->getKey(),
