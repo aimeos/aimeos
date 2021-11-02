@@ -23,7 +23,6 @@ if( env( 'SHOP_MULTILOCALE' ) )
 
 Route::group($locale ?? [], function() {
 
-    // only if SHOP_MULTILOCALE isn't enabled due to restrictions in Laravel
     Auth::routes(['verify' => true]);
 
     Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
