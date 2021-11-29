@@ -1,7 +1,7 @@
 {
     "name": "aimeos/aimeos",
-    "description": "Aimeos shop system",
-    "keywords": ["Aimeos", "e-commerce", "shop", "laravel", "distribution"],
+    "description": "Aimeos ecommerce and shop system",
+    "keywords": ["aimeos", "ecommerce", "shop", "laravel", "distribution"],
     "license": "MIT",
     "type": "project",
     "prefer-stable": true,
