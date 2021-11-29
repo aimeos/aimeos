@@ -103,7 +103,7 @@ Made with <fg=green>love</> by the Aimeos community. Be a part of it!
 		$io->write( 'Mail setup' );
 		flush(); // Enforce order of messages
 
-		foreach( ['MAIL_DRIVER', 'MAIL_HOST', 'MAIL_PORT', 'MAIL_USERNAME', 'MAIL_ENCRYPTION'] as $key ) {
+		foreach( ['MAIL_MAILER', 'MAIL_HOST', 'MAIL_PORT', 'MAIL_USERNAME', 'MAIL_ENCRYPTION'] as $key ) {
 			$config[$key] = $io->ask( '- ' . $key . ' (' . $config[$key] . '): ', $config[$key] );
 		}
 		$config['MAIL_PASSWORD'] = $io->askAndHideAnswer( '- MAIL_PASSWORD: ', $config['MAIL_PASSWORD'] );
