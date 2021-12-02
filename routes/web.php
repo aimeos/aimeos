@@ -27,7 +27,7 @@ Route::group($locale ?? [], function() {
 
     Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
 
-    Route::get('{path?}', '\Aimeos\Shop\Controller\PageController@indexAction')
+    Route::match(['GET', 'POST'], '{path?}', '\Aimeos\Shop\Controller\PageController@indexAction')
         ->name('aimeos_page')->where( 'path', '.*' );
 
 });
