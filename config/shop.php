@@ -126,9 +126,7 @@ return $routes + [
 		],
 		'log' => [
 			'manager' => [
-				'standard' => [
-					// 'loglevel' => 7, // Enable debug logging into madmin_log table
-				],
+				// 'loglevel' => 7, // Enable debug logging into madmin_log table
 			],
 		],
 	],
