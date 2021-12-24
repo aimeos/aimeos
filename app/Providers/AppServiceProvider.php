@@ -52,7 +52,7 @@ class AppServiceProvider extends ServiceProvider
 
 
         View::composer('*', function ( $view ) {
-            $view->with( 'aimeossite', app( 'aimeos.context' )->get()->getLocale()->getSiteItem() );
+            $view->with( 'aimeossite', app( 'aimeos.context' )->get()->locale()->getSiteItem() );
         });
     }
 }
