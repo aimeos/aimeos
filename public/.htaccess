@@ -24,4 +24,8 @@
     Header set X-XSS-Protection "1; mode=block"
     Header set X-Frame-Options "SAMEORIGIN"
     Header set X-Content-Type-Options "nosniff"
+
+    <filesMatch ".(css|js|ico|jpg|jpeg|png|gif|webp|svg|woff2)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </filesMatch>
 </IfModule>
