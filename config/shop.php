@@ -19,9 +19,11 @@ if( config( 'app.shop_multishop' ) || config( 'app.shop_registration' ) ) {
 
 return $routes + [
 
-	'apc_enabled' => false, // enable for maximum performance if APCu is availalbe
+	'apc_enabled' => false, // enable for maximum performance if APCu is available
 	'apc_prefix' => 'aimeos:', // prefix for caching config and translation in APCu
+	'num_formatter' => 'Locale', // locale based number formatter (alternative: "Standard")
 	'pcntl_max' => 4, // maximum number of parallel command line processes when starting jobs
+	'version' => env( 'APP_VERSION', 1 ), // shop CSS/JS file version
 
 	'routes' => [
 		// Docs: https://aimeos.org/docs/latest/laravel/extend/#custom-routes
@@ -44,11 +46,11 @@ return $routes + [
 		'catalog-count' => [ 'catalog/count' ],
 		'catalog-detail' => [ 'basket/mini','catalog/tree','catalog/search','catalog/stage','catalog/detail','catalog/session','locale/select' ],
 		'catalog-home' => [ 'basket/mini','catalog/tree','catalog/search','catalog/home','locale/select','cms/page' ],
-		'catalog-list' => [ 'basket/mini','catalog/tree','catalog/search','catalog/price','catalog/supplier','catalog/attribute','catalog/session','catalog/lists','locale/select' ],
+		'catalog-list' => [ 'basket/mini','catalog/filter','catalog/tree','catalog/search','catalog/price','catalog/supplier','catalog/attribute','catalog/session','catalog/lists','locale/select' ],
 		'catalog-session' => [ 'locale/select','basket/mini','catalog/tree','catalog/search','catalog/session' ],
 		'catalog-stock' => [ 'catalog/stock' ],
 		'catalog-suggest' => [ 'catalog/suggest' ],
-		'catalog-tree' => [ 'basket/mini','catalog/tree','catalog/search','catalog/price','catalog/supplier','catalog/attribute','catalog/session','catalog/stage','catalog/lists','locale/select' ],
+		'catalog-tree' => [ 'basket/mini','catalog/filter','catalog/tree','catalog/search','catalog/price','catalog/supplier','catalog/attribute','catalog/session','catalog/stage','catalog/lists','locale/select' ],
 		'checkout-confirm' => [ 'checkout/confirm','catalog/tree','catalog/search' ],
 		'checkout-index' => [ 'checkout/standard' ],
 		'checkout-update' => [ 'checkout/update' ],
@@ -86,8 +88,11 @@ return $routes + [
 				],
 			],
 			'common' => [
+				'cache' => [
+					// 'force' => true // enforce caching for logged in users
+				],
 				'template' => [
-					// 'baseurl' => 'packages/aimeos/shop/themes/elegance',
+					// 'baseurl' => public_path( 'vendor/shop/themes/default' ), // for styling for e-mail templates
 				],
 			],
 			'catalog' => [
@@ -105,7 +110,7 @@ return $routes + [
 	'controller' => [
 		'frontend' => [
 			'catalog' => [
-				'levels-always' => 2
+				'levels-always' => 3 // number of category levels for mega menu
 			]
 		]
 	],
