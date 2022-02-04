@@ -1,6 +1,4 @@
-/ext
 /node_modules
-/public/hot
 /public/storage
 /public/vendor
 /storage/*.key
