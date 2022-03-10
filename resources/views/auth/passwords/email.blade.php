@@ -1,4 +1,4 @@
-@extends('shop::base')
+@extends(( app( 'aimeos.context' )->get()->locale()->getSiteItem()->getTheme() ?: 'shop' ) . '::base')
 
 @section('content')
 <div class="aimeos container auth">
