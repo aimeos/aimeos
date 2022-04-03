@@ -10,7 +10,7 @@
 namespace App;
 
 use Composer\Script\Event;
-use Symfony\Component\Process\Process;
+use Composer\Util\ProcessExecutor;
 use Symfony\Component\Process\PhpExecutableFinder;
 use Symfony\Component\Filesystem\Filesystem;
 
@@ -208,21 +208,8 @@ Made with <fg=green>love</> by the Aimeos community. Be a part of it!
 	 */
 	protected static function executeCommand( Event $event, $cmd, array $options = array() )
 	{
-		try {
-			$process = new Process( array_merge( [self::getPhp(), 'artisan', $cmd], $options ) );
-		} catch( \Throwable $t ) {
-			$process = new Process( '"' . self::getPhp() . '" artisan ' . $cmd . ' ' . implode( ' ', $options ) );
-		}
-
-		$process->setWorkingDirectory( getcwd() )->setTimeout( null )->setIdleTimeout( null );
-
-		$process->run( function( $type, $buffer ) use ( $event ) {
-			$event->getIO()->write( $buffer, false );
-		} );
-
-		if( !$process->isSuccessful() ) {
-			throw new \Symfony\Component\Process\Exception\ProcessFailedException( $process );
-		}
+		$process = new ProcessExecutor();
+		$process->execute( '"' . self::getPhp() . '" artisan ' . $cmd . ' ' . implode( ' ', $options ) );
 	}
 
 
