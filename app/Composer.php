@@ -208,7 +208,12 @@ Made with <fg=green>love</> by the Aimeos community. Be a part of it!
 	 */
 	protected static function executeCommand( Event $event, $cmd, array $options = array() )
 	{
-		$process = new Process( '"' . self::getPhp() . '" artisan ' . $cmd . ' ' . implode( ' ', $options ) );
+		try {
+			$process = new Process( array_merge( [self::getPhp(), 'artisan', $cmd], $options ) );
+		} catch( \Throwable $t ) {
+			$process = new Process( '"' . self::getPhp() . '" artisan ' . $cmd . ' ' . implode( ' ', $options ) );
+		}
+
 		$process->setWorkingDirectory( getcwd() )->setTimeout( null )->setIdleTimeout( null );
 
 		$process->run( function( $type, $buffer ) use ( $event ) {
