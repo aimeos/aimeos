@@ -54,7 +54,8 @@ return $routes + [
 		'checkout-confirm' => [ 'checkout/confirm','catalog/tree','catalog/search' ],
 		'checkout-index' => [ 'checkout/standard' ],
 		'checkout-update' => [ 'checkout/update' ],
-		'supplier-detail' => ['basket/mini','catalog/tree','catalog/search','supplier/detail','catalog/lists'],
+		'supplier-detail' => [ 'basket/mini','catalog/tree','catalog/search','supplier/detail','catalog/lists' ],
+		'cms' => [ 'basket/mini','catalog/tree','cms/page' ],
 	],
 
 
