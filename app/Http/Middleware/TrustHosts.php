@@ -12,7 +12,7 @@ class TrustHosts extends Middleware
      * Handle the incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  callable  $next
+     * @param  \Closure  $next
      * @return \Illuminate\Http\Response
      */
     public function handle(Request $request, $next)
@@ -27,6 +27,7 @@ class TrustHosts extends Middleware
 
     public function hosts()
     {
+        return [];
     }
 
 
@@ -34,9 +35,9 @@ class TrustHosts extends Middleware
      * Get the host patterns that should be trusted.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return array
+     * @return array<int, string|null>
      */
-    public function trusted(Request $request)
+    protected function trusted(Request $request)
     {
         if($domain = $request->route()->getDomain()) {
             $domain = DB::table( 'mshop_locale_site' )->where('code', $domain)->first();

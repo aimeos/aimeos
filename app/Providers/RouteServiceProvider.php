@@ -17,16 +17,24 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/';
+    public const HOME = '/profile';
+
 
     /**
-     * The controller namespace for the application.
+     * Returns the relative URL to the home of the user
      *
-     * When present, controller route declarations will automatically be prefixed with this namespace.
-     *
-     * @var string|null
+     * @return string Relative URL
      */
-    // protected $namespace = 'App\\Http\\Controllers';
+
+    public static function home()
+    {
+        if( config( 'app.shop_registration' ) ) {
+            return '/admin';
+        }
+
+        return airoute( 'aimeos_shop_account' );
+    }
+
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -40,11 +48,9 @@ class RouteServiceProvider extends ServiceProvider
         $this->routes(function () {
             Route::prefix('api')
                 ->middleware('api')
-                ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
-                ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
     }
@@ -57,7 +63,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function configureRateLimiting()
     {
         RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
+            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
     }
 }

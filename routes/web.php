@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +25,7 @@ if( env( 'SHOP_MULTILOCALE' ) )
 
 Route::group($locale ?? [], function() {
 
-    Auth::routes(['verify' => true]);
+    require __DIR__.'/auth.php';
 
     Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
 
