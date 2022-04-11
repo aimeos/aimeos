@@ -33,7 +33,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate();
+        $this->check($request);
 
         $user = $this->user($request);
 
@@ -76,9 +76,9 @@ class RegisteredUserController extends Controller
      * Returns the newly created user
      *
      * @param  \Illuminate\Http\Request $request
-     * @return \App\Model\User $user
+     * @return \App\Models\User $user
      */
-    protected function user(Request $request) : \App\Model\User
+    protected function user(Request $request) : \App\Models\User
     {
         $user = User::create([
             'name' => $request->code ?? $request->name,
@@ -116,10 +116,9 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    protected function validate(Request $request)
+    protected function check(Request $request)
     {
         $rules = [
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
