@@ -5,10 +5,10 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^8.0.2",
+        "php": "^8.0.10",
         "composer-runtime-api": "^2.1",
-        "aimeos/aimeos-laravel": "~2022.04",
-        "aimeos/ai-cms-grapesjs": "~2022.04",
+        "aimeos/aimeos-laravel": "dev-master",
+        "aimeos/ai-cms-grapesjs": "dev-master",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/breeze": "^1.9",
         "laravel/framework": "^9.2",
