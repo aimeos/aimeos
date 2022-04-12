@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^8.0.2",
+        "php": "^8.0.10",
         "composer-runtime-api": "^2.1",
         "aimeos/aimeos-laravel": "~2022.04",
         "aimeos/ai-cms-grapesjs": "~2022.04",
