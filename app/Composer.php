@@ -37,6 +37,8 @@ Congratulations! You successfully set up your <fg=green>Aimeos</> shop!
 <fg=cyan>Contribute</>: https://github.com/aimeos
 <fg=cyan>Give a star</>: https://github.com/aimeos/aimeos
 Made with <fg=green>love</> by the Aimeos community. Be a part of it!
+
+<fg=cyan>Setup cronjobs:</> https://aimeos.org/docs/latest/laravel/setup/#cronjobs
 ';
 
 
