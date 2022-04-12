@@ -2,10 +2,13 @@
 
 namespace App\Providers;
 
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Carbon;
+
 
 class AppServiceProvider extends ServiceProvider
 {
