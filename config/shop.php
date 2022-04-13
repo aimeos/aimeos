@@ -38,7 +38,7 @@ return $routes + [
 		'update' => [],
 	],
 
-	/*
+
 	'page' => [
 		// Docs: https://aimeos.org/docs/latest/laravel/extend/#adapt-pages
 		'account-index' => [ 'locale/select', 'basket/mini','catalog/tree','catalog/search','account/profile','account/review','account/subscription','account/history','account/favorite','account/watch','catalog/session' ],
@@ -57,7 +57,7 @@ return $routes + [
 		'supplier-detail' => [ 'locale/select','basket/mini','catalog/tree','catalog/search','supplier/detail','catalog/lists'],
 		'cms' => [ 'basket/mini','catalog/tree','cms/page' ],
 	],
-	*/
+
 
 	/*
 	'resource' => [
