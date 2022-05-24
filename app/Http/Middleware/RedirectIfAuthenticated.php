@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::home());
+                return redirect(config( 'app.shop_registration' ) ? '/admin' : airoute( 'aimeos_shop_account' ));
             }
         }
 
