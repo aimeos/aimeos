@@ -29,7 +29,4 @@ Route::group($locale ?? [], function() {
         require __DIR__.'/auth.php';
     });
 
-    Route::match(['GET', 'POST'], '{path?}', '\Aimeos\Shop\Controller\PageController@indexAction')
-        ->name('aimeos_page')->where( 'path', '.*' );
-
 });

@@ -12,6 +12,8 @@ if( config( 'app.shop_multishop' ) || config( 'app.shop_registration' ) ) {
 		'account' => ['prefix' => $prefix . 'profile/{site}', 'middleware' => ['web', 'auth', 'verified']],
 		'default' => ['prefix' => $prefix . 'shop/{site}', 'middleware' => ['web']],
 		'supplier' => ['prefix' => $prefix . 's/{site}', 'middleware' => ['web']],
+		'home' => ['prefix' => '{site}', 'middleware' => ['web']],
+		'page' => ['prefix' => '{site}', 'middleware' => ['web']],
 		'update' => ['prefix' => '{site}'],
 	] ];
 }
@@ -35,6 +37,8 @@ return $routes + [
 		'account' => ['prefix' => $prefix . 'profile', 'middleware' => ['web', 'auth']],
 		'default' => ['prefix' => $prefix . 'shop', 'middleware' => ['web']],
 		'supplier' => ['prefix' => $prefix . 's', 'middleware' => ['web']],
+		'home' => ['prefix' => $prefix, 'middleware' => ['web']],
+		'page' => ['prefix' => $prefix, 'middleware' => ['web']],
 		'update' => [],
 	],
 
