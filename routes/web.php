@@ -13,20 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+$params = [];
+$conf = ['prefix' => '', 'where' => []];
+
 if( env( 'SHOP_MULTILOCALE' ) )
 {
-    $locale = ['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}(\_[a-zA-Z]{2})?']];
-
-    Route::get('/', function () {
-        return redirect(airoute('aimeos_home', ['locale' => app()->getLocale()]));
-    });
+    $conf['prefix'] .= '{locale}';
+    $conf['where']['locale'] = '[a-zA-Z]{2}(\_[a-zA-Z]{2})?';
+    $params = ['locale' => app()->getLocale()];
 }
 
+if( env( 'SHOP_MULTISHOP' ) )
+{
+    $conf['prefix'] .= '/{site}';
+    $conf['where']['site'] = '[A-Za-z0-9\.\-]+';
+}
 
-Route::group($locale ?? [], function() {
+Route::get('/', function () use ($params) {
+    return redirect(airoute('aimeos_home', $params));
+});
 
-    Route::group(['prefix' => 'auth'], function() {
-        require __DIR__.'/auth.php';
-    });
-
+Route::group($conf ?? [], function() {
+    require __DIR__.'/auth.php';
 });
