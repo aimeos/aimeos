@@ -5,15 +5,15 @@ $prefix = config( 'app.shop_multilocale' ) ? '{locale}/' : '';
 
 if( config( 'app.shop_multishop' ) || config( 'app.shop_registration' ) ) {
 	$routes = ['routes' => [
-		'admin' => ['prefix' => 'admin', 'middleware' => ['web', 'verified']],
+		'admin' => ['prefix' => 'admin', 'middleware' => ['web']],
 		'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth', 'verified']],
 		'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth', 'verified']],
-		'jsonapi' => ['prefix' => 'jsonapi/{site}', 'middleware' => ['web', 'api']],
-		'account' => ['prefix' => $prefix . 'profile/{site}', 'middleware' => ['web', 'auth', 'verified']],
-		'default' => ['prefix' => $prefix . 'shop/{site}', 'middleware' => ['web']],
-		'supplier' => ['prefix' => $prefix . 's/{site}', 'middleware' => ['web']],
+		'jsonapi' => ['prefix' => '{site}/jsonapi', 'middleware' => ['web', 'api']],
+		'account' => ['prefix' => $prefix . '{site}/profile', 'middleware' => ['web', 'auth', 'verified']],
+		'default' => ['prefix' => $prefix . '{site}/shop', 'middleware' => ['web']],
+		'supplier' => ['prefix' => $prefix . '{site}/s', 'middleware' => ['web']],
+		'page' => ['prefix' => $prefix . '{site}/p', 'middleware' => ['web']],
 		'home' => ['prefix' => $prefix . '{site}', 'middleware' => ['web']],
-		'page' => ['prefix' => $prefix . '{site}', 'middleware' => ['web']],
 		'update' => ['prefix' => '{site}'],
 	] ];
 }
@@ -37,8 +37,8 @@ return $routes + [
 		'account' => ['prefix' => $prefix . 'profile', 'middleware' => ['web', 'auth']],
 		'default' => ['prefix' => $prefix . 'shop', 'middleware' => ['web']],
 		'supplier' => ['prefix' => $prefix . 's', 'middleware' => ['web']],
+		'page' => ['prefix' => $prefix . 'p', 'middleware' => ['web']],
 		'home' => ['prefix' => $prefix, 'middleware' => ['web']],
-		'page' => ['prefix' => $prefix, 'middleware' => ['web']],
 		'update' => [],
 	],
 
