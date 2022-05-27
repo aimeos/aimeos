@@ -27,9 +27,10 @@ class EnsureEmailIsVerified
             if( env( 'SHOP_MULTILOCALE' ) ) {
                 $params['locale'] = $request->route( 'locale', $request->input( 'locale', app()->getLocale() ) );
             }
+
             return $request->expectsJson()
                 ? abort(403, 'Your email address is not verified.')
-                : Redirect::guest(URL::route($redirectToRoute ?: 'verification.notice', $params));
+                : Redirect::guest(airoute($redirectToRoute ?: 'verification.notice', $params));
         }
 
         return $next($request);
