@@ -19,7 +19,7 @@ $conf = ['prefix' => '', 'where' => []];
 if( env( 'SHOP_MULTILOCALE' ) )
 {
     $conf['prefix'] .= '{locale}';
-    $conf['where']['locale'] = '[a-zA-Z]{2}(\_[a-zA-Z]{2})?';
+    $conf['where']['locale'] = '[a-z]{2}(\_[A-Z]{2})?';
     $params = ['locale' => app()->getLocale()];
 
     Route::get('/admin', function () use ($params) {
