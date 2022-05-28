@@ -33,9 +33,12 @@ if( env( 'SHOP_MULTISHOP' ) )
     $conf['where']['site'] = '[A-Za-z0-9\.\-]+';
 }
 
-Route::get('/', function () use ($params) {
-    return redirect(airoute('aimeos_home', $params));
-});
+if( $conf['prefix'] )
+{
+    Route::get('/', function () use ($params) {
+        return redirect(airoute('aimeos_home', $params));
+    });
+}
 
 Route::group($conf ?? [], function() {
     require __DIR__.'/auth.php';
