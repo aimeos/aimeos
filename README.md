@@ -1,15 +1,68 @@
-:star: Star us on [GitHub](https://github.com/aimeos/aimeos/stargazers) — it motivates us a lot! 😀
+<p align="center">
+    <a href="https://aimeos.org/">
+        <img src="https://aimeos.org/fileadmin/template/icons/logo.png" alt="Aimeos logo" title="Aimeos" align="center" />
+    </a>
+<p>
 
-![Aimeos GitHub stats](https://github-readme-stats.vercel.app/api?username=aimeos&count_private=true&include_all_commits=true&show_icons=true&bg_color=90,103050,109095&title_color=fff&text_color=fff&icon_color=fff&hide=prs)
+<p align="center">
+    <a href="https://packagist.org/packages/aimeos/aimeos" alt="Total Downloads"><img src="https://poser.pugx.org/aimeos/aimeos/d/total.svg" alt="Total Downloads" title="Total Downloads" /></a>
+    <a href="https://packagist.org/packages/aimeos/aimeos" alt="Latest Stable Version"><img src="https://poser.pugx.org/aimeos/aimeos/v/stable.svg" alt="Latest Stable Version" title="Latest Stable Version" /></a>
+    <a href="https://packagist.org/packages/aimeos/aimeos" alt="License"><img src="https://img.shields.io/github/license/aimeos/aimeos" alt="License" title="License" /></a>
+    <a href="https://github.com/aimeos/aimeos/issues" alt="Open issues"><img src="https://img.shields.io/github/issues/aimeos/aimeos?color=brightgreen" alt="Open issues" title="Open issues" /></a>
+    <a href="https://github.com/aimeos/aimeos/issues" alt="Vulnerabilities"><img src="https://img.shields.io/snyk/vulnerabilities/github/aimeos/aimeos" alt="Vulnerabilities" title="Vulnerabilities" /></a>
+</p>
 
-<a href="https://aimeos.org/">
-    <img src="https://aimeos.org/fileadmin/template/icons/logo.png" alt="Aimeos logo" title="Aimeos" align="right" height="60" />
-</a>
+<p align="center" style="display: inline;">
+    <a href="https://www.transifex.com/aimeos/"><img src="https://flagicons.lipis.dev/flags/4x3/us.svg" title="English" width="24"></a>
+    <a href="https://www.transifex.com/aimeos/dashboard/all_projects/de/"><img src="https://flagicons.lipis.dev/flags/4x3/de.svg" title="German" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/fr/"><img src="https://flagicons.lipis.dev/flags/4x3/fr.svg" title="French" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/es/"><img src="https://flagicons.lipis.dev/flags/4x3/es.svg" title="Spanish" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/nl/"><img src="https://flagicons.lipis.dev/flags/4x3/nl.svg" title="Dutch" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/it/"><img src="https://flagicons.lipis.dev/flags/4x3/it.svg" title="Italian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/pt/"><img src="https://flagicons.lipis.dev/flags/4x3/pt.svg" title="Portuguese" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/da/"><img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" title="Danish" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/fi/"><img src="https://flagicons.lipis.dev/flags/4x3/fi.svg" title="Finnish" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/sv/"><img src="https://flagicons.lipis.dev/flags/4x3/sv.svg" title="Swedish" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/no/"><img src="https://flagicons.lipis.dev/flags/4x3/no.svg" title="Norwegian" width="24"></a>
+    &nbsp;&nbsp;&nbsp;
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/pl/"><img src="https://flagicons.lipis.dev/flags/4x3/pl.svg" title="Polish" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/hu/"><img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" title="Hungarian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ru/"><img src="https://flagicons.lipis.dev/flags/4x3/ru.svg" title="Russian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/uk/"><img src="https://flagicons.lipis.dev/flags/4x3/ua.svg" title="Ukrainian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/hr/"><img src="https://flagicons.lipis.dev/flags/4x3/hr.svg" title="Croatian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/sl/"><img src="https://flagicons.lipis.dev/flags/4x3/sl.svg" title="Slovenian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ro/"><img src="https://flagicons.lipis.dev/flags/4x3/ro.svg" title="Romanian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/cs/"><img src="https://flagicons.lipis.dev/flags/4x3/cz.svg" title="Czech" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/sr/"><img src="https://flagicons.lipis.dev/flags/4x3/sr.svg" title="Serbian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/sk/"><img src="https://flagicons.lipis.dev/flags/4x3/sk.svg" title="Slovak" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/et/"><img src="https://flagicons.lipis.dev/flags/4x3/et.svg" title="Estonian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/lv/"><img src="https://flagicons.lipis.dev/flags/4x3/lv.svg" title="Latvian" width="24"></a>
+    &nbsp;&nbsp;&nbsp;
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/tr/"><img src="https://flagicons.lipis.dev/flags/4x3/tr.svg" title="Turkish" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ar/"><img src="https://flagicons.lipis.dev/flags/4x3/sa.svg" title="Arabic" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/fa/"><img src="https://flagicons.lipis.dev/flags/4x3/ir.svg" title="Persian" width="24"></a>
+    &nbsp;&nbsp;&nbsp;
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/zh/"><img src="https://flagicons.lipis.dev/flags/4x3/cn.svg" title="Chinese" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ja/"><img src="https://flagicons.lipis.dev/flags/4x3/jp.svg" title="Japanese" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/id/"><img src="https://flagicons.lipis.dev/flags/4x3/id.svg" title="Indonesian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/vi/"><img src="https://flagicons.lipis.dev/flags/4x3/vi.svg" title="Vietnamese" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/my/"><img src="https://flagicons.lipis.dev/flags/4x3/my.svg" title="Burmese" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ko/"><img src="https://flagicons.lipis.dev/flags/4x3/kr.svg" title="Korean" width="24"></a>
+</p>
 
-# Aimeos Laravel ecommerce platform
+<p align="center">
+    <a href="https://github.com/aimeos/aimeos"><img src="https://img.shields.io/github/followers/aimeos?label=Followers&style=social"></a>
+    <a href="https://twitter.com/intent/follow?screen_name=aimeos"><img src="https://img.shields.io/twitter/follow/aimeos?style=social"></a>
+    <a href="https://www.youtube.com/c/Aimeos"><img src="https://img.shields.io/youtube/channel/subscribers/UCjKBbV2hSQjBy_8IkSkG4FQ?style=social"></a>
+</p>
 
-[![Total Downloads](https://poser.pugx.org/aimeos/aimeos/d/total.svg)](https://packagist.org/packages/aimeos/aimeos)
-[![License](https://poser.pugx.org/aimeos/aimeos/license.svg)](https://packagist.org/packages/aimeos/aimeos)
+<p align="center">:star: Star us on <a href="https://github.com/aimeos/aimeos/stargazers">GitHub</a> — it motivates us a lot! 😀</p>
+<p align="center">
+    <img src="https://github-readme-stats.vercel.app/api?username=aimeos&count_private=true&include_all_commits=true&show_icons=true&bg_color=90,103050,109095&title_color=fff&text_color=fff&icon_color=fff&hide=prs" alt="Aimeos GitHub stats" />
+<p>
+
+
+<h1 align="center">Aimeos - THE Laravel ecommerce platform</h1>
 
 [Aimeos](https://aimeos.org/Laravel) is THE professional, full-featured and
 high performance e-commerce platform! You can install it within 5 minutes
