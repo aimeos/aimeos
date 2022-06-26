@@ -12,44 +12,6 @@
     <a href="https://github.com/aimeos/aimeos/issues" alt="Vulnerabilities"><img src="https://img.shields.io/snyk/vulnerabilities/github/aimeos/aimeos" alt="Vulnerabilities" title="Vulnerabilities" /></a>
 </p>
 
-<p align="center" style="display: inline;">
-    <a href="https://www.transifex.com/aimeos/"><img src="https://flagicons.lipis.dev/flags/4x3/us.svg" title="English" width="24"></a>
-    <a href="https://www.transifex.com/aimeos/dashboard/all_projects/de/"><img src="https://flagicons.lipis.dev/flags/4x3/de.svg" title="German" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/fr/"><img src="https://flagicons.lipis.dev/flags/4x3/fr.svg" title="French" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/es/"><img src="https://flagicons.lipis.dev/flags/4x3/es.svg" title="Spanish" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/nl/"><img src="https://flagicons.lipis.dev/flags/4x3/nl.svg" title="Dutch" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/it/"><img src="https://flagicons.lipis.dev/flags/4x3/it.svg" title="Italian" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/pt/"><img src="https://flagicons.lipis.dev/flags/4x3/pt.svg" title="Portuguese" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/da/"><img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" title="Danish" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/fi/"><img src="https://flagicons.lipis.dev/flags/4x3/fi.svg" title="Finnish" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/sv/"><img src="https://flagicons.lipis.dev/flags/4x3/sv.svg" title="Swedish" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/no/"><img src="https://flagicons.lipis.dev/flags/4x3/no.svg" title="Norwegian" width="24"></a>
-    &nbsp;&nbsp;&nbsp;
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/pl/"><img src="https://flagicons.lipis.dev/flags/4x3/pl.svg" title="Polish" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/hu/"><img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" title="Hungarian" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ru/"><img src="https://flagicons.lipis.dev/flags/4x3/ru.svg" title="Russian" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/uk/"><img src="https://flagicons.lipis.dev/flags/4x3/ua.svg" title="Ukrainian" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/hr/"><img src="https://flagicons.lipis.dev/flags/4x3/hr.svg" title="Croatian" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/sl/"><img src="https://flagicons.lipis.dev/flags/4x3/sl.svg" title="Slovenian" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ro/"><img src="https://flagicons.lipis.dev/flags/4x3/ro.svg" title="Romanian" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/cs/"><img src="https://flagicons.lipis.dev/flags/4x3/cz.svg" title="Czech" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/sr/"><img src="https://flagicons.lipis.dev/flags/4x3/sr.svg" title="Serbian" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/sk/"><img src="https://flagicons.lipis.dev/flags/4x3/sk.svg" title="Slovak" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/et/"><img src="https://flagicons.lipis.dev/flags/4x3/et.svg" title="Estonian" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/lv/"><img src="https://flagicons.lipis.dev/flags/4x3/lv.svg" title="Latvian" width="24"></a>
-    &nbsp;&nbsp;&nbsp;
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/tr/"><img src="https://flagicons.lipis.dev/flags/4x3/tr.svg" title="Turkish" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ar/"><img src="https://flagicons.lipis.dev/flags/4x3/sa.svg" title="Arabic" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/fa/"><img src="https://flagicons.lipis.dev/flags/4x3/ir.svg" title="Persian" width="24"></a>
-    &nbsp;&nbsp;&nbsp;
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/zh/"><img src="https://flagicons.lipis.dev/flags/4x3/cn.svg" title="Chinese" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ja/"><img src="https://flagicons.lipis.dev/flags/4x3/jp.svg" title="Japanese" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/id/"><img src="https://flagicons.lipis.dev/flags/4x3/id.svg" title="Indonesian" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/vi/"><img src="https://flagicons.lipis.dev/flags/4x3/vi.svg" title="Vietnamese" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/my/"><img src="https://flagicons.lipis.dev/flags/4x3/my.svg" title="Burmese" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ko/"><img src="https://flagicons.lipis.dev/flags/4x3/kr.svg" title="Korean" width="24"></a>
-</p>
-
 <p align="center">
     <a href="https://github.com/aimeos/aimeos"><img src="https://img.shields.io/github/followers/aimeos?label=Followers&style=social"></a>
     <a href="https://twitter.com/intent/follow?screen_name=aimeos"><img src="https://img.shields.io/twitter/follow/aimeos?style=social"></a>
@@ -101,6 +63,48 @@ Aimeos is a full-featured e-commerce package:
 * High quality source code
 
 ... and [more Aimeos features](https://aimeos.org/features)
+
+Supported languages:
+
+
+<p align="center" style="display: inline;">
+    <a href="https://www.transifex.com/aimeos/"><img src="https://flagicons.lipis.dev/flags/4x3/us.svg" title="English" width="24"></a>
+    <a href="https://www.transifex.com/aimeos/dashboard/all_projects/de/"><img src="https://flagicons.lipis.dev/flags/4x3/de.svg" title="German" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/fr/"><img src="https://flagicons.lipis.dev/flags/4x3/fr.svg" title="French" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/es/"><img src="https://flagicons.lipis.dev/flags/4x3/es.svg" title="Spanish" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/nl/"><img src="https://flagicons.lipis.dev/flags/4x3/nl.svg" title="Dutch" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/it/"><img src="https://flagicons.lipis.dev/flags/4x3/it.svg" title="Italian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/pt/"><img src="https://flagicons.lipis.dev/flags/4x3/pt.svg" title="Portuguese" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/da/"><img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" title="Danish" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/fi/"><img src="https://flagicons.lipis.dev/flags/4x3/fi.svg" title="Finnish" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/sv/"><img src="https://flagicons.lipis.dev/flags/4x3/sv.svg" title="Swedish" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/no/"><img src="https://flagicons.lipis.dev/flags/4x3/no.svg" title="Norwegian" width="24"></a>
+    &nbsp;&nbsp;&nbsp;
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/pl/"><img src="https://flagicons.lipis.dev/flags/4x3/pl.svg" title="Polish" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/hu/"><img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" title="Hungarian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ru/"><img src="https://flagicons.lipis.dev/flags/4x3/ru.svg" title="Russian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/uk/"><img src="https://flagicons.lipis.dev/flags/4x3/ua.svg" title="Ukrainian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/hr/"><img src="https://flagicons.lipis.dev/flags/4x3/hr.svg" title="Croatian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/sl/"><img src="https://flagicons.lipis.dev/flags/4x3/sl.svg" title="Slovenian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ro/"><img src="https://flagicons.lipis.dev/flags/4x3/ro.svg" title="Romanian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/cs/"><img src="https://flagicons.lipis.dev/flags/4x3/cz.svg" title="Czech" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/sr/"><img src="https://flagicons.lipis.dev/flags/4x3/sr.svg" title="Serbian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/sk/"><img src="https://flagicons.lipis.dev/flags/4x3/sk.svg" title="Slovak" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/et/"><img src="https://flagicons.lipis.dev/flags/4x3/et.svg" title="Estonian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/lv/"><img src="https://flagicons.lipis.dev/flags/4x3/lv.svg" title="Latvian" width="24"></a>
+    &nbsp;&nbsp;&nbsp;
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/tr/"><img src="https://flagicons.lipis.dev/flags/4x3/tr.svg" title="Turkish" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ar/"><img src="https://flagicons.lipis.dev/flags/4x3/sa.svg" title="Arabic" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/fa/"><img src="https://flagicons.lipis.dev/flags/4x3/ir.svg" title="Persian" width="24"></a>
+    &nbsp;&nbsp;&nbsp;
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/zh/"><img src="https://flagicons.lipis.dev/flags/4x3/cn.svg" title="Chinese" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ja/"><img src="https://flagicons.lipis.dev/flags/4x3/jp.svg" title="Japanese" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/id/"><img src="https://flagicons.lipis.dev/flags/4x3/id.svg" title="Indonesian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/vi/"><img src="https://flagicons.lipis.dev/flags/4x3/vi.svg" title="Vietnamese" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/my/"><img src="https://flagicons.lipis.dev/flags/4x3/my.svg" title="Burmese" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ko/"><img src="https://flagicons.lipis.dev/flags/4x3/kr.svg" title="Korean" width="24"></a>
+</p>
+
 
 Check out the demos:
 
