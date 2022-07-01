@@ -39,7 +39,7 @@ class TrustHosts extends Middleware
      */
     protected function trusted(Request $request)
     {
-        if($domain = $request->route()->getDomain()) {
+        if($domain = parse_url($request->url(), PHP_URL_HOST)) {
             $domain = DB::table( 'mshop_locale_site' )->where('code', $domain)->first();
         }
 
