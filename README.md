@@ -5,7 +5,7 @@
 <p>
 
 <p align="center">
-    <a href="https://packagist.org/packages/aimeos/aimeos" alt="Total Downloads"><img src="https://poser.pugx.org/aimeos/aimeos/d/total.svg" alt="Total Downloads" title="Total Downloads" /></a>
+    <a href="https://packagist.org/packages/aimeos/aimeos" alt="Total Downloads"><img src="https://poser.pugx.org/aimeos/aimeos-laravel/d/total.svg" alt="Total Downloads" title="Total Downloads" /></a>
     <a href="https://packagist.org/packages/aimeos/aimeos" alt="Latest Stable Version"><img src="https://poser.pugx.org/aimeos/aimeos/v/stable.svg" alt="Latest Stable Version" title="Latest Stable Version" /></a>
     <a href="https://packagist.org/packages/aimeos/aimeos" alt="License"><img src="https://img.shields.io/github/license/aimeos/aimeos" alt="License" title="License" /></a>
     <a href="https://github.com/aimeos/aimeos/issues" alt="Open issues"><img src="https://img.shields.io/github/issues/aimeos/aimeos?color=brightgreen" alt="Open issues" title="Open issues" /></a>
