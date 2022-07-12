@@ -14,7 +14,7 @@
     "require": {
         "php": "^8.0.10",
         "composer-runtime-api": "^2.1",
-        "aimeos/aimeos-laravel": "dev-master",
+        "aimeos/aimeos-laravel": "~2022.07",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/breeze": "^1.9",
         "laravel/framework": "^9.2",
