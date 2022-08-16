@@ -1,9 +1,9 @@
 # For more information: https://laravel.com/docs/sail
 version: '3'
 services:
-    aimeos.test:
+    laravel.test:
         build:
-            context: ./docker/8.1
+            context: ./vendor/laravel/sail/runtimes/8.1
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
@@ -26,6 +26,7 @@ services:
             - mysql
             - redis
             - meilisearch
+            - minio
             - selenium
     mysql:
         image: 'mysql/mysql-server:8.0'
@@ -59,6 +60,12 @@ services:
             test: ["CMD", "redis-cli", "ping"]
             retries: 3
             timeout: 5s
+    memcached:
+        image: 'memcached:alpine'
+        ports:
+            - '11211:11211'
+        networks:
+            - sail
     meilisearch:
         image: 'getmeili/meilisearch:latest'
         ports:
@@ -69,6 +76,23 @@ services:
             - sail
         healthcheck:
             test: ["CMD", "wget", "--no-verbose", "--spider",  "http://localhost:7700/health"]
+            retries: 3
+            timeout: 5s
+    minio:
+        image: 'minio/minio:latest'
+        ports:
+            - '${FORWARD_MINIO_PORT:-9000}:9000'
+            - '${FORWARD_MINIO_CONSOLE_PORT:-8900}:8900'
+        environment:
+            MINIO_ROOT_USER: 'sail'
+            MINIO_ROOT_PASSWORD: 'password'
+        volumes:
+            - 'sail-minio:/data/minio'
+        networks:
+            - sail
+        command: minio server /data/minio --console-address ":8900"
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
             retries: 3
             timeout: 5s
     mailhog:
@@ -93,4 +117,6 @@ volumes:
     sail-redis:
         driver: local
     sail-meilisearch:
+        driver: local
+    sail-minio:
         driver: local
