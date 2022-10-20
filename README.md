@@ -117,6 +117,14 @@ Want to **integrate Aimeos** into your **existing application**?
 
 Use the [Aimeos Laravel package](https://github.com/aimeos/aimeos-laravel) directly!
 
+## Headless distribution
+
+If you want to build a single page application (SPA) resp a progressive web application (PWA)
+yourself and don't need the Aimeos HTML frontend, then the Aimeos headless distribution is
+the right choice:
+
+[Aimeos headless distribution](https://github.com/aimeos/aimeos-headless)
+
 ## Table of content
 
 - [Requirements](#requirements)
