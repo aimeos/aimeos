@@ -39,7 +39,7 @@ Aimeos is a full-featured e-commerce package:
 * Multi vendor, multi channel and multi warehouse
 * From one to 1,000,000,000+ items
 * Extremly fast down to 20ms
-* For multi-tentant e-commerce SaaS solutions
+* For multi-tentant e-commerce SaaS solutions with unlimited vendors
 * Bundles, vouchers, virtual, configurable, custom and event products
 * Subscriptions with recurring payments
 * 100+ payment gateways
@@ -52,6 +52,7 @@ Aimeos is a full-featured e-commerce package:
 * Beautiful admin dashboard
 * Configurable product data sets
 * JSON REST API based on jsonapi.org
+* GraphQL API for administration
 * Completly modular structure
 * Extremely configurable and extensible
 * Extension for market places with millions of vendors
@@ -111,17 +112,21 @@ Check out the demos:
 * [Aimeos frontend demo](https://laravel.demo.aimeos.org)
 * [Aimeos admin demo](https://admin.demo.aimeos.org)
 
-## Package only
+## Alternatives
 
-Want to **integrate Aimeos** into your **existing application**?
+### Integrate into existing applications
 
-Use the [Aimeos Laravel package](https://github.com/aimeos/aimeos-laravel) directly!
+You already have an existing Laravel application and want to add a shop to your
+web site? Install the Aimeos composer package for Laravel and add e-commerce to
+your existing application in minutes:
 
-## Headless distribution
+[Aimeos Laravel package](https://github.com/aimeos/aimeos-laravel)
 
-If you want to build a single page application (SPA) resp a progressive web application (PWA)
-yourself and don't need the Aimeos HTML frontend, then the Aimeos headless distribution is
-the right choice:
+### Headless distribution
+
+If you want to build a single page application (SPA) respectively a progressive web
+application (PWA) yourself and don't need the Aimeos HTML frontend, then the Aimeos
+headless distribution is the right choice:
 
 [Aimeos headless distribution](https://github.com/aimeos/aimeos-headless)
 
@@ -140,14 +145,14 @@ the right choice:
 
 The Aimeos shop distribution requires:
 - Linux/Unix, WAMP/XAMP or MacOS environment
-- PHP >= 7.3 (Aimeos 2021.10), PHP >= 8.0 (Aimeos 2022.04+)
-- MySQL >= 5.7.8, MariaDB >= 10.2.2
+- PHP >= 7.3 (Aimeos 2021.10), PHP >= 8.0 (Aimeos 2022.10+)
+- MySQL >= 5.7.8, MariaDB >= 10.2.2, PostgreSQL 9.6+, SQL Server 2019+
 - Web server (Apache, Nginx or integrated PHP web server for testing)
 
 If required PHP extensions are missing, `composer` will tell you about the missing
 dependencies.
 
-If you want to **upgrade between major versions**, please have a look into the
+If you want to upgrade between major versions, please have a look into the
 [upgrade guide](https://aimeos.org/docs/latest/laravel/setup/#upgrade)!
 
 ## Installation
