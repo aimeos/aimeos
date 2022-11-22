@@ -26,8 +26,8 @@
 
 <h1 align="center">Aimeos - THE Laravel ecommerce platform</h1>
 
-[Aimeos](https://aimeos.org/Laravel) is THE professional, full-featured and
-high performance e-commerce platform! You can install it within 5 minutes
+[Aimeos](https://aimeos.org/Laravel) is THE ultra-fast, cloud-native and
+API-first e-commerce platform! You can install it within 5 minutes
 and can adapt, extend, overwrite and customize anything to your needs.
 
 [![Aimeos Laravel demo](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-github.png)](https://laravel.demo.aimeos.org)
@@ -36,6 +36,9 @@ and can adapt, extend, overwrite and customize anything to your needs.
 
 Aimeos is a full-featured e-commerce package:
 
+* JSON REST API based on jsonapi.org
+* GraphQL API for administration
+* Perfect fit for AWS, Google, Azure and Kubernetes based clouds
 * Multi vendor, multi channel and multi warehouse
 * From one to 1,000,000,000+ items
 * Extremly fast down to 20ms
@@ -51,8 +54,6 @@ Aimeos is a full-featured e-commerce package:
 * Full-featured admin backend
 * Beautiful admin dashboard
 * Configurable product data sets
-* JSON REST API based on jsonapi.org
-* GraphQL API for administration
 * Completly modular structure
 * Extremely configurable and extensible
 * Extension for market places with millions of vendors
@@ -112,9 +113,15 @@ Check out the demos:
 * [Aimeos frontend demo](https://laravel.demo.aimeos.org)
 * [Aimeos admin demo](https://admin.demo.aimeos.org)
 
-## Alternatives
+## Headless distribution
 
-### Integrate into existing applications
+To build a single page application (SPA) respectively a progressive web
+application (PWA), the Aimeos headless distribution is the right choice
+with API-only and JWT authentication pre-configured:
+
+:star:  [Aimeos headless distribution](https://github.com/aimeos/aimeos-headless)
+
+## Integrate into existing applications
 
 You already have an existing Laravel application and want to add a shop to your
 web site? Install the Aimeos composer package for Laravel and add e-commerce to
@@ -122,15 +129,7 @@ your existing application in minutes:
 
 :star:  [Aimeos Laravel package](https://github.com/aimeos/aimeos-laravel)
 
-### Headless distribution
-
-If you want to build a single page application (SPA) respectively a progressive web
-application (PWA) yourself and don't need the Aimeos HTML frontend, then the Aimeos
-headless distribution is the right choice:
-
-:star:  [Aimeos headless distribution](https://github.com/aimeos/aimeos-headless)
-
-## Table of content
+## Standalone application
 
 - [Requirements](#requirements)
 - [Installation](#installation)
