@@ -21,10 +21,6 @@ if( env( 'SHOP_MULTILOCALE' ) )
     $conf['prefix'] .= '{locale}';
     $conf['where']['locale'] = '[a-z]{2}(\_[A-Z]{2})?';
     $params = ['locale' => app()->getLocale()];
-
-    Route::get('/admin', function () use ($params) {
-        return redirect(airoute('aimeos_shop_admin', $params));
-    });
 }
 
 if( env( 'SHOP_MULTISHOP' ) )
