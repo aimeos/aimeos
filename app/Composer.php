@@ -58,14 +58,21 @@ Made with <fg=green>love</> by the Aimeos community. Be a part of it!
 		$email = $io->ask( '- E-Mail: ' );
 		$passwd = $io->askAndHideAnswer( '- Password: ' );
 
-		$options = [
-			escapeshellarg( $email ),
-			'--password=' . escapeshellarg( $passwd ),
-			'--super',
-			'--admin'
-		];
+		if( $email && $passwd )
+		{
+			$options = [
+				escapeshellarg( $email ),
+				'--password=' . escapeshellarg( $passwd ),
+				'--super',
+				'--admin'
+			];
 
-		self::executeCommand( $event, 'aimeos:account', $options );
+			self::executeCommand( $event, 'aimeos:account', $options );
+		}
+		else
+		{
+			$io->write( 'No e-mail and password, skipped creating admin account' );
+		}
 	}
 
 
