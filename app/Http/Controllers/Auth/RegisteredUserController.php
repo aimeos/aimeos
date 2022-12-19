@@ -87,7 +87,7 @@ class RegisteredUserController extends Controller
             'siteid' => $this->siteid($request),
         ]);
 
-        if( config( 'app.shop_registration' ) )
+        if( config( 'app.shop_multishop' ) && config( 'app.shop_registration' ) )
         {
             $context = app( 'aimeos.context' )->get();
             $group = config( 'app.shop_permission', 'admin' );
@@ -123,7 +123,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
 
-        if( config( 'app.shop_registration' ) ) {
+        if( config( 'app.shop_multishop' ) && config( 'app.shop_registration' ) ) {
             $rules['code'] = ['required', 'string', 'max:255', 'unique:mshop_locale_site', 'regex:/^[a-z0-9\-]+(\.[a-z0-9\-]+)?$/i'];
         } else {
             $rules['name'] = ['required', 'string', 'max:255'];
