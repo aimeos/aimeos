@@ -24,8 +24,13 @@ class EnsureEmailIsVerified
             ! $request->user()->hasVerifiedEmail())
         ) {
             $params = [];
+
             if( env( 'SHOP_MULTILOCALE' ) ) {
                 $params['locale'] = $request->route( 'locale', $request->input( 'locale', app()->getLocale() ) );
+            }
+
+            if( env( 'SHOP_MULTISHOP' ) ) {
+                $params['site'] = $request->route( 'site', $request->input( 'site', config( 'shop.mshop.locale.site', 'default' ) ) );
             }
 
             return $request->expectsJson()

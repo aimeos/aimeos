@@ -47,6 +47,10 @@ class AppServiceProvider extends ServiceProvider
                 $params['locale'] = Request::route( 'locale', Request::input( 'locale', app()->getLocale() ) );
             }
 
+            if( env( 'SHOP_MULTISHOP' ) ) {
+                $params['site'] = Request::route( 'site', Request::input( 'site', config( 'shop.mshop.locale.site', 'default' ) ) );
+            }
+
             return URL::temporarySignedRoute('verification.verify', $time, $params);
         };
 
