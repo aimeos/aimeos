@@ -6,7 +6,7 @@
         <form method="POST" action="{{ airoute('register') }}">
             @csrf
 
-            @if(config('app.shop_registration'))
+            @if(config('app.shop_multishop') && config('app.shop_registration'))
                 <!-- Code -->
                 <div>
                     <x-label for="code" :value="__('Account')" />

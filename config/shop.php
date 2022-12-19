@@ -3,7 +3,7 @@
 $routes = [];
 $prefix = config( 'app.shop_multilocale' ) ? '{locale}/' : '';
 
-if( config( 'app.shop_multishop' ) || config( 'app.shop_registration' ) ) {
+if( config( 'app.shop_multishop' ) ) {
 	$routes = ['routes' => [
 		'admin' => ['prefix' => $prefix . 'admin', 'middleware' => ['web', 'auth', 'verified']],
 		'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth', 'verified']],
