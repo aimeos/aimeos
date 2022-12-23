@@ -57,7 +57,11 @@ class AppServiceProvider extends ServiceProvider
 
 
         View::composer('*', function ( $view ) {
-            $view->with( 'aimeossite', app( 'aimeos.context' )->get()->locale()->getSiteItem() );
+            try {
+                $view->with( 'aimeossite', app( 'aimeos.context' )->get()->locale()->getSiteItem() );
+            } catch( \Exception $e ) {
+                $view->with( 'aimeossite', \Aimeos\MShop::create( app( 'aimeos.context' )->get( false ), 'locale/site' )->create() );
+            }
         });
     }
 }
