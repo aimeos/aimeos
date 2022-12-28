@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/ready', function() {
+    return 'OK';
+});
+
 $params = [];
 $conf = ['prefix' => '', 'where' => []];
 
@@ -38,8 +42,4 @@ if( $conf['prefix'] )
 
 Route::group($conf ?? [], function() {
     require __DIR__.'/auth.php';
-});
-
-Route::get('/ready', function() {
-    return 'OK';
 });
