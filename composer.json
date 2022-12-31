@@ -50,9 +50,9 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "@php artisan key:generate --ansi",
+            "@php artisan key:generate --ansi --force",
             "App\\Composer::configure",
-            "@php artisan migrate",
+            "@php artisan migrate --force",
             "App\\Composer::setup",
             "App\\Composer::account",
             "App\\Composer::success"
