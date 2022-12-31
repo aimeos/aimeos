@@ -30,11 +30,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if( env('APP_ENV') === 'production' ) {
-            \Illuminate\Support\Facades\URL::forceScheme('https');
-        }
-
-
         Password::defaults(function () {
             $rule = Password::min( 8 );
             return $this->app->isProduction() ? $rule->mixedCase()->uncompromised() : $rule;
