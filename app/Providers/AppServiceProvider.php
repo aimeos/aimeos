@@ -44,11 +44,11 @@ class AppServiceProvider extends ServiceProvider
                 'hash' => sha1($notifiable->getEmailForVerification()),
             ];
 
-            if( env( 'SHOP_MULTILOCALE' ) ) {
+            if( config( 'app.shop_multilocale' ) ) {
                 $params['locale'] = Request::route( 'locale', Request::input( 'locale', app()->getLocale() ) );
             }
 
-            if( env( 'SHOP_MULTISHOP' ) ) {
+            if( config( 'app.shop_multishop' ) || config( 'app.shop_registration' ) ) {
                 $params['site'] = Request::route( 'site', Request::input( 'site', config( 'shop.mshop.locale.site', 'default' ) ) );
             }
 

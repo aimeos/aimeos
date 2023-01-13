@@ -56,10 +56,11 @@ class RegisteredUserController extends Controller
         $context = app( 'aimeos.context' )->get();
         $manager = \Aimeos\MShop::create( $context, 'locale/site' );
 
-        $root = $manager->find( config( 'shop.mshop.locale.site', 'default' ) );
+        $site = $request->route( 'site', $request->input( 'site', config( 'shop.mshop.locale.site', 'default' ) ) );
+        $root = $manager->find( $site );
         $siteId = $root->getSiteId();
 
-        if( config( 'app.shop_registration' ) )
+        if( config( 'app.shop_multishop' ) && config( 'app.shop_registration' ) )
         {
             $code = $request->code;
             $item = $manager->create()->setCode( $code )->setLabel( $code )->setStatus( 1 );
