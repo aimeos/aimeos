@@ -23,8 +23,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerPolicies();
-
         Gate::define('admin', function($user, $class, $roles) {
             if( isset( $user->superuser ) && $user->superuser ) {
                 return true;
