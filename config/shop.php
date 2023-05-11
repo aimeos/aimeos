@@ -5,7 +5,7 @@ $prefix = config( 'app.shop_multilocale' ) ? '{locale}/' : '';
 
 if( config( 'app.shop_multishop' ) ) {
 	$routes = ['routes' => [
-		'admin' => ['prefix' => $prefix . 'admin', 'middleware' => ['web', 'auth', 'verified']],
+		'admin' => ['prefix' => 'admin', 'middleware' => ['web']],
 		'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth', 'verified']],
 		'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth', 'verified']],
 		'jsonapi' => ['prefix' => '{site}/jsonapi', 'middleware' => ['web', 'api']],
