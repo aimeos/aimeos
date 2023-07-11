@@ -143,7 +143,7 @@ your existing application in minutes:
 
 The Aimeos shop distribution requires:
 - Linux/Unix, WAMP/XAMP or MacOS environment
-- PHP >= 7.3 (Aimeos 2021.10), PHP >= 8.0 (Aimeos 2022.10+)
+- PHP >= 8.0.11
 - MySQL >= 5.7.8, MariaDB >= 10.2.2, PostgreSQL 9.6+, SQL Server 2019+
 - Web server (Apache, Nginx or integrated PHP web server for testing)
 
@@ -161,13 +161,6 @@ On the CLI, execute this command for a complete installation including a working
 ```
 wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
 php composer create-project aimeos/aimeos myshop
-```
-
-If you are still using **PHP 7.3 or 7.4**, install Aimeos 2021.10 instead:
-
-```
-wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
-php composer create-project aimeos/aimeos:~2021.10 myshop
 ```
 
 You will be asked for the parameters of your database and mail server as well as an
