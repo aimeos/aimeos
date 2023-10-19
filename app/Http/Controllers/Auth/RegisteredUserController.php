@@ -84,7 +84,7 @@ class RegisteredUserController extends Controller
     protected function user(Request $request) : \App\Models\User
     {
         $user = User::create([
-            'name' => $request->code ?? $request->name,
+            'name' => strip_tags( $request->code ?? $request->name ),
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'siteid' => $this->siteid($request),
