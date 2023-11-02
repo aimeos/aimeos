@@ -6,11 +6,13 @@ $prefix = config( 'app.shop_multilocale' ) ? '{locale}/' : '';
 if( config( 'app.shop_multishop' ) ) {
 	$routes = ['routes' => [
 		'admin' => ['prefix' => 'admin', 'middleware' => ['web']],
+		'graphql' => ['prefix' => 'admin/{site}/graphql', 'middleware' => ['web', 'auth', 'verified']],
 		'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth', 'verified']],
 		'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth', 'verified']],
 		'jsonapi' => ['prefix' => '{site}/jsonapi', 'middleware' => ['web', 'api']],
 		'account' => ['prefix' => $prefix . '{site}/profile', 'middleware' => ['web', 'auth', 'verified']],
 		'default' => ['prefix' => $prefix . '{site}/shop', 'middleware' => ['web']],
+		'confirm' => ['prefix' => $prefix . '{site}/shop', 'middleware' => ['web']],
 		'supplier' => ['prefix' => $prefix . '{site}/s', 'middleware' => ['web']],
 		'page' => ['prefix' => $prefix . '{site}/p', 'middleware' => ['web']],
 		'home' => ['prefix' => $prefix . '{site}', 'middleware' => ['web']],
@@ -32,10 +34,12 @@ return $routes + [
 		// Multi-sites: https://aimeos.org/docs/latest/laravel/customize/#multiple-shops
 		'admin' => ['prefix' => 'admin', 'middleware' => ['web']],
 		'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']],
+		'graphql' => ['prefix' => 'admin/{site}/graphql', 'middleware' => ['web', 'auth']],
 		'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']],
 		'jsonapi' => ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']],
 		'account' => ['prefix' => $prefix . 'profile', 'middleware' => ['web', 'auth']],
 		'default' => ['prefix' => $prefix . 'shop', 'middleware' => ['web']],
+		'confirm' => ['prefix' => $prefix . 'shop', 'middleware' => ['web']],
 		'supplier' => ['prefix' => $prefix . 's', 'middleware' => ['web']],
 		'page' => ['prefix' => $prefix . 'p', 'middleware' => ['web']],
 		'home' => ['prefix' => $prefix, 'middleware' => ['web']],
