@@ -63,5 +63,10 @@ class AppServiceProvider extends ServiceProvider
                 $view->with( 'aimeossite', \Aimeos\MShop::create( app( 'aimeos.context' )->get( false ), 'locale/site' )->create() );
             }
         });
+
+
+        \Aimeos\Shop\Controller\ResolveController::register( 'cms', function( $context, $path ) {
+            return $this->cms( $context, $path );
+        });
     }
 }
