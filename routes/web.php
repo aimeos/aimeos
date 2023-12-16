@@ -47,9 +47,9 @@ Route::group($conf ?? [], function() {
 if( env( 'SHOP_MULTIROUTE' ) )
 {
     Route::group( ['middleware' => ['web']], function() {
-        Route::match( array( 'GET', 'POST' ), '/{xpath?}', array(
+        Route::match( array( 'GET', 'POST' ), '/{path?}', array(
             'as' => 'aimeos_resolve',
             'uses' => 'Aimeos\Shop\Controller\ResolveController@indexAction'
-        ) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'], 'xpath', '.*' );
+        ) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'], 'path', '.*' );
     });
 }
