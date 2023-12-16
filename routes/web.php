@@ -43,3 +43,13 @@ if( $conf['prefix'] )
 Route::group($conf ?? [], function() {
     require __DIR__.'/auth.php';
 });
+
+if( env( 'SHOP_MULTIROUTE' ) )
+{
+    Route::group( ['middleware' => ['web']], function() {
+        Route::match( array( 'GET', 'POST' ), '/{xpath?}', array(
+            'as' => 'aimeos_resolve',
+            'uses' => 'Aimeos\Shop\Controller\ResolveController@indexAction'
+        ) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'], 'xpath', '.*' );
+    });
+}
