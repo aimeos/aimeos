@@ -1,10 +1,10 @@
 <?php
 
-$routes = [];
-$prefix = config( 'app.shop_multilocale' ) ? '{locale}/' : '';
+$multishop = $multiroute = [];
+$prefix = env( 'SHOP_MULTILOCALE' ) ? '{locale}/' : '';
 
-if( config( 'app.shop_multishop' ) ) {
-	$routes = ['routes' => [
+if( env( 'SHOP_MULTISHOP' ) ) {
+	$multishop = ['routes' => [
 		'admin' => ['prefix' => 'admin', 'middleware' => ['web']],
 		'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth', 'verified']],
 		'graphql' => ['prefix' => 'admin/{site}/graphql', 'middleware' => ['web', 'auth', 'verified']],
@@ -22,14 +22,45 @@ if( config( 'app.shop_multishop' ) ) {
 	] ];
 }
 
+if( env( 'SHOP_MULTIROUTE' ) ) {
+	$multiroute = [
+		'client' => [
+			'html' => [
+				'catalog' => [
+					'tree' => [
+						'url' => [
+							'target' => 'aimeos_resolve',
+							'filter' => ['f_name', 'f_catid'],
+						],
+					],
+					'detail' => [
+						'url' => [
+							'target' => 'aimeos_resolve',
+							'filter' => ['d_name', 'd_prodid', 'd_pos'],
+						],
+					],
+					'lists' => [
+						'url' => [
+							'target' => 'aimeos_resolve',
+							'filter' => [],
+						],
+					],
 
-return $routes + [
+				]
+			]
+		]
+	];
+}
+
+return array_replace_recursive( $multiroute, $multishop + [
 
 	'apc_enabled' => false, // enable for maximum performance if APCu is available
 	'apc_prefix' => 'aimeos:', // prefix for caching config and translation in APCu
 	'num_formatter' => 'Locale', // locale based number formatter (alternative: "Standard")
 	'pcntl_max' => 4, // maximum number of parallel command line processes when starting jobs
 	'version' => env( 'APP_VERSION', 1 ), // shop CSS/JS file version
+	'roles' => ['admin', 'editor'], // user groups allowed to access the admin backend
+	'panel' => 'dashboard', // panel shown in admin backend after login
 
 	'routes' => [
 		// Docs: https://aimeos.org/docs/latest/laravel/extend/#custom-routes
@@ -227,4 +258,4 @@ return $routes + [
 	'backend' => [
 	],
 
-];
+] );
