@@ -27,13 +27,7 @@ if( env( 'SHOP_MULTIROUTE' ) ) {
 		'client' => [
 			'html' => [
 				'catalog' => [
-					'cms' => [
-						'page' => [
-							'url' => [
-								'target' => 'aimeos_resolve',
-							],
-						],
-					],
+					'multiroute' => true,
 					'detail' => [
 						'url' => [
 							'target' => 'aimeos_resolve',
@@ -50,6 +44,13 @@ if( env( 'SHOP_MULTIROUTE' ) ) {
 						'url' => [
 							'target' => 'aimeos_resolve',
 							'filter' => ['f_name', 'f_catid'],
+						],
+					],
+				],
+				'cms' => [
+					'page' => [
+						'url' => [
+							'target' => 'aimeos_resolve',
 						],
 					],
 				]
