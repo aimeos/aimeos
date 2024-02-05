@@ -29,7 +29,7 @@ class RouteServiceProvider extends ServiceProvider
     public static function home()
     {
         if( config( 'app.shop_registration' ) ) {
-            return '/admin';
+            return route('aimeos_shop_admin');
         }
 
         return airoute( 'aimeos_shop_account' );
