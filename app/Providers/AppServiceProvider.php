@@ -36,7 +36,16 @@ class AppServiceProvider extends ServiceProvider
         });
 
 
-        // for multi-locale setups
+        // for multi-locale/site setups
+        \Illuminate\Auth\Notifications\ResetPassword::createUrlUsing(function($notifiable, $token) {
+            return url(airoute('password.reset', [
+                'email' => $notifiable->getEmailForPasswordReset(),
+                'token' => $token,
+            ], false));
+        });
+
+
+        // for multi-locale/site setups
         \Illuminate\Auth\Notifications\VerifyEmail::$createUrlCallback = function($notifiable) {
             $time = Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60));
             $params = [
@@ -56,6 +65,7 @@ class AppServiceProvider extends ServiceProvider
         };
 
 
+        // Aimeos context for icon and logo in all Blade templates
         View::composer('*', function ( $view ) {
             try {
                 $view->with( 'aimeossite', app( 'aimeos.context' )->get()->locale()->getSiteItem() );
@@ -65,6 +75,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
 
+        // resolve CMS pages sharing same route as categories and products
         \Aimeos\Shop\Controller\ResolveController::register( 'cms', function( $context, $path ) {
             return $this->cms( $context, $path );
         });
