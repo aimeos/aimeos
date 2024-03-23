@@ -65,6 +65,15 @@ class AppServiceProvider extends ServiceProvider
         };
 
 
+        // Aimeos admin check for backend
+        Gate::define('admin', function($user, $class, $roles) {
+            if( isset( $user->superuser ) && $user->superuser ) {
+                return true;
+            }
+            return app( '\Aimeos\Shop\Base\Support' )->checkUserGroup( $user, $roles );
+        });
+
+
         // Aimeos context for icon and logo in all Blade templates
         View::composer('*', function ( $view ) {
             try {
