@@ -66,7 +66,7 @@ class AppServiceProvider extends ServiceProvider
 
 
         // Aimeos admin check for backend
-        Gate::define('admin', function($user, $class, $roles) {
+        \Illuminate\Support\Facades\Gate::define('admin', function($user, $class, $roles) {
             if( isset( $user->superuser ) && $user->superuser ) {
                 return true;
             }
