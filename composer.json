@@ -16,18 +16,18 @@
         "composer-runtime-api": "^2.2",
         "aimeos/aimeos-laravel": "dev-master",
         "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "^10.0",
-        "laravel/sanctum": "^3.2",
-        "laravel/tinker": "^2.8",
-        "laravel/breeze": "^1.18"
+        "laravel/framework": "^11.0",
+        "laravel/sanctum": "^4.0",
+        "laravel/tinker": "^2.9",
+        "laravel/breeze": "^2.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^7.0",
-        "phpunit/phpunit": "^10.0",
+        "nunomaduro/collision": "^8.1",
+        "phpunit/phpunit": "^10.0||^11.0",
         "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
