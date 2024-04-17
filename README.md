@@ -219,6 +219,19 @@ Then, the language will be added to the routes automatically. You can set up the
 languages in the ["Locale > Locale" panel](https://aimeos.org/docs/latest/manual/locales/)
 of the Aimeos admin backend.
 
+## Multe-routing
+
+If you want to have all category, product and page URLs as top level URLs like `/shoes`,
+`/my-sneaker` and `/about-us`, then you can enable the Aimeos multi-routing feature in
+your `./myshop/.env` file:
+
+```
+SHOP_MULTIROUTE=true
+```
+
+**Caution:** This will affect performance as it requires additional database queries for
+each request!
+
 ## Multi-vendor
 
 To enable multi-vendor features, add this settings to the `./myshop/.env` file:
