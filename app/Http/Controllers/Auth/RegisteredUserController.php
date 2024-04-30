@@ -43,7 +43,8 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(airoute( 'aimeos_home' ));
+        $params = config( 'app.shop_multishop' ) && config( 'app.shop_registration' ) && $request->code ? ['site' => $request->code] : [];
+        return redirect(airoute( 'aimeos_home', $params ));
     }
 
 
@@ -96,11 +97,11 @@ class RegisteredUserController extends Controller
             $group = config( 'app.shop_permission', 'admin' );
 
             $context->setLocale( \Aimeos\MShop::create( $context, 'locale' )->bootstrap( $request->code ) );
-            $groupId = \Aimeos\MShop::create( $context, 'customer/group' )->find( $group )->getId();
+            $groupId = \Aimeos\MShop::create( $context, 'group' )->find( $group )->getId();
 
             $manager = \Aimeos\MShop::create( $context, 'customer/lists' );
             $item = $manager->create()
-                ->setDomain( 'customer/group' )
+                ->setDomain( 'group' )
                 ->setParentId( $user->id )
                 ->setType( 'default' )
                 ->setRefId( $groupId );
