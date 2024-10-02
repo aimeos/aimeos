@@ -77,6 +77,8 @@ class RegisteredUserController extends Controller
                 $locale = $manager->create()->setSiteId( $site->getSiteId() )->setLanguageId( 'en' )->setCurrencyId( 'USD' );
                 $manager->save( $locale );
             }
+
+            $siteId = $site->getId();
         }
 
         return $siteId;
