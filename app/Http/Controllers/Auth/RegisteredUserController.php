@@ -103,19 +103,14 @@ class RegisteredUserController extends Controller
         if( config( 'app.shop_multishop' ) && config( 'app.shop_registration' ) )
         {
             $context = app( 'aimeos.context' )->get();
-            $group = config( 'app.shop_permission', 'admin' );
-
             $context->setLocale( \Aimeos\MShop::create( $context, 'locale' )->bootstrap( $request->code ) );
-            $groupId = \Aimeos\MShop::create( $context, 'group' )->find( $group )->getId();
 
-            $manager = \Aimeos\MShop::create( $context, 'customer/lists' );
-            $item = $manager->create()
-                ->setDomain( 'group' )
-                ->setParentId( $user->id )
-                ->setType( 'default' )
-                ->setRefId( $groupId );
+            $manager = \Aimeos\MShop::create( $context, 'customer' );
 
-            $manager->save( $item );
+            $group = \Aimeos\MShop::create( $context, 'group' )->find( config( 'app.shop_permission', 'admin' ) );
+            $customer = $manager->get( $user->id, ['group'] )->setGroups( [$group->getId() => $group->getCode()]);
+
+            $manager->save( $customer );
         }
 
         return $user;
