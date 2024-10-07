@@ -78,7 +78,7 @@ class RegisteredUserController extends Controller
                 $manager->save( $locale );
             }
 
-            $siteId = $site->getId();
+            $siteId = $site->getSiteId();
         }
 
         return $siteId;
