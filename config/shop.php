@@ -186,7 +186,10 @@ return array_replace_recursive( $multiroute, $multishop + [
 				],
 				'translate' => [
 					'key' => env( 'SHOP_DEEPL_APIKEY' )
-				]
+				],
+				'removebg' => [
+					'key' => env( 'SHOP_REMOVEBG_APIKEY' )
+				],
 			]
 		]
 	],
