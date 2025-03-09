@@ -16,7 +16,7 @@
         "composer-runtime-api": "^2.2",
         "aimeos/aimeos-laravel": "dev-master",
         "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "^11.0",
+        "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "laravel/breeze": "^2.0"
