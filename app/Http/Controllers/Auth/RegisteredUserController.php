@@ -71,13 +71,6 @@ class RegisteredUserController extends Controller
 
             \Aimeos\Setup::use( new \Aimeos\Bootstrap() )->context( $context )->verbose( '' )->up( $code );
 
-            if( $site->getSiteId() === $site->getId() . '.' )
-            {
-                $manager = \Aimeos\MShop::create( $context, 'locale' );
-                $locale = $manager->create()->setSiteId( $site->getSiteId() )->setLanguageId( 'en' )->setCurrencyId( 'USD' );
-                $manager->save( $locale );
-            }
-
             $siteId = $site->getSiteId();
         }
 
