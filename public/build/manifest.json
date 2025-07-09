@@ -1,12 +1,13 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-8712deff.css",
-    "isEntry": true,
-    "src": "resources/css/app.css"
+    "file": "assets/app-DxH9v7W1.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-211a03ca.js",
-    "isEntry": true,
-    "src": "resources/js/app.js"
+    "file": "assets/app-DNxiirP_.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
   }
 }
