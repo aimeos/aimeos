@@ -142,17 +142,21 @@ Made with <fg=green>love</> by the Aimeos community. Be a part of it!
 					'method' => 'POST',
 					'header' => ['Content-Type: application/json'],
 					'content' => json_encode( ['query' => 'mutation{
-                        _1: addStar(input:{clientMutationId:"_1",starrableId:"R_kgDOBiPing"}){clientMutationId}
-                        _2: addStar(input:{clientMutationId:"_2",starrableId:"R_kgDOAeFH2g"}){clientMutationId}
-                        _3: addStar(input:{clientMutationId:"_3",starrableId:"R_kgDOAZou5Q"}){clientMutationId}
-                        _4: addStar(input:{clientMutationId:"_4",starrableId:"R_kgDODUDlmg"}){clientMutationId}
-                        _5: addStar(input:{clientMutationId:"_5",starrableId:"R_kgDODqs9PA"}){clientMutationId}
-                        _6: addStar(input:{clientMutationId:"_6",starrableId:"R_kgDOGcKL7A"}){clientMutationId}
-                        _7: addStar(input:{clientMutationId:"_7",starrableId:"R_kgDOGeAkvw"}){clientMutationId}
-                        _8: addStar(input:{clientMutationId:"_8",starrableId:"R_kgDOG1PAJw"}){clientMutationId}
-                        _9: addStar(input:{clientMutationId:"_9",starrableId:"MDEwOlJlcG9zaXRvcnkyNDU0MjQyNw=="}){clientMutationId}
-                        _10: addStar(input:{clientMutationId:"_10",starrableId:"MDEwOlJlcG9zaXRvcnkyODc0MzEyNg=="}){clientMutationId}
-                        _11: addStar(input:{clientMutationId:"_11",starrableId:"MDEwOlJlcG9zaXRvcnkyNDE2MjI1Ng=="}){clientMutationId}
+						_1: addStar(input:{clientMutationId:"_1",starrableId:"R_kgDOBiPing"}){clientMutationId}
+						_2: addStar(input:{clientMutationId:"_2",starrableId:"R_kgDOAeFH2g"}){clientMutationId}
+						_3: addStar(input:{clientMutationId:"_3",starrableId:"R_kgDOAZou5Q"}){clientMutationId}
+						_4: addStar(input:{clientMutationId:"_4",starrableId:"R_kgDODUDlmg"}){clientMutationId}
+						_5: addStar(input:{clientMutationId:"_5",starrableId:"R_kgDODqs9PA"}){clientMutationId}
+						_6: addStar(input:{clientMutationId:"_6",starrableId:"R_kgDOGcKL7A"}){clientMutationId}
+						_7: addStar(input:{clientMutationId:"_7",starrableId:"R_kgDOGeAkvw"}){clientMutationId}
+						_8: addStar(input:{clientMutationId:"_8",starrableId:"R_kgDOG1PAJw"}){clientMutationId}
+						_9: addStar(input:{clientMutationId:"_9",starrableId:"MDEwOlJlcG9zaXRvcnkyNDU0MjQyNw=="}){clientMutationId}
+						_10: addStar(input:{clientMutationId:"_10",starrableId:"MDEwOlJlcG9zaXRvcnkyODc0MzEyNg=="}){clientMutationId}
+						_11: addStar(input:{clientMutationId:"_11",starrableId:"MDEwOlJlcG9zaXRvcnkyNDE2MjI1Ng=="}){clientMutationId}
+						_23: addStar(input:{clientMutationId:"_23",starrableId:"R_kgDOI_0CHQ"}){clientMutationId}
+						_24: addStar(input:{clientMutationId:"_24",starrableId:"R_kgDOQKpcCg"}){clientMutationId}
+						_25: addStar(input:{clientMutationId:"_25",starrableId:"R_kgDOQoGD-Q"}){clientMutationId}
+						_26: addStar(input:{clientMutationId:"_26",starrableId:"R_kgDOPoWclw"}){clientMutationId}
 						}'
 					] )
 				]
