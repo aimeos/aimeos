@@ -134,6 +134,7 @@ your existing application in minutes:
 - [Installation](#installation)
 - [Frontend](#frontend)
 - [Backend](#backend)
+- [MCP server](#mcp-server)
 - [Customize](#customize)
 - [Multi-language](#multi-language)
 - [Multi-routing](#multi-routing)
@@ -198,6 +199,53 @@ The Aimeos administration interface will be available at `/admin` in your VHost.
 the integrated PHP web server, call this URL: [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
 [![Aimeos admin backend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-backend.png?2021.04)](http://admin.demo.aimeos.org/)
+
+## MCP server
+
+AI agents like Claude or ChatGPT can manage your shop using the
+[Model Context Protocol](https://modelcontextprotocol.io) server available at
+`/admin/<site>/mcp`, e.g. [http://127.0.0.1:8000/admin/default/mcp](http://127.0.0.1:8000/admin/default/mcp)
+for the default site. It offers tools to search, create, update and delete products,
+categories, customers, orders and many more items.
+
+The endpoint requires a Laravel Sanctum API token of an admin, editor or super user.
+To create a token for an existing account, use:
+
+```bash
+php artisan tinker --execute 'echo App\Models\User::where("email", "me@example.com")->firstOrFail()->createToken("mcp")->plainTextToken;'
+```
+
+Pass the token in the `Authorization: Bearer <token>` header from your MCP client, e.g.
+for Claude Code:
+
+```bash
+claude mcp add --transport http aimeos http://127.0.0.1:8000/admin/default/mcp --header "Authorization: Bearer <token>"
+```
+
+Super users can use all tools while the available tools for other accounts depend on the
+permissions configured in `admin/mcp/resource`. To disable the MCP server, remove the `mcp`
+entry from the `routes` section in `config/shop.php`.
+
+### OAuth login
+
+Remote AI clients like Claude.ai or ChatGPT connectors require an OAuth login instead of
+API tokens. Users then add the MCP URL in their client, log in with their shop account and
+approve the access. To use OAuth via Laravel Passport instead of Sanctum tokens, run:
+
+```bash
+composer require laravel/passport
+php artisan passport:install
+```
+
+Afterwards, set the authentication method for the MCP server in your `.env` file:
+
+```
+SHOP_MCP_AUTH=passport
+```
+
+MCP clients register themselves automatically. By default, they can use any redirect URL;
+to restrict them, publish the configuration using `php artisan vendor:publish --tag=mcp-config`
+and adapt `redirect_domains` and `custom_schemes` in `config/mcp.php`.
 
 ## Customize
 
