@@ -16,10 +16,11 @@
         "composer-runtime-api": "^2.2",
         "aimeos/aimeos-laravel": "dev-master",
         "guzzlehttp/guzzle": "^7.2",
+        "laravel/breeze": "^2.0",
         "laravel/framework": "^13.0",
+        "laravel/mcp": "^1.0",
         "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^3.0",
-        "laravel/breeze": "^2.0"
+        "laravel/tinker": "^3.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -29,6 +30,9 @@
         "nunomaduro/collision": "^8.1",
         "phpunit/phpunit": "^11.0||^12.0",
         "spatie/laravel-ignition": "^2.0"
+    },
+    "suggest": {
+        "laravel/passport": "OAuth login for remote MCP clients like Claude.ai or ChatGPT (SHOP_MCP_AUTH=passport)"
     },
     "autoload": {
         "psr-4": {

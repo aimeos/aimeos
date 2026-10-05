@@ -2,6 +2,7 @@
 
 $multishop = $multiroute = [];
 $prefix = env( 'SHOP_MULTILOCALE' ) ? '{locale}/' : '';
+$mcpauth = env( 'SHOP_MCP_AUTH' ) === 'passport' ? ['auth:mcp', 'Laravel\Passport\Http\Middleware\CheckToken:mcp:use'] : ['auth:sanctum'];
 
 if( env( 'SHOP_MULTISHOP' ) ) {
 	$multishop = ['routes' => [
@@ -9,6 +10,7 @@ if( env( 'SHOP_MULTISHOP' ) ) {
 		'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth', 'verified']],
 		'graphql' => ['prefix' => 'admin/{site}/graphql', 'middleware' => ['web', 'auth', 'verified']],
 		'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth', 'verified']],
+		'mcp' => ['prefix' => 'admin/{site}/mcp', 'middleware' => array_merge( ['api'], $mcpauth )],
 		'jsonapi' => ['prefix' => '{site}/jsonapi', 'middleware' => ['web', 'api']],
 		'account' => ['prefix' => $prefix . '{site}/profile', 'middleware' => ['web', 'auth', 'verified']],
 		'default' => ['prefix' => $prefix . '{site}/shop', 'middleware' => ['web']],
@@ -76,6 +78,7 @@ return array_replace_recursive( $multiroute, $multishop + [
 		'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']],
 		'graphql' => ['prefix' => 'admin/{site}/graphql', 'middleware' => ['web', 'auth']],
 		'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']],
+		'mcp' => ['prefix' => 'admin/{site}/mcp', 'middleware' => array_merge( ['api'], $mcpauth )],
 		'jsonapi' => ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']],
 		'account' => ['prefix' => $prefix . 'profile', 'middleware' => ['web', 'auth']],
 		'default' => ['prefix' => $prefix . 'shop', 'middleware' => ['web']],

@@ -52,6 +52,11 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+            // OAuth discovery and client registration for MCP clients
+            if (config('app.shop_mcp_auth') === 'passport') {
+                Route::middleware('api')->group(fn () => \Laravel\Mcp\Facades\Mcp::oauthRoutes());
+            }
         });
     }
 
