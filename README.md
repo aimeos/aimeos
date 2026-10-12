@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://aimeos.org/">
-        <img src="https://aimeos.org/fileadmin/template/icons/logo.png" alt="Aimeos logo" title="Aimeos" align="center" />
+        <img src="https://aimeos.org/images/logo.png" alt="Aimeos logo" title="Aimeos" align="center" />
     </a>
 <p>
 
@@ -29,7 +29,7 @@
 API-first e-commerce platform! You can install it within 5 minutes
 and can adapt, extend, overwrite and customize anything to your needs.
 
-[![Aimeos Laravel demo](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-github.png)](https://laravel.demo.aimeos.org)
+[![Aimeos Laravel demo](https://aimeos.org/images/aimeos-github.png)](https://laravel.demo.aimeos.org)
 
 ## Features
 
@@ -191,14 +191,14 @@ After the installation, you can test the Aimeos shop frontend by calling the URL
 VHost in your browser. If you use the integrated PHP web server, you should browse
 this URL: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-[![Aimeos frontend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-frontend.jpg?2021.07)](http://laravel.demo.aimeos.org/)
+[![Aimeos frontend](https://aimeos.org/images/aimeos-frontend.jpg)](http://laravel.demo.aimeos.org/)
 
 ## Backend
 
 The Aimeos administration interface will be available at `/admin` in your VHost. When using
 the integrated PHP web server, call this URL: [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
-[![Aimeos admin backend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-backend.png?2021.04)](http://admin.demo.aimeos.org/)
+[![Aimeos admin backend](https://aimeos.org/images/aimeos-backend.png)](http://admin.demo.aimeos.org/)
 
 ## MCP server
 
