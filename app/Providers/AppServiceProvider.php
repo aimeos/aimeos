@@ -41,10 +41,12 @@ class AppServiceProvider extends ServiceProvider
 
         // for multi-locale/site setups
         \Illuminate\Auth\Notifications\ResetPassword::createUrlUsing(function($notifiable, $token) {
-            return url(airoute('password.reset', [
+            // site of the user, not of the request because the host can be forged to steal the token
+            return airoute('password.reset', array_filter([
                 'email' => $notifiable->getEmailForPasswordReset(),
+                'site' => config('app.shop_multishop') ? $notifiable->siteCode() : null,
                 'token' => $token,
-            ], false));
+            ]));
         });
 
 
@@ -61,7 +63,8 @@ class AppServiceProvider extends ServiceProvider
             }
 
             if( config( 'app.shop_multishop' ) || config( 'app.shop_registration' ) ) {
-                $params['site'] = Request::route( 'site', Request::input( 'site', config( 'shop.mshop.locale.site', 'default' ) ) );
+                // site of the user, not of the request because the host can be forged to steal the link
+                $params['site'] = $notifiable->siteCode();
             }
 
             return URL::temporarySignedRoute('verification.verify', $time, $params);

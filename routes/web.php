@@ -17,19 +17,30 @@ Route::get('/ready', function() {
     return 'OK';
 });
 
+// for reverse proxies issuing TLS certificates on demand (e.g. Caddy "ask")
+Route::get('/domain-check', function(\Illuminate\Http\Request $request) {
+    return \App\Http\Middleware\TrustHosts::shop((string) $request->query('domain')) ? 'OK' : abort(404);
+});
+
 $params = [];
 $conf = ['prefix' => '', 'where' => []];
 
-if( env( 'SHOP_MULTILOCALE' ) )
+if( config( 'app.shop_multilocale' ) )
 {
     $conf['prefix'] .= '{locale}';
     $conf['where']['locale'] = '[a-z]{2}(\_[A-Z]{2})?';
     $params = ['locale' => app()->getLocale()];
 }
 
-if( env( 'SHOP_MULTISHOP' ) )
+if( config( 'app.shop_multishop' ) )
 {
-    $conf['prefix'] .= '/{site}';
+    // shops routed by domain or subdomain, e.g. "{site}" or "{site}.example.com"
+    if( str_contains( $domain = (string) config( 'shop.routes.default.domain' ), '{site}' ) ) {
+        $conf['domain'] = $domain;
+    } else {
+        $conf['prefix'] .= '/{site}';
+    }
+
     $conf['where']['site'] = '[A-Za-z0-9\.\-]+';
 }
 

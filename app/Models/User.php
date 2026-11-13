@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
@@ -42,4 +43,17 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Returns the code of the site the user belongs to
+     *
+     * Used for links sent to the user instead of the request host, which can be forged.
+     *
+     * @return string Site code
+     */
+    public function siteCode(): string
+    {
+        return DB::table('mshop_locale_site')->where('siteid', (string) $this->siteid)->where('status', 1)->value('code')
+            ?: config('shop.mshop.locale.site', 'default');
+    }
 }

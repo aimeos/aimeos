@@ -3,13 +3,16 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Middleware\TrustHosts as Middleware;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class TrustHosts extends Middleware
 {
     /**
      * Handle the incoming request.
+     *
+     * Shops routed by domain or subdomain are trusted if the host belongs to an active site.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -18,33 +21,67 @@ class TrustHosts extends Middleware
     public function handle(Request $request, $next)
     {
         if ($this->shouldSpecifyTrustedHosts()) {
-            Request::setTrustedHosts(array_filter($this->trusted($request)));
+            Request::setTrustedHosts([]); // validate the host without the patterns of a previous request
+            $hosts = array_filter($this->hosts());
+
+            if (!array_filter($hosts, fn($pattern) => preg_match('{' . $pattern . '}i', $request->getHost()))
+                && static::shop($request->getHost())
+            ) {
+                $hosts[] = '^' . preg_quote($request->getHost()) . '$';
+            }
+
+            Request::setTrustedHosts($hosts);
         }
 
         return $next($request);
     }
 
 
+    /**
+     * Get the host patterns that should be trusted.
+     *
+     * @return array<int, string|null>
+     */
     public function hosts()
     {
-        return [];
+        $hosts = array_filter(array_map('trim', explode(',', (string) config('app.trusted_hosts', ''))));
+
+        return array_merge(
+            [$this->allSubdomainsOfApplicationUrl(), '^10\.\d+\.\d+\.\d+$'], // private IPs for Kubernetes probe checks
+            array_map(fn($host) => '^' . preg_quote(strtolower($host)) . '$', $hosts)
+        );
     }
 
 
     /**
-     * Get the host patterns that should be trusted.
+     * Tests if the host belongs to an active site if shops are routed by domain or subdomain
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array<int, string|null>
+     * @param string $host Host name like "myshop.example" or "vendor.example.com"
+     * @return bool TRUE if the host matches the shop domain, e.g. "{site}" or "{site}.example.com", of an active site
      */
-    protected function trusted(Request $request)
+    public static function shop(string $host): bool
     {
-        $domains = [$this->allSubdomainsOfApplicationUrl(), '10\.[0-9]+\.[0-9]+\.[0-9]+']; // private IPs for Kubernetes probe checks
+        $host = strtolower($host);
+        $domain = (string) config('shop.routes.default.domain');
 
-        if($domain = $request->host()) {
-            $domains[] = DB::table( 'mshop_locale_site' )->where('code', $domain)->first();
+        if (!config('app.shop_multishop') || !str_contains($domain, '{site}')) {
+            return false;
         }
 
-        return $domains;
+        if (Cache::get($key = 'shop-host:' . $host)) {
+            return true;
+        }
+
+        // same matching as the router does for the domain of the shop routes
+        $pattern = '/^' . str_replace('\\{site\\}', '([A-Za-z0-9\\.\\-]+)', preg_quote($domain, '/')) . '$/i';
+
+        if (preg_match($pattern, $host, $match)
+            && DB::table('mshop_locale_site')->where('code', $match[1])->where('status', 1)->exists()
+        ) {
+            Cache::put($key, true, 300);
+            return true;
+        }
+
+        return false;
     }
 }
