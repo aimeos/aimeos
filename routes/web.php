@@ -25,14 +25,14 @@ Route::get('/domain-check', function(\Illuminate\Http\Request $request) {
 $params = [];
 $conf = ['prefix' => '', 'where' => []];
 
-if( env( 'SHOP_MULTILOCALE' ) )
+if( config( 'app.shop_multilocale' ) )
 {
     $conf['prefix'] .= '{locale}';
     $conf['where']['locale'] = '[a-z]{2}(\_[A-Z]{2})?';
     $params = ['locale' => app()->getLocale()];
 }
 
-if( env( 'SHOP_MULTISHOP' ) )
+if( config( 'app.shop_multishop' ) )
 {
     $conf['prefix'] .= '/{site}';
     $conf['where']['site'] = '[A-Za-z0-9\.\-]+';
@@ -49,7 +49,7 @@ Route::group($conf ?? [], function() {
     require __DIR__.'/auth.php';
 });
 
-if( env( 'SHOP_MULTIROUTE' ) )
+if( config( 'app.shop_multiroute' ) )
 {
     Route::group( $conf + ['middleware' => ['web']], function() {
         Route::match( ['GET', 'POST'], '/{path?}', array(
