@@ -38,10 +38,11 @@ class AppServiceProvider extends ServiceProvider
 
         // for multi-locale/site setups
         \Illuminate\Auth\Notifications\ResetPassword::createUrlUsing(function($notifiable, $token) {
-            return url(airoute('password.reset', [
+            // never use the request host, it can be forged to steal the token
+            return \App\Support\SiteDomain::rootUrl($notifiable) . airoute('password.reset', [
                 'email' => $notifiable->getEmailForPasswordReset(),
                 'token' => $token,
-            ], false));
+            ], false);
         });
 
 
@@ -61,7 +62,14 @@ class AppServiceProvider extends ServiceProvider
                 $params['site'] = Request::route( 'site', Request::input( 'site', config( 'shop.mshop.locale.site', 'default' ) ) );
             }
 
-            return URL::temporarySignedRoute('verification.verify', $time, $params);
+            // never use the request host, it can be forged to steal the signed URL
+            URL::forceRootUrl(\App\Support\SiteDomain::rootUrl($notifiable));
+
+            try {
+                return URL::temporarySignedRoute('verification.verify', $time, $params);
+            } finally {
+                URL::forceRootUrl(null);
+            }
         };
 
 

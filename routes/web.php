@@ -17,6 +17,11 @@ Route::get('/ready', function() {
     return 'OK';
 });
 
+// for reverse proxies issuing TLS certificates on demand (e.g. Caddy "ask")
+Route::get('/domain-check', function(\Illuminate\Http\Request $request) {
+    return \App\Support\SiteDomain::exists((string) $request->query('domain')) ? 'OK' : abort(404);
+});
+
 $params = [];
 $conf = ['prefix' => '', 'where' => []];
 

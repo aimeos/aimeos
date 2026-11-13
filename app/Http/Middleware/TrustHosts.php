@@ -3,48 +3,36 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Middleware\TrustHosts as Middleware;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
+use App\Support\SiteDomain;
 
 class TrustHosts extends Middleware
 {
     /**
-     * Handle the incoming request.
+     * Get the host patterns that should be trusted.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return \Illuminate\Http\Response
+     * @return array<int, string|null>
      */
-    public function handle(Request $request, $next)
-    {
-        if ($this->shouldSpecifyTrustedHosts()) {
-            Request::setTrustedHosts(array_filter($this->trusted($request)));
-        }
-
-        return $next($request);
-    }
-
-
     public function hosts()
     {
-        return [];
+        $hosts = array_filter(array_map('trim', explode(',', (string) config('app.trusted_hosts', ''))));
+
+        return array_merge(
+            [$this->allSubdomainsOfApplicationUrl(), '^10\.\d+\.\d+\.\d+$'], // private IPs for Kubernetes probe checks
+            array_map(fn($host) => '^' . preg_quote(strtolower($host)) . '$', $hosts)
+        );
     }
 
 
     /**
-     * Get the host patterns that should be trusted.
+     * Determine if the application should specify trusted hosts.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array<int, string|null>
+     * Shop domains are checked by the reverse proxy (see /domain-check route)
+     * and emailed links never use the request host.
+     *
+     * @return bool
      */
-    protected function trusted(Request $request)
+    protected function shouldSpecifyTrustedHosts()
     {
-        $domains = [$this->allSubdomainsOfApplicationUrl(), '10\.[0-9]+\.[0-9]+\.[0-9]+']; // private IPs for Kubernetes probe checks
-
-        if($domain = $request->host()) {
-            $domains[] = DB::table( 'mshop_locale_site' )->where('code', $domain)->first();
-        }
-
-        return $domains;
+        return parent::shouldSpecifyTrustedHosts() && !SiteDomain::enabled();
     }
 }

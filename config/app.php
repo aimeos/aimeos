@@ -116,6 +116,25 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Trusted proxies and hosts
+    |--------------------------------------------------------------------------
+    |
+    | Comma separated list of IP addresses or CIDR ranges of the load balancers
+    | or reverse proxies in front of the application. Only these are allowed to
+    | set X-Forwarded-* headers. Use "*" only if the application isn't directly
+    | reachable from the internet.
+    |
+    | Additional host names (besides the one from APP_URL and its subdomains)
+    | the application is reachable by, e.g. custom domains of shops.
+    |
+    */
+
+    'trusted_proxies' => env('TRUSTED_PROXIES', '10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,127.0.0.1,::1'),
+
+    'trusted_hosts' => env('TRUSTED_HOSTS', ''),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |
