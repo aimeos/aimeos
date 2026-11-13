@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://aimeos.org/">
-        <img src="https://aimeos.org/images/logo.png" alt="Aimeos logo" title="Aimeos" align="center" />
+        <img src="https://aimeos.org/media/logo.png" alt="Aimeos logo" title="Aimeos" align="center" />
     </a>
 <p>
 
