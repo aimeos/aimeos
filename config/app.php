@@ -47,6 +47,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Enable multi-route URLs
+    |--------------------------------------------------------------------------
+    |
+    | Resolves categories, products and CMS pages by their URL path without
+    | a fixed route prefix like "/shop".
+    |
+    */
+
+    'shop_multiroute' => env('SHOP_MULTIROUTE', false),
+
+    /*
+    |--------------------------------------------------------------------------
     | Enable merchant registration
     |--------------------------------------------------------------------------
     |

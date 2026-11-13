@@ -25,11 +25,11 @@ class EnsureEmailIsVerified
         ) {
             $params = [];
 
-            if( env( 'SHOP_MULTILOCALE' ) ) {
+            if( config( 'app.shop_multilocale' ) ) {
                 $params['locale'] = $request->route( 'locale', $request->input( 'locale', app()->getLocale() ) );
             }
 
-            if( env( 'SHOP_MULTISHOP' ) ) {
+            if( config( 'app.shop_multishop' ) ) {
                 $params['site'] = $request->route( 'site', $request->input( 'site', config( 'shop.mshop.locale.site', 'default' ) ) );
             }
 
