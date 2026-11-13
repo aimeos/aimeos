@@ -35,7 +35,7 @@ if( config( 'app.shop_multilocale' ) )
 if( config( 'app.shop_multishop' ) )
 {
     // shops routed by domain or subdomain, e.g. "{site}" or "{site}.example.com"
-    if( str_contains( $domain = (string) config( 'shop.routes.default.domain' ), '{site}' ) ) {
+    if( $domain = \App\Http\Middleware\TrustHosts::domain() ) {
         $conf['domain'] = $domain;
     } else {
         $conf['prefix'] .= '/{site}';

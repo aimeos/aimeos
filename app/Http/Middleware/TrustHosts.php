@@ -54,6 +54,21 @@ class TrustHosts extends Middleware
 
 
     /**
+     * Returns the domain of the shop routes if shops are routed by domain or subdomain
+     *
+     * @return string|null Domain like "{site}" or "{site}.example.com", NULL if shops aren't routed by domain
+     */
+    public static function domain(): ?string
+    {
+        $routes = (array) config('shop.routes', []);
+
+        return config('app.shop_multishop') ? collect(['default' => $routes['default'] ?? []] + $routes)
+            ->map(fn($route) => (string) ($route['domain'] ?? ''))
+            ->first(fn($domain) => str_contains($domain, '{site}')) : null;
+    }
+
+
+    /**
      * Tests if the host belongs to an active site if shops are routed by domain or subdomain
      *
      * @param string $host Host name like "myshop.example" or "vendor.example.com"
@@ -62,9 +77,8 @@ class TrustHosts extends Middleware
     public static function shop(string $host): bool
     {
         $host = strtolower($host);
-        $domain = (string) config('shop.routes.default.domain');
 
-        if (!config('app.shop_multishop') || !str_contains($domain, '{site}')) {
+        if (!$domain = static::domain()) {
             return false;
         }
 

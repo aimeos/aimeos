@@ -23,6 +23,7 @@ class TrustedHostTest extends TestCase
 
     protected bool $multishop = false;
     protected ?string $domain = null;
+    protected string $group = 'default';
 
 
     public function createApplication()
@@ -33,7 +34,7 @@ class TrustedHostTest extends TestCase
         $app->afterBootstrapping(LoadConfiguration::class, function ($app) {
             $app['config']->set('app.url', 'https://shop.test');
             $app['config']->set('app.shop_multishop', $this->multishop);
-            $app['config']->set('shop.routes.default.domain', $this->domain);
+            $app['config']->set('shop.routes.' . $this->group . '.domain', $this->domain);
         });
 
         $app->make(Kernel::class)->bootstrap();
@@ -69,10 +70,11 @@ class TrustedHostTest extends TestCase
     /**
      * Rebuilds the application with multishop and the given domain for the shop routes
      */
-    protected function routing(?string $domain = null): void
+    protected function routing(?string $domain = null, string $group = 'default'): void
     {
         $this->multishop = true;
         $this->domain = $domain;
+        $this->group = $group;
 
         // roll back the open transaction before the shared in-memory database is reused
         $this->callBeforeApplicationDestroyedCallbacks();
@@ -248,6 +250,20 @@ class TrustedHostTest extends TestCase
 
         $this->post('http://vendor.marketplace.example/forgot-password', ['email' => $user->email]);
         Notification::assertSentTo($user, ResetPassword::class);
+    }
+
+    public function test_domain_of_other_route_group_is_used(): void
+    {
+        $this->routing('{site}.marketplace.example', 'page');
+        Notification::fake();
+        $this->sites(['1.2.' => 'vendor']);
+        $user = User::factory()->create(['siteid' => '1.2.']);
+
+        $this->post('http://unknown.marketplace.example/forgot-password', ['email' => $user->email]);
+        Notification::assertNothingSent();
+
+        $this->post('http://vendor.marketplace.example/forgot-password', ['email' => $user->email]);
+        $this->assertSame('vendor.marketplace.example', parse_url($this->resetUrl($user), PHP_URL_HOST));
     }
 
     public function test_verification_link_uses_site_of_user(): void
