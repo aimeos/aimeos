@@ -16,7 +16,7 @@ class SetLocale
 	 */
 	public function handle(Request $request, Closure $next)
 	{
-		if( env( 'SHOP_MULTILOCALE' ) && ( $locale = $request->segment( 1 ) ) !== null
+		if( config( 'app.shop_multilocale' ) && ( $locale = $request->segment( 1 ) ) !== null
 			&& preg_match( '/^[a-zA-Z]{2}(\_[a-zA-Z]{2})?$/', $locale )
 		) {
 			app()->setLocale( $locale );

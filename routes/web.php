@@ -55,7 +55,7 @@ Route::group($conf ?? [], function() {
     require __DIR__.'/auth.php';
 });
 
-if( env( 'SHOP_MULTIROUTE' ) )
+if( config( 'app.shop_multiroute' ) )
 {
     Route::group( $conf + ['middleware' => ['web']], function() {
         Route::match( ['GET', 'POST'], '/{path?}', array(

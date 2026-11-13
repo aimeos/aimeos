@@ -2,40 +2,25 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Foundation\Bootstrap\LoadConfiguration;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
 class MultiRouteTest extends TestCase
 {
-    protected function createApplication()
+    public function createApplication()
     {
-        $processValue = getenv('SHOP_MULTIROUTE');
-        $hasEnvValue = array_key_exists('SHOP_MULTIROUTE', $_ENV);
-        $envValue = $_ENV['SHOP_MULTIROUTE'] ?? null;
-        $hasServerValue = array_key_exists('SHOP_MULTIROUTE', $_SERVER);
-        $serverValue = $_SERVER['SHOP_MULTIROUTE'] ?? null;
+        $app = require __DIR__.'/../../bootstrap/app.php';
 
-        putenv('SHOP_MULTIROUTE=true');
-        $_ENV['SHOP_MULTIROUTE'] = 'true';
-        $_SERVER['SHOP_MULTIROUTE'] = 'true';
+        // routes are built from the configuration when the application boots
+        $app->afterBootstrapping(LoadConfiguration::class, function ($app) {
+            $app['config']->set('app.shop_multiroute', true);
+        });
 
-        try {
-            return parent::createApplication();
-        } finally {
-            $processValue === false ? putenv('SHOP_MULTIROUTE') : putenv('SHOP_MULTIROUTE=' . $processValue);
+        $app->make(Kernel::class)->bootstrap();
 
-            if ($hasEnvValue) {
-                $_ENV['SHOP_MULTIROUTE'] = $envValue;
-            } else {
-                unset($_ENV['SHOP_MULTIROUTE']);
-            }
-
-            if ($hasServerValue) {
-                $_SERVER['SHOP_MULTIROUTE'] = $serverValue;
-            } else {
-                unset($_SERVER['SHOP_MULTIROUTE']);
-            }
-        }
+        return $app;
     }
 
     public function test_multi_route_matches_nested_paths()
